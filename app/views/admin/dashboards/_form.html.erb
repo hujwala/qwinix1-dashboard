@@ -1,0 +1,23 @@
+<%= form_for([:admin, @dashboard], :html => {:id=>"form_dashboard", :class=>"mb-0 form-horizontal", :role => "form", :method => (@dashboard.new_record? ? :post : :put), :remote=>true}) do |f| %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= params[:action].titleize %> Dashboard
+  </div>
+  <div class="panel-body" style="height:auto;">
+    <div id="dashboard_form_error">
+      <%= @dashboard.errors[:base].to_sentence %>
+    </div>
+    <div class="form-inputs mb-30 mt-30 text-color-green">
+      <%= f.text_field :name %>
+      <%#= theme_form_field(@dashboard, :icon, required: false, html_options: {type: 'file'}) %>
+    </div>
+  </div>
+  <div class="panel-footer clearfix text-color-green">
+    <div class="pull-right">
+      <% show_url = @dashboard.new_record? ? admin_dashboards_path : admin_dashboards_path(@dashboard) %>
+      <%= button_to "Ok", action: 'create', class: "btn btn-default" %>
+      <%= link_to "Cancel", admin_dashboards_path, class: "btn btn-default", remote: true %>
+    </div>
+  </div>
+</div>
+<% end %>

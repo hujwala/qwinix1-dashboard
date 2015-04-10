@@ -1,0 +1,11 @@
+<%# @dashboards.each do |dashboard| %>
+<div id="div_dashboard_<%#= dashboard.id %>">
+  <%#= link_to admin_dashboard_path(dashboard),remote: true do %>
+  <%#= render :partial=>"item", :locals=>{:dashboard=>dashboard} %>
+  <%# end %>
+</div>
+<%# end %>
+
+<%#= theme_panel_message(I18n.translate("forms.no_results")) if @dashboards.blank? %>
+
+<%#= theme_paginate(@dashboards) %>

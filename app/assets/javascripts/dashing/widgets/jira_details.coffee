@@ -1,4 +1,3 @@
-
 class Dashing.JiraDetails extends Dashing.Widget
 
   @accessor 'value', Dashing.AnimatedValue

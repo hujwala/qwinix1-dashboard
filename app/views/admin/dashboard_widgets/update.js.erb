@@ -1,0 +1,18 @@
+<% if @success %>
+window.location.reload();
+<% else %>
+heading = "Configure Widget";
+<% if @widget.widget_type == "Github" && @widget.name == "Github-Status" %>
+bodyContent = "<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/github/github_status')) %>";
+showModal(heading, bodyContent);
+<% elsif @widget.widget_type == "Github" && @widget.name == "Github-Open-PR" %>
+bodyContent = "<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/github/github_openPR')) %>";
+showModal(heading, bodyContent);
+<% elsif @widget.widget_type == "Github" && @widget.name == "Github-Closed-PR" %>
+bodyContent = "<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/github/github_closedPR')) %>";
+showModal(heading, bodyContent);
+<% elsif @widget.widget_type == "Github" && @widget.name == "Github-Last-10-Commits" %>
+bodyContent = "<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/github/github_commits')) %>";
+showModal(heading, bodyContent);
+<% end %>
+<% end %>

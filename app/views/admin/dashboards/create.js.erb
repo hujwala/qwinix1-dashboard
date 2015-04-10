@@ -1,0 +1,17 @@
+<% if @success %>
+  // Fill the right box with first talk details
+  $('#div_dashboard_show').html("<%= escape_javascript(render(:partial=>'show')) %>");
+
+// Add the newly created item to the list
+  $("#div_dashboard_index").prepend("<div id=\"div_news_<%= @dashboard.id %>\"><%= escape_javascript(render(:partial => 'item', :locals => { :dashboard => @dashboard })) %></div>")
+  $(".panel-message").hide();
+  <% else %>
+  $('#div_dashboard_show').html("<%= escape_javascript(render(:partial=>'form')) %>");
+
+  // Populate Server Side Errors
+  <%
+  text = "You have few errors. They have been highlighted."
+  error_message = content_tag(:div, text, class: "alert alert-danger")
+  %>
+  $("#dashboard__error").html("<%= escape_javascript(error_message) %>");
+  <% end %>
