@@ -1,0 +1,35 @@
+<% content_for :title do %>
+Dashboard
+<% end %>
+<script type='text/javascript'>
+$(function() {
+Dashing.gridsterLayout('[{"col":1,"row":1},{"col":2,"row":1},{"col":3,"row":1},{"col":1,"row":2},{"col":4,"row":1},{"col":2,"row":2}]')
+});
+</script>
+<div class="gridster">
+
+  <ul>
+
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="code-climate" data-view="Codeclimate" data-title="Code Climate GPA"></div>
+    </li>
+    <!-- <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="jira" data-view="Number" data-title="Open Issues"></div>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="fblinkstat" data-view="List" data-unordered="true" data-title="FB link stats" data-moreinfo="for amnesty.ca links"></div>
+      <i class="icon-facebook icon-background"></i>
+
+    </li>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="sprint" data-view="JiraSprintRemainingDays"></div>
+    </li>
+    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="jira_details" data-view="JiraDetails" data-title="Jira Details"></div>
+</li>
+<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+    <div data-id="twitter_user_followers" data-view="Number" data-title="Twitter Followers" style="background-color: #1d9fe3"></div>
+  </li> -->
+  </ul>
+
+</div>

@@ -1,0 +1,7 @@
+<% if @success %>
+window.location.reload();
+<% else %>
+heading = "Add Widgets";
+bodyContent = "<%= escape_javascript(render(:partial=>'form')) %>";
+showModal(heading, bodyContent);
+<% end %>

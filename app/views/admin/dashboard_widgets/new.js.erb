@@ -1,0 +1,60 @@
+// heading = "Add Widgets";
+// bodyContent = "<%#= escape_javascript(render(:partial=>'form')) %>";
+// showModal(heading, bodyContent);
+
+$('#popup_modal').html("<%= escape_javascript(render(:partial=>'form')) %>");
+$('#popup_modal').modal('show');
+
+$("#git").click(function(){
+  
+  $("#git").addClass("selected");
+  $("#jira").removeClass("selected");
+  $("#code").removeClass("selected");
+  $("#jenkins").removeClass("selected");
+
+
+  $('#git-widget').show();
+ $('#jira-widget').hide();
+  $('#code-widget').hide();
+  $('#jenkins-widget').hide();
+
+});
+$("#jira").click(function(){
+
+  $("#jira").addClass("selected");
+  $("#git").removeClass("selected");
+  $("#code").removeClass("selected");
+  $("#jenkins").removeClass("selected");
+
+  $('#git-widget').hide();
+  $('#jira-widget').show();
+  $('#code-widget').hide();
+  $('#jenkins-widget').hide();
+});
+$("#code").click(function(){
+
+  $("#code").addClass("selected");
+  $("#jira").removeClass("selected");
+  $("#git").removeClass("selected");
+  $("#jenkins").removeClass("selected");
+
+  $('#git-widget').hide();
+  $('#jira-widget').hide();
+  $('#code-widget').show();
+  $('#jenkins-widget').hide();
+});
+$("#jenkins").click(function(){
+
+  $("#jenkins").addClass("selected");
+  $("#jira").removeClass("selected");
+  $("#git").removeClass("selected");
+  $("#code").removeClass("selected");
+
+
+  $('#git-widget').hide();
+  $('#jira-widget').hide();
+  $('#code-widget').hide();
+  $('#jenkins-widget').show();
+});
+
+
