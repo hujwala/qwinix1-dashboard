@@ -1,14 +1,14 @@
 # Use this hook to configure Dashing bahaviors.
 Dashing.configure do |config|
   # Scheduler instance.
-  config.scheduler = ::Rufus::Scheduler.new
+  # config.scheduler = ::Rufus::Scheduler.new
 
   # Redis credentials.
   # See https://devcenter.heroku.com/articles/redistogo to configure redis for heroku.
   config.redis_host     = '127.0.0.1'
   config.redis_port     = '6379'
   config.redis_password = nil
-  
+
   # config.redis_timeout  = 3
 
   # Redis namespace when pushing new data.
