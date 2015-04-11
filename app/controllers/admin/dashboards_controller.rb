@@ -6,6 +6,7 @@ class Admin::DashboardsController < ApplicationController
     dashboard_widgets.each do |dw|
     # @dashboard_widget = dw  if  dw.access_token?
 		$dashboard_widget = dw	#if 	dw.code_api_token.present? && dw.code_repo_id.present?
+
 	end
 	end
 
