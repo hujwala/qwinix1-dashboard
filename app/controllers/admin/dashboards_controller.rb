@@ -1,11 +1,11 @@
 class Admin::DashboardsController < ApplicationController
 
 	def index
-		get_collections
-		dashboard_widgets = DashboardWidget.where(dashboard_id: @dashboard.id)
-		dashboard_widgets.each do |dw|
-		# @dashboard_widget = dw	if 	dw.access_token?
-		$dashboard_widget = dw	if 	dw.code_api_token.present? && dw.code_repo_id.present?
+    get_collections
+    dashboard_widgets = DashboardWidget.where(dashboard_id: @dashboard.id)
+    dashboard_widgets.each do |dw|
+    # @dashboard_widget = dw  if  dw.access_token?
+		$dashboard_widget = dw	#if 	dw.code_api_token.present? && dw.code_repo_id.present?
 	end
 	end
 
@@ -18,7 +18,7 @@ class Admin::DashboardsController < ApplicationController
 		if @dashboard.valid?
 			@dashboard.save
 			@success = true
-		else	
+		else
 			@success = false
 		end
 	end
