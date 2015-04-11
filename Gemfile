@@ -11,7 +11,7 @@ gem 'httparty'
 gem 'responders'
 gem 'jira-ruby', :require => 'jira'
 # Use postgres as the database for Active Record
-# gem 'pg'
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
