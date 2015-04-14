@@ -5,6 +5,8 @@ showModal(heading, bodyContent);
 <% elsif @widget.widget_type == "Github" && @widget.name == "Github-Open-PR" %>
 // bodyContent = "<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/github/github')) %>";
 // showModal(heading, bodyContent);
+$('#popup_modal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/github/github'))  %>");
+$('#popup_modal').modal('show');
 <% elsif @widget.widget_type == "Github" && @widget.name == "Github-Closed-PR" %>
 // bodyContent = "<%#= escape_javascript(render(:partial=>'/admin/dashboard_widgets/github/github')) %>";
 // showModal(heading, bodyContent);
