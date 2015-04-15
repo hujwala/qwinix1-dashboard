@@ -8,6 +8,7 @@ gem 'puma'
 gem 'twitter'
 gem 'octokit'
 gem 'httparty'
+gem 'rolify'
 gem 'responders'
 gem 'jira-ruby', :require => 'jira'
 # Use postgres as the database for Active Record

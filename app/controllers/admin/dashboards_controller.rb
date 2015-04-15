@@ -23,6 +23,7 @@ class Admin::DashboardsController < ApplicationController
     if @dashboard.valid?
       @dashboard.save
       @success = true
+       flash[:success] = "Dashboard created successfullly!"
     else
       @success = false
     end

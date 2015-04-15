@@ -1,3 +1,5 @@
+
+<!-- <div id = "flash"> -->
 <%= form_for([:admin, @dashboard], :html => {:id=>"form_dashboard", :class=>"mb-0 form-horizontal", :role => "form", :method => (@dashboard.new_record? ? :post : :put), :remote=>true}) do |f| %>
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -12,6 +14,7 @@
       <%#= theme_form_field(@dashboard, :icon, required: false, html_options: {type: 'file'}) %>
     </div>
   </div>
+  <div id = "flash"> 
   <div class="panel-footer clearfix text-color-green">
     <div class="pull-right">
       <% show_url = @dashboard.new_record? ? admin_dashboards_path : admin_dashboards_path(@dashboard) %>
@@ -20,4 +23,5 @@
     </div>
   </div>
 </div>
+<!-- </div> -->
 <% end %>

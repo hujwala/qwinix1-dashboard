@@ -10,5 +10,9 @@
 
 <%= yield %>
 <div id="popup_modal"></div>
+<div id="flash" class="container">
+    <%= render :partial=>"/layouts/dashing/flash_messages" -%>
+  </div>
 </body>
 </html>
+

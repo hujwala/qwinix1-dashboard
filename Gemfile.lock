@@ -131,6 +131,7 @@ GEM
     redis (3.2.1)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
+    rolify (3.4.1)
     rufus-scheduler (3.0.9)
       tzinfo
     sass (3.2.19)
@@ -201,6 +202,7 @@ DEPENDENCIES
   puma
   rails (= 4.1.8)
   responders
+  rolify
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring

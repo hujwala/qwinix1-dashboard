@@ -1,4 +1,5 @@
-<%#= flash_message if request.xhr? -%>
+
+<div id = "flash">
 <div class="panel panel-default dashboard_talks">
 	<div class="panel-body text-color-green" style="height:auto;padding: 24px;">
 		<%= @dashboard.name %>
@@ -22,7 +23,7 @@
         <% @widgets.each do |w|%>
         <div class="panel panel-default dashboard_talks ">
           <div class="panel-body text-color-green panel-setting" style="height:auto;padding: 24px;">
-            <%= Widget.find(w.widget_id).name%>
+            <%= Widget.find(w.widget_id).widget_type %> - <%= Widget.find(w.widget_id).name %>
             <%= link_to "Configure", edit_admin_dashboard_dashboard_widget_path(@dashboard, w.widget_id), :remote=>true, role: "menuitem", tabindex: "-1", class: "pull-right ml-10 text-color-green" %>
             <%= link_to raw("<i class=\"fa fa-trash mr-5\"></i> Delete"), admin_dashboard_dashboard_widget_path(@dashboard, w.widget_id), method: :delete, role: "menuitem", tabindex: "-1", data: { confirm: "Are you sure you want to delete the widget?" }, :remote=>true , class: "pull-right ml-10 text-color-green"%>
           </div>
@@ -35,4 +36,5 @@
           </div></div>
           <% end%>
         </div>
+      </div>
       </div>

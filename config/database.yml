@@ -4,7 +4,7 @@ development:
   reconnect: false
   database: dashing_development
   pool: 5
-  username: dashing_dev
+  username: postgres
   password: password
   host: localhost
   port: 5432
@@ -18,7 +18,7 @@ test:
   reconnect: false
   database: d_dash_test
   pool: 5
-  username: dashing_test
+  username: postgres
   password: password
   host: localhost
   port: 5432
@@ -29,7 +29,7 @@ production:
   reconnect: false
   database: d_dash_production
   pool: 5
-  username: dashing_prod
+  username: postgres
   password: password
   host: localhost
   port: 5432

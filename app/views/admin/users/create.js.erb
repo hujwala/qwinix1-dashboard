@@ -1,0 +1,6 @@
+<% if @success %>
+window.location.reload();
+<% else %>
+$('#popup_modal').html("<%= escape_javascript(render(:partial=>'form')) %>");
+$('#popup_modal').modal('show');
+<% end %>
