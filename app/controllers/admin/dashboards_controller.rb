@@ -8,7 +8,7 @@ class Admin::DashboardsController < ApplicationController
         $dashboard_widget_github = dw
       elsif dw.code_repo_id.present? && dw.code_api_token.present?
         $dashboard_widget_code = dw
-      else
+      elsif dw.jira_url.present? && dw.jira_view_id.present? && dw.jira_name.present? && dw.jira_password.present?
         $dashboard_widget_jira = dw
       end
     end
