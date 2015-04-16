@@ -53,6 +53,14 @@ namespace :deploy do
     end
   end
 
+  task :delete_assets do
+    on roles(:app), in: :sequence do
+      execute ("rm -rf public/assets/*")
+    end
+  end
+
+  before :compile_assets, 'deploy:delete_assets'
+
   after :restart, :clear_cache do
     on roles(:web), :in => :groups, :limit => 3, :wait => 10 do
       # Here we can do anything such as:
