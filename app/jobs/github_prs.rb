@@ -1,7 +1,7 @@
 require 'octokit'
 
 
-Dashing.scheduler.every '10s', :first_in => 0 do |job|
+Dashing.scheduler.every '1m', :first_in => 0 do |job|
   unless $dashboard_widget_github.nil?
     client = Octokit::Client.new(:access_token => $dashboard_widget_github.access_token)
     my_organization = $dashboard_widget_github.organization_name
@@ -18,6 +18,7 @@ Dashing.scheduler.every '10s', :first_in => 0 do |job|
       end
       pulls
     }
-  Dashing.send_event('AuthToken', { header: "Open Pull Requests", pulls: open_pull_requests })
+  Dashing.send_event('open_pull_requests', { header: "Open Pull Requests", pulls: open_pull_requests })
   end
 end
+

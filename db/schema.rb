@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414070402) do
+
+ActiveRecord::Schema.define(version: 20150415091216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 20150414070402) do
     t.datetime "updated_at"
     t.integer  "dashboard_id"
     t.integer  "widget_id"
+    t.string   "jira_project_key"
   end
 
   add_index "dashboard_widgets", ["dashboard_id"], name: "index_dashboard_widgets_on_dashboard_id", using: :btree

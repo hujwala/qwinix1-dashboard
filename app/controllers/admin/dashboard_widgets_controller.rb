@@ -42,7 +42,12 @@ class Admin::DashboardWidgetsController < ApplicationController
 		@dashboard_widget.status = params[:dashboard_widget][:status]
 		@dashboard_widget.github_url = params[:dashboard_widget][:github_url]
 		@dashboard_widget.code_api_token = params[:dashboard_widget][:code_api_token]
-		@dashboard_widget.code_repo_id = params[:dashboard_widget][:code_repo_id]
+    @dashboard_widget.code_repo_id = params[:dashboard_widget][:code_repo_id]
+    @dashboard_widget.jira_url = params[:dashboard_widget][:jira_url]
+    @dashboard_widget.jira_view_id = params[:dashboard_widget][:jira_view_id]
+    @dashboard_widget.jira_name = params[:dashboard_widget][:jira_name]
+		@dashboard_widget.jira_password = params[:dashboard_widget][:jira_password]
+    @dashboard_widget.jira_project_key = params[:dashboard_widget][:jira_project_key]
 		if @dashboard_widget.valid?
 			@dashboard_widget.save
 			@success = true
