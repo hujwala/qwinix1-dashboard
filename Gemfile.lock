@@ -52,6 +52,7 @@ GEM
       execjs
     coffee-script-source (1.9.1)
     colorize (0.7.5)
+    commonjs (0.2.7)
     connection_pool (2.1.2)
     dashing-rails (2.4.3)
       coffee-script (~> 2.2)
@@ -83,6 +84,12 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.2)
+    less (2.6.0)
+      commonjs (~> 0.2.7)
+    less-rails (2.6.0)
+      actionpack (>= 3.1)
+      less (~> 2.6.0)
+    libv8 (3.16.14.7)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     memoizable (0.4.2)
@@ -129,9 +136,9 @@ GEM
     rdoc (4.2.0)
       json (~> 1.4)
     redis (3.2.1)
+    ref (1.0.5)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
-    rolify (3.4.1)
     rufus-scheduler (3.0.9)
       tzinfo
     sass (3.2.19)
@@ -162,6 +169,9 @@ GEM
       colorize (>= 0.7.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    therubyracer (0.12.2)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
@@ -178,11 +188,19 @@ GEM
       memoizable (~> 0.4.0)
       naught (~> 1.0)
       simple_oauth (~> 0.3.0)
+    twitter-bootstrap-rails (3.2.0)
+      actionpack (~> 4.1)
+      execjs (~> 2.2)
+      rails (~> 4.1)
+      railties (~> 4.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    will_paginate (3.0.7)
+    will_paginate-bootstrap (1.0.1)
+      will_paginate (>= 3.0.3)
 
 PLATFORMS
   ruby
@@ -196,16 +214,19 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jira-ruby
   jquery-rails
+  less-rails
   octokit
   pg
   pry
   puma
   rails (= 4.1.8)
   responders
-  rolify
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring
+  therubyracer
   turbolinks
   twitter
+  twitter-bootstrap-rails
   uglifier (>= 1.3.0)
+  will_paginate-bootstrap
