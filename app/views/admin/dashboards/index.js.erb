@@ -4,7 +4,7 @@
   initPopovers();
 
   // Rendering the item list
-  $('#div_dashboard_index').html("<%= escape_javascript(render(:partial=>"index")) %>");
+  $('#div_dashboard_index').html("<%= escape_javascript(render(:partial=>'index')) %>");
 <% else %>
   var noResultsText = "<%= escape_javascript(theme_panel_message(I18n.translate('forms.no_results')))%>";
   $('#div_dashboard_index').html(noResultsText);

@@ -1,6 +1,6 @@
 <% @dashboards.each do |dashboard| %>
-  <%= link_to admin_dashboard_path(dashboard),remote: true do %>
-  <%= render :partial=>"item", :locals=>{:dashboard=>dashboard} %>
-  <% end %>
+<%= link_to admin_dashboard_path(dashboard),remote: true do %>
+<%= render :partial=>"item", :locals=>{:dashboard=>dashboard} %>
+<% end %>
 <%end%>
-<%= will_paginate @dashboards %>
+<%= will_paginate @dashboards, renderer: BootstrapPagination::Rails %>

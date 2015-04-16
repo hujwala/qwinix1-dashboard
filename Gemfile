@@ -36,7 +36,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'pry'
 
-gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 gem 'capistrano',  '~> 3.1'
 gem 'capistrano-rails', '~> 1.1'
 

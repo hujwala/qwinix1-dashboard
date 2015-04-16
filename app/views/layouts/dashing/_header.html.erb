@@ -14,8 +14,8 @@
   <nav class="collapse navbar-collapse bs-navbar-collapse">
     <ul class="nav navbar-nav">
       <!-- navbar lists -->
-      <li class="new">
-        <%= link_to  admin_dashboards_path(@dashboard),:class=>"border-left border-right", :remote => true do %>
+      <li>
+        <%= link_to  admin_dashboards_path(@dashboard),:class=>"border-left border-right" do %>
           <i class="fa fa-tachometer header-icons"></i><br />
           manage dashboard
         <% end %>
@@ -57,9 +57,9 @@
   </div>
 
   <script>
-    $(document).ready(function(){
-      $(".border-left").click(function(){
-        $(this).addClass("active");
-      });
-    });
+    // $(document).ready(function(){
+    //   $(".border-right").click(function(){
+    //     $(this).addClass("active");
+    //   });
+    // });
   </script>

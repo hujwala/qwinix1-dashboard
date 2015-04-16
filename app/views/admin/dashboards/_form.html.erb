@@ -19,20 +19,21 @@
       <%= f.text_field :name, :class=>"" %>
     </div> -->
   </div>
-  <div id = "flash"> 
     <div class="panel-footer text-right">
-      <%= link_to "Cancel", admin_dashboards_path, class: "btn btn-default", remote: true %>
+      <%= link_to "Cancel", admin_dashboards_path, :class => "btn btn-default", remote: true %>
       <!-- Button trigger modal -->
-      <%= button_to "OK", action: 'create', class: "btn btn-primary" %>
+      <button type="button" class="btn btn-primary">
+                      <%= button_to "OK", action: 'create' %>
+                    </button>
     </div>
-    
-  <!-- <div class="panel-footer clearfix text-color-green">
-    <div class="pull-right">
-      <% show_url = @dashboard.new_record? ? admin_dashboards_path : admin_dashboards_path(@dashboard) %>
-      <%= button_to "Ok", action: 'create', class: "btn btn-default" %>
-      <%= link_to "Cancel", admin_dashboards_path, class: "btn btn-default", remote: true %>
-    </div>
-  </div> -->
-</div>
+    <div class="panel-footer text-right">
+                    <button type="button" class="btn btn-default">
+                      Cancel
+                    </button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary">
+                      Create
+                    </button>
+                  </div>
 <!-- </div> -->
 <% end %>
