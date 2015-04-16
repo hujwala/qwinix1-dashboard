@@ -53,14 +53,6 @@ namespace :deploy do
     end
   end
 
-  task :delete_assets do
-    on roles(:app), in: :sequence do
-      execute ("rm -rf public/assets/*")
-    end
-  end
-
-  before :compile_assets, 'deploy:delete_assets'
-
   after :restart, :clear_cache do
     on roles(:web), :in => :groups, :limit => 3, :wait => 10 do
       # Here we can do anything such as:
@@ -73,4 +65,16 @@ namespace :deploy do
   after :finishing, 'deploy:cleanup'
 
 end
+
+namespace :assets do
+    task :precompile do
+      on roles(fetch(:assets_roles)) do
+        within release_path do
+          with rails_env: fetch(:rails_env) do
+            execute :rake, "assets:precompile RAILS_ENV=production"
+          end
+        end
+      end
+    end
+  end
 
