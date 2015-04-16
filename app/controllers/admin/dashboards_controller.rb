@@ -48,6 +48,11 @@ class Admin::DashboardsController < ApplicationController
     end
   end
 
+  def destroy
+    @dashboard = Dashboard.find(params[:id])
+    @dashboard.destroy
+  end
+
   private
 
   def dashboard_params
@@ -68,4 +73,5 @@ class Admin::DashboardsController < ApplicationController
     @dashboard = @dashboards.first unless @dashboard
     return true
   end
+
 end

@@ -1,7 +1,6 @@
 <% if @success %>
   // Fill the right box with first talk details
   $('#div_dashboard_show').html("<%= escape_javascript(render(:partial=>'show')) %>");
-<%binding.pry%>
 // Add the newly created item to the list
   $("#div_dashboard_index").html("<%= escape_javascript(render(:partial => 'index', :locals => { :dashboards => @dashboards })) %>")
   $(".panel-message").hide();
