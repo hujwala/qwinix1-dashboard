@@ -1,7 +1,7 @@
 heading = "Configure Widget";
 <% if @widget.widget_type == "Github" && @widget.name == "Github-Status" %>
-bodyContent = "<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/github/github_status')) %>";
-showModal(heading, bodyContent);
+$('#popup_modal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/github/github_status'))  %>");
+$('#popup_modal').modal('show');
 <% elsif @widget.widget_type == "Github" && @widget.name == "Github-Open-PR" %>
 $('#popup_modal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/github/github'))  %>");
 $('#popup_modal').modal('show');

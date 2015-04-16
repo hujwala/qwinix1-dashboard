@@ -2,27 +2,29 @@
 # require 'json'
 # require 'time'
 
-# JIRA_URI = URI.parse("https://qwinix.atlassian.net")
 
-# JIRA_AUTH = {
-#   'name' => 'Ravi Shankar',
-#   'password' => 'Qwinix123'
-# }
+# if $dashboard_widget_jira.present?
+#   JIRA_URI = URI.parse("https://qwinix.atlassian.net/secure/RapidBoard.jspa?rapidView=#{$dashboard_widget_jira.jira_view_id}")
+
+#   JIRA_AUTH = {
+#     'name' => $dashboard_widget_jira.jira_name,
+#     'password' => $dashboard_widget_jira.jira_password
+#   }
 
 # # the key of this mapping must be a unique identifier for your board, the according value must be the view id that is used in Jira
 # view_mapping = {
-#   'sprint' => { :view_id => 61 }
+#   'sprint' => { :view_id => $dashboard_widget_jira.jira_view_id }
 # }
 
 # # gets the view for a given view id
 # def get_view_for_viewid(view_id)
- 
+
 #   http = create_http
 #   request = create_request("/rest/greenhopper/1.0/rapidviews/list")
 #   response = http.request(request)
 #   views = JSON.parse(response.body)['views']
 #   views.each do |view|
-    
+
 #     if view['id'] == view_id
 #       return view
 #     end
@@ -89,6 +91,7 @@
 #       viewName: view_name,
 #       sprintName: sprint_name,
 #       daysRemaining: days
-#     })
+#       })
 #   end
+# end
 # end

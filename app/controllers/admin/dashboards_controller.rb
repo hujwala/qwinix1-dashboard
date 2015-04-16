@@ -6,6 +6,8 @@ class Admin::DashboardsController < ApplicationController
     dashboard_widgets.each do |dw|
       if dw.access_token.present? && dw.organization_name.present? && dw.repo_name.present?
         $dashboard_widget_github = dw
+      elsif dw.github_url.present?
+        $dashboard_widget_github_url = dw
       elsif dw.code_repo_id.present? && dw.code_api_token.present?
         $dashboard_widget_code = dw
       elsif dw.jira_url.present? && dw.jira_view_id.present? && dw.jira_name.present? && dw.jira_password.present?
