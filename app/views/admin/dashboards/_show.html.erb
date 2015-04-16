@@ -1,4 +1,3 @@
-
 <div id = "flash">
 <div class="panel panel-default dashboard_talks">
 	<div class="panel-body text-color-green" style="height:auto;padding: 24px;">
@@ -7,8 +6,8 @@
 		<%  edit_link = edit_admin_dashboard_path(@dashboard)
 		delete_link = admin_dashboard_path(@dashboard) %>
 
-		<%= link_to raw("<i class=\"fa fa-edit mr-5\"></i> Edit"), edit_link, :remote=>true, role: "menuitem", tabindex: "-1", class: "pull-right ml-10 text-color-green " %>
-		<%= link_to raw("<i class=\"fa fa-trash mr-5\"></i> Delete"), delete_link, method: :delete, role: "menuitem", tabindex: "-1", data: { confirm: 'Data cant be retained back if deleted. Are you sure you want to delete the dashboard?' }, :remote=>true , class: "pull-right ml-10 text-color-green"%>
+		<%= link_to raw("<i class=\"fa fa-edit mr-5\"></i> Edit"), edit_admin_dashboard_path(@dashboard), :remote=>true, role: "menuitem", tabindex: "-1", class: "pull-right ml-10 text-color-green " %>
+		<%= link_to raw("<i class=\"fa fa-trash mr-5\"></i> Delete"), admin_dashboard_path(@dashboard), method: :delete, role: "menuitem", tabindex: "-1", data: { confirm: 'Data cant be retained back if deleted. Are you sure you want to delete the dashboard?' }, :remote=>true , class: "pull-right ml-10 text-color-green"%>
 		<%= link_to raw("<i class=\"fa fa-plus mr-5\"></i> Add New Widgets"), new_admin_dashboard_dashboard_widget_path(@dashboard), :remote=>true, id: "widgets", role: "menuitem", tabindex: "-1", class: "pull-right ml-10 text-color-green", "data-toggle" => "modal" %>
 	</div>
 </div>

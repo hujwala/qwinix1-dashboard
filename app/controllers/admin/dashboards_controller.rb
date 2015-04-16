@@ -23,10 +23,11 @@ class Admin::DashboardsController < ApplicationController
     if @dashboard.valid?
       @dashboard.save
       @success = true
-       flash[:success] = "Dashboard created successfullly!"
+      flash[:success] = "Dashboard created uccessfullly!"
     else
       @success = false
     end
+    @dashboards = Dashboard.order("created_at desc").paginate(:page => params[:page], :per_page => 3)
   end
 
   def edit
@@ -34,7 +35,7 @@ class Admin::DashboardsController < ApplicationController
   end
 
   def show
-    @dashboard = Dashboard.find(params[:dashboard_id])
+    @dashboard = Dashboard.find(params[:id])
   end
 
   def update
@@ -54,22 +55,17 @@ class Admin::DashboardsController < ApplicationController
   end
 
   def get_collections
-
     # Fetching the dashboard
     relation = Dashboard.where("")
     @filters = {}
-
     if params[:query]
       @query = params[:query].strip
       relation = relation.search(@query) if !@query.blank?
     end
-
     @dashboards = relation.order("created_at desc")
-
+    @dashboards = Dashboard.order("created_at desc").paginate(:page => params[:page], :per_page => 3)
     ## Initializing the @dashboard object so that we can render the show partial
     @dashboard = @dashboards.first unless @dashboard
-
     return true
-
   end
 end

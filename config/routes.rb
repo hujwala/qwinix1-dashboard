@@ -10,13 +10,13 @@ Rails.application.routes.draw do
   # delete  '/sign_out' ,       to: "public/user_sessions#sign_out",        as:  :sign_out
 
   namespace :admin do
-    resources :users do
+    resources :users 
       get :admin_role
 
       resources :dashboards do
         
         resources :dashboard_widgets
-      end
+      
     end
   end
   # post "pop_up" => "admin/dashboards#pop_up"

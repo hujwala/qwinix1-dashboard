@@ -8,8 +8,9 @@ gem 'puma'
 gem 'twitter'
 gem 'octokit'
 gem 'httparty'
-gem 'rolify'
 gem 'responders'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
 gem 'jira-ruby', :require => 'jira'
 # Use postgres as the database for Active Record
 gem 'pg'
@@ -20,7 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -35,6 +36,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'pry'
 
+gem 'will_paginate'
 gem 'capistrano',  '~> 3.1'
 gem 'capistrano-rails', '~> 1.1'
 

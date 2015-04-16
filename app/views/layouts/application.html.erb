@@ -5,14 +5,21 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%#= render :partial=>"layouts/dashing/header" %>
 </head>
+<header>
+<%= render :partial=>"layouts/dashing/header" %>
+</header>
 <body>
-
-<%= yield %>
+<div class="container">
+	<%= yield %>
 <div id="popup_modal"></div>
 <div id="flash" class="container">
-    <%= render :partial=>"/layouts/dashing/flash_messages" -%>
+    <%#= render :partial=>"/layouts/dashing/flash_messages" -%>
   </div>
+</div>
+
+
 </body>
 </html>
 

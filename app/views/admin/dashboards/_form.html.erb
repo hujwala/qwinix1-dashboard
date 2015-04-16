@@ -9,19 +9,30 @@
     <div id="dashboard_form_error">
       <%= @dashboard.errors[:base].to_sentence %>
     </div>
-    <div class="form-inputs mb-30 mt-30 text-color-green">
-      <%= f.text_field :name %>
-      <%#= theme_form_field(@dashboard, :icon, required: false, html_options: {type: 'file'}) %>
+    <div class="form-group">
+      <label for="inputName" class="col-sm-3 control-label">Name *</label>
+      <div class="col-sm-9">
+        <%= f.text_field :name, :class=>"form-control", :id=>"inputName", :placeholder=>"Name" %>
+      </div>
     </div>
+    <!-- <div class="col-sm-9">
+      <%= f.text_field :name, :class=>"" %>
+    </div> -->
   </div>
   <div id = "flash"> 
-  <div class="panel-footer clearfix text-color-green">
+    <div class="panel-footer text-right">
+      <%= link_to "Cancel", admin_dashboards_path, class: "btn btn-default", remote: true %>
+      <!-- Button trigger modal -->
+      <%= button_to "OK", action: 'create', class: "btn btn-primary" %>
+    </div>
+    
+  <!-- <div class="panel-footer clearfix text-color-green">
     <div class="pull-right">
       <% show_url = @dashboard.new_record? ? admin_dashboards_path : admin_dashboards_path(@dashboard) %>
       <%= button_to "Ok", action: 'create', class: "btn btn-default" %>
       <%= link_to "Cancel", admin_dashboards_path, class: "btn btn-default", remote: true %>
     </div>
-  </div>
+  </div> -->
 </div>
 <!-- </div> -->
 <% end %>

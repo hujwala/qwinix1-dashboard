@@ -1,20 +1,25 @@
-<div class="panel panel-default dashboard_talks">
-          
-<h1>List of users</h1>
+<%= link_to 'New user', new_admin_user_path,:remote => true %>
 <table>
-<% @users.each do |user| %>
-	<tr>
-		<td><%= user.name %></td>
-<%= link_to 'Make Admin', admin_user_admin_role_path(user),:remote => true %>
+	<!-- Dashboard tiles section -->
+	<div class="row">
+		<% @users.each do |user| %>
+		<tr>
+			<div class="col-sm-offset-2 col-sm-6">
+				<div class="dashbords ">
+					<div class="tiles">  
+						<%= user.name %>
+					</div>
+				</div>
+			</div>
 
-</tr>
+			<%#= link_to 'Make Admin', admin_user_admin_role_path(user),:remote => true %>
+
+		</tr>
+	</div>
 	<% end %>
 </table>
 </div>
 </br>
 </br>
 </br>
-
-<%= link_to 'New user', new_admin_user_path,:remote => true %>
-</div>
 
