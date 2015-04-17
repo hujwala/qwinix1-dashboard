@@ -33,28 +33,29 @@ class Admin::DashboardWidgetsController < ApplicationController
     @dashboard_widget = DashboardWidget.find_by_widget_id(@widget.id)
   end
 
-  def update
-    @widget = Widget.find_by_id params[:id]
-    @dashboard_widget = DashboardWidget.find_by_widget_id(@widget.id)
-    @dashboard_widget.access_token = params[:dashboard_widget][:access_token]
-    @dashboard_widget.organization_name = params[:dashboard_widget][:organization_name]
-    @dashboard_widget.repo_name = params[:dashboard_widget][:repo_name]
-    @dashboard_widget.status = params[:dashboard_widget][:status]
-    @dashboard_widget.github_url = params[:dashboard_widget][:github_url]
-    @dashboard_widget.code_api_token = params[:dashboard_widget][:code_api_token]
-    @dashboard_widget.code_repo_id = params[:dashboard_widget][:code_repo_id]
-    @dashboard_widget.jira_url = params[:dashboard_widget][:jira_url]
-    @dashboard_widget.jira_view_id = params[:dashboard_widget][:jira_view_id]
-    @dashboard_widget.jira_name = params[:dashboard_widget][:jira_name]
-    @dashboard_widget.jira_password = params[:dashboard_widget][:jira_password]
-    @dashboard_widget.jira_project_key = params[:dashboard_widget][:jira_project_key]
-    if @dashboard_widget.valid?
-      @dashboard_widget.save
-      @success = true
-    else
-      @success = false
-    end
-  end
+	def update
+		@widget = Widget.find_by_id params[:id]
+		@dashboard_widget = DashboardWidget.find_by_widget_id(@widget.id)
+		@dashboard_widget.access_token = params[:dashboard_widget][:access_token]
+		@dashboard_widget.organization_name = params[:dashboard_widget][:organization_name]
+		@dashboard_widget.repo_name = params[:dashboard_widget][:repo_name]
+		@dashboard_widget.status = params[:dashboard_widget][:status]
+		@dashboard_widget.github_url = params[:dashboard_widget][:github_url]
+		@dashboard_widget.code_api_token = params[:dashboard_widget][:code_api_token]
+		@dashboard_widget.code_repo_id = params[:dashboard_widget][:code_repo_id]
+		@dashboard_widget.jira_url = params[:dashboard_widget][:jira_url]
+		@dashboard_widget.jira_view_id = params[:dashboard_widget][:jira_view_id]
+		@dashboard_widget.jira_name = params[:dashboard_widget][:jira_name]
+		@dashboard_widget.jira_password = params[:dashboard_widget][:jira_password]
+		@dashboard_widget.jira_project_key = params[:dashboard_widget][:jira_project_key]
+		@dashboard_widget.github_status_prs = params[:dashboard_widget][:github_status_prs]
+		if @dashboard_widget.valid?
+			@dashboard_widget.save
+			@success = true
+		else
+			@success = false
+		end
+	end
 
   def destroy
     @dashboard = Dashboard.find_by_id params[:dashboard_id]
