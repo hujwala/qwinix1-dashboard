@@ -11,8 +11,10 @@ class Admin::DashboardsController < ApplicationController
         $dashboard_widget_github_url = dw
       elsif dw.code_repo_id.present? && dw.code_api_token.present?
         $dashboard_widget_code = dw
-      elsif dw.jira_url.present? && dw.jira_view_id.present? && dw.jira_name.present? && dw.jira_password.present?
+      elsif dw.jira_url.present? && dw.jira_view_id.present? && dw.jira_name.present? && dw.jira_password.present? && dw.jira_project_key.blank?
         $dashboard_widget_jira = dw
+      elsif dw.jira_project_key.present? && dw.jira_url.present? && dw.jira_view_id.present? && dw.jira_name.present? && dw.jira_password.present?
+        $dashboard_widget_jira_project_key = dw
       end
     end
   end
