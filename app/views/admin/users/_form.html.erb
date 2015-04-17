@@ -1,53 +1,41 @@
-<div id="popup_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Configur Widget</h4>
+ <div class="row">
+    <div class="col-sm-offset-2 col-sm-10">
+    <%= form_for :user, :url => admin_users_path, :method => :post, :remote => true do |f| %>
+ <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">New Dashboard</h3>
+  </div>
+  <div class="panel-body" style="height:auto;">
+    <div class="form-group">
+      <label for="inputName" class="col-sm-4 control-label">Name *</label>
+      <div class="col-sm-8">
+        <%= f.text_field :name, :class=>"form-control",  :placeholder=>"Name" %>
       </div>
-      <%= form_for :user,  :url => admin_users_path, :method => :post,remote: true, html: {:class =>"form-horizontal"} do |f| %>
-      <div class="modal-body">
-        Name:<%= f.text_field :name, :placeholder => "Name" %><br><br>
-        Email:<%= f.text_field :email, :placeholder => "Email" %><br><br>
-        Password:<%= f.password_field :password, :placeholder => "Password" %><br><br>
-        Password Confirmation:<%= f.password_field :password_confirmation, :placeholder => "Password Confirmation" %><br><br>
+    </div><br><br>
+    <div class="form-group">
+      <label for="inputName" class="col-sm-4 control-label">Email *</label>
+      <div class="col-sm-8">
+        <%= f.text_field :email, :class=>"form-control",  :placeholder=>"Email" %>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <%= f.submit "Submit", :class=>"btn btn-primary" %>
+    </div><br><br>
+    <div class="form-group">
+      <label for="inputName" class="col-sm-4 control-label">Password *</label>
+      <div class="col-sm-8">
+        <%= f.password_field :password, :class=>"form-control",  :placeholder=>"Password" %>
       </div>
-      <% end %>
+    </div><br><br>
+    <div class="form-group">
+      <label for="inputName" class="col-sm-4 control-label">Password Confirmation *</label>
+      <div class="col-sm-8">
+        <%= f.password_field :password_confirmation, :class=>"form-control",  :placeholder=>"Password Confirmation" %>
+      </div>
     </div>
   </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <div class="panel-footer text-right">
+    <%= link_to "Cancel", admin_dashboards_path, :class => "btn btn-default", remote: true %>
+    <%= f.submit "OK", :class => "btn btn-primary" %>
+  </div>
+  <% end %>
+  </div>
+  </div>
+  </div>

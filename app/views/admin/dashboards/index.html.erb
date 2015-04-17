@@ -1,3 +1,7 @@
+<div class="page-title">
+  Manage Dashboards
+</div>
+<div class="container">
 <% if @dashboards.present? %>
 <div class="text-right dash-btn-group">
   <%= link_to 'Add New Dashboard', new_admin_dashboard_path, :remote => true, :class=>"btn btn-primary" %>
@@ -14,8 +18,6 @@
   <% elsif $dashboard_widget_jira_project_key.present? %>
   <a href="/dashing/dashboards?rapidView=<%= $dashboard_widget_jira_project_key.jira_view_id %>&projectKey=<%= $dashboard_widget_jira_project_key.jira_project_key %>">View As Wallboard</a>
   <% end %>
-  <% else %>
-  No Dashboard Widgets
   <% end %>​
 </div>
 <div class="row dashboard_index">
@@ -38,4 +40,4 @@
   </div>
 </div>
 <% end %>
-
+</div>
