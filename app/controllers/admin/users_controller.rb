@@ -10,7 +10,7 @@ class Admin::UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to admin_dashboards_path
     else
-      redirect_to root
+      redirect_to root_path
 		end
 	end
 
