@@ -1,4 +1,4 @@
-class Admin::DashboardsController < ApplicationController
+ class Admin::DashboardsController < ApplicationController
 
   def index
     get_collections

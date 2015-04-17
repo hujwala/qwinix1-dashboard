@@ -24,16 +24,16 @@ $('#myModal').modal('show');
 
 
 <% if @widget.widget_type == "Jira" && @widget.name == "To-Do-list" %>
-$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira_todolist'))  %>");
+$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira'))  %>");
 $('#myModal').modal('show');
 <% elsif @widget.widget_type == "Jira" && @widget.name == "Assign-to-QA" %>
-$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira_assignedtoQA'))  %>");
+$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira'))  %>");
 $('#myModal').modal('show');
 <% elsif @widget.widget_type == "Jira" && @widget.name == "Sprint-remaning-days" %>
-$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira_sprintremainingdays'))  %>");
+$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira'))  %>");
 $('#myModal').modal('show');
 <% elsif @widget.widget_type == "Jira" && @widget.name == "Sprint-progress" %>
-$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira_sprintprogress'))  %>");
+$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira'))  %>");
 $('#myModal').modal('show');
 <% elsif @widget.widget_type == "Jira" && @widget.name == "No of open-issues" %>
 $('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira_noofissues'))  %>");
