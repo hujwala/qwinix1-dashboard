@@ -2,10 +2,11 @@ class Admin::DashboardsController < ApplicationController
 
   def index
     get_collections
+
     if @dashboards.present?
     dashboard_widgets = DashboardWidget.where(dashboard_id: @dashboard.id)
     dashboard_widgets.each do |dw|
-      if dw.access_token.present? && dw.organization_name.present? && dw.repo_name.present?
+      if dw.access_token.present? && dw.organization_name.present? && dw.repo_name.present? && dw.github_status_prs.present?
         $dashboard_widget_github = dw
       elsif dw.github_url.present?
         $dashboard_widget_github_url = dw

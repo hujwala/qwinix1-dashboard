@@ -2,9 +2,9 @@
 Dashboard
 <% end %>
 <script type='text/javascript'>
-$(function() {
-Dashing.gridsterLayout('[{"col":1,"row":1},{"col":2,"row":1},{"col":3,"row":1},{"col":1,"row":2},{"col":4,"row":1},{"col":2,"row":2}]')
-});
+  $(function() {
+    Dashing.gridsterLayout('[{"col":1,"row":1},{"col":2,"row":1},{"col":3,"row":1},{"col":1,"row":2},{"col":4,"row":1},{"col":2,"row":2}]')
+  });
 </script>
 <div class="gridster">
 
@@ -12,12 +12,18 @@ Dashing.gridsterLayout('[{"col":1,"row":1},{"col":2,"row":1},{"col":3,"row":1},{
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="code-climate" data-view="Codeclimate" data-title="Code Climate GPA"></div>
     </li>
+    <% if $dashboard_widget_github.github_status_prs == 'open' %>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-  <div data-view="PullRequests" data-id="open_pull_requests"></div>
-</li>
-<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-  <div data-id="github_status" data-view="TrafficLights" data-title="GitHub"></div>
-</li>
+      <div data-view="PullRequests" data-id="open_pull_requests"></div>
+    </li>
+    <% else %>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-view="PullRequests" data-id="closed_pull_requests"></div>
+    </li>
+    <% end %>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="github_status" data-view="TrafficLights" data-title="GitHub"></div>
+    </li>
 <!-- <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
   <div data-view="SprintProgress" data-id="sprint_progress"></div>
 </li>
