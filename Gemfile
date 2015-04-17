@@ -25,6 +25,7 @@ group :production do
  gem 'libv8', '~> 3.11.8.3'
  gem 'therubyracer', :platform => :ruby
 end
+# gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -42,7 +43,6 @@ gem 'pry'
 gem 'will_paginate-bootstrap'
 gem 'capistrano',  '~> 3.1'
 gem 'capistrano-rails', '~> 1.1'
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
