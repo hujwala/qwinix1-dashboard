@@ -1,0 +1,15 @@
+<div class="text-right dash-btn-group">
+  <%= link_to 'Add New User', admin_user_add_new_user_path(current_user.id), :remote => true, :class=>"btn btn-primary" %>
+</div>
+<div class="row">
+  <!-- Dashboard tiles section -->
+  <div class="col-sm-offset-1 col-sm-4">
+  <% @users.each do |user|%>
+    <div class="dashbords ">
+      <div class="tiles">
+        <%= user.username %>
+      </div>
+    </div>
+<% end %>
+  </div>
+</div>

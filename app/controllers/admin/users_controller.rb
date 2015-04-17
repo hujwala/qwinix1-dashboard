@@ -1,38 +1,48 @@
 class Admin::UsersController < ApplicationController
-	
+
 	def index
-		@users = User.order("created_at desc").paginate(:page => params[:page], :per_page => 3)
-	end
+		@user = User.new
+  end
 
 	def new
-		@user=User.new
-		respond_to do |format|
-			format.js
+    @user = User.authenticate(params[:email], params[:password])
+    if @user
+      session[:user_id] = @user.id
+      redirect_to admin_dashboards_path
+    else
+      redirect_to root
 		end
 	end
 
 	def show
-		@user = User.find(params[:user_id])
+		@users = User.all
 	end
 
 	def create
 		@user = User.new(user_params)
 		if @user.valid?
-			@user.save
+      user.add_role :admin
+      @user.save
 			@success = true
 			flash[:success] = "You have logged in successfullly!"
 		else
 			@success = false
 		end
 	end
+   def add_new_user
+    @user = User.new
+   end
 
-	private
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_path
+  end
 
-	def user_params
-		params.require(:user).permit(:name)
-	end
+  private
 
-
+  def user_params
+    params.require(:user).permit(:name)
+  end
 end
 
 
