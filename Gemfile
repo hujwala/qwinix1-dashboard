@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 gem 'dashing-rails'
@@ -12,6 +11,7 @@ gem 'responders'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'jira-ruby', :require => 'jira'
+gem "rolify"
 # Use postgres as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -26,6 +26,7 @@ group :production do
  gem 'therubyracer', :platform => :ruby
 end
 # gem 'therubyracer',  platforms: :ruby
+gem 'bcrypt', '~> 3.1.7'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

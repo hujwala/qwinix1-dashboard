@@ -9,7 +9,7 @@
     <div id="logo">
       <a class="navbar-brand" > </a>
     </div>
-    
+
   </div>
   <nav class="collapse navbar-collapse bs-navbar-collapse">
     <ul class="nav navbar-nav">
@@ -21,7 +21,7 @@
         <% end %>
       </li>
       <li>
-        <%= link_to  admin_users_path, :class =>"border-right" do %>
+        <%= link_to  admin_user_path(current_user.id), :class =>"border-right" do %>
         <i class="fa fa-cogs header-icons"></i> <br />
         manage users
         <% end %>
@@ -32,12 +32,12 @@
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <i class="fa fa-user header-icons"></i> <br />
-          Kavya <span class="caret"></span></a>
+          <%= current_user.username %> <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
             <li class="divider"></li>
-            <li><a href="#">Sign Out</a></li>
+            <li><%= link_to "Sign Out", admin_user_path(current_user), method: :delete %></li></li>
           </ul>
         </li>
       </ul>
