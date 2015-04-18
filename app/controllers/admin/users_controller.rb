@@ -10,7 +10,7 @@ class Admin::UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to admin_dashboards_path
     else
-      redirect_to root
+      redirect_to root_path
 		end
 	end
 
@@ -21,7 +21,7 @@ class Admin::UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.valid?
-      user.add_role :admin
+      @user.add_role :admin
       @user.save
 			@success = true
 			flash[:success] = "You have logged in successfullly!"
@@ -29,6 +29,7 @@ class Admin::UsersController < ApplicationController
 			@success = false
 		end
 	end
+
    def add_new_user
     @user = User.new
    end
@@ -41,7 +42,7 @@ class Admin::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end
 

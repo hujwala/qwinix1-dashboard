@@ -1,3 +1,9 @@
+User.delete_all
+User.create(name:'Sharmila', username: 'sharmila',email:'sjayaramu@qwinixtech.com',status:'active',user_type:'admin', password:"Password@1", password_confirmation:"Password@1")
+User.all.each do |u|
+  puts "User '#{u.name}' created"
+end
+
 Widget.delete_all
 Widget.create(name:'Github-Status', widget_type: 'Github')
 Widget.create(name:'Github-Open-PR', widget_type: 'Github')
