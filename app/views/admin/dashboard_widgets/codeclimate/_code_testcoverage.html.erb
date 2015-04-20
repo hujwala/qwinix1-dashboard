@@ -7,8 +7,20 @@
       </div>
       <%= form_for([:admin, @dashboard_widget], url: admin_dashboard_dashboard_widget_path(@dashboard, @widget), :html => {:id=>"form_code_test_coverage_widget", :method =>  :patch, :remote=>true}) do |f| %>
       <div class="modal-body">
-        Code Climate Repo ID:<%= f.text_field :code_repo_id %><br>
-        Code Climate API Token:<%= f.text_field :code_api_token %><br>
+        <div class="panel-body" style="height:auto;">
+          <div class="form-group">
+          <label for="inputName" class="col-sm-4 control-label">CodeClimate Repo ID*</label>
+            <div class="col-sm-8">
+              <%= f.text_field :code_repo_id, :class=>"form-control" %>
+            </div>
+          </div><br><br>
+          <div class="form-group">
+            <label for="inputName" class="col-sm-4 control-label">CodeClimate API Token*</label>
+            <div class="col-sm-8">
+              <%= f.text_field :code_api_token, :class=>"form-control" %>
+            </div>
+          </div><br><br>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -7,13 +7,20 @@
 			</div>
 			<%= form_for([:admin, @dashboard_widget], url: admin_dashboard_dashboard_widget_path(@dashboard, @widget), :html => {:id=>"form_dashboard_widget", :method =>  :patch, :remote=>true}) do |f| %>
 			<div class="modal-body">
-				Github URL:<%= f.text_field :github_url, :value => ":https://status.github.com/api/last-message.json", :readonly => true %><br>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<%= f.submit "Submit", :class=>"btn btn-primary" %>
-			</div>
-			<% end %>
-		</div>
-	</div>
+        <div class="panel-body" style="height:auto;">
+          <div class="form-group">
+            <label for="inputName" class="col-sm-4 control-label">Github URL *</label>
+            <div class="col-sm-8">
+              <%= f.text_field :github_url, :value => ":https://status.github.com/api/last-message.json", :readonly => true, :class=>"form-control" %>
+            </div>
+          </div><br><br>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= f.submit "Submit", :class=>"btn btn-primary" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
