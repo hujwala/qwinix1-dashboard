@@ -1,6 +1,7 @@
 <% if @success %>
   // Fill the right box with first item details
   $('#div_dashboard_show').html("<%= escape_javascript(render(:partial=>"show")) %>");
+  $('#div_dashboard_index').html("<%= escape_javascript(render(:partial=>"index")) %>");
 
   // Refresh the updated item in the list
  $("#div_dashboard_<%= @dashboard.id %>").html("<%= escape_javascript(render :partial => 'item', :locals => { :dashboard => @dashboard }) %>")
