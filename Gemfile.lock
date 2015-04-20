@@ -138,7 +138,7 @@ GEM
     ref (1.0.5)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
-    rolify (4.0.0)
+    rolify (3.4.1)
     rufus-scheduler (3.0.9)
       tzinfo
     sass (3.2.19)
