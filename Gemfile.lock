@@ -29,6 +29,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     arel (5.0.1.20140414130214)
+    bcrypt (3.1.10)
     buftok (0.2.0)
     builder (3.2.2)
     capistrano (3.4.0)
@@ -137,6 +138,7 @@ GEM
     ref (1.0.5)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
+    rolify (4.0.0)
     rufus-scheduler (3.0.9)
       tzinfo
     sass (3.2.19)
@@ -204,6 +206,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   capistrano (~> 3.1)
   capistrano-rails (~> 1.1)
   coffee-rails (~> 4.0.0)
@@ -220,6 +223,7 @@ DEPENDENCIES
   puma (~> 2.10.0)
   rails (= 4.1.8)
   responders
+  rolify
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring
