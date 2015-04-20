@@ -44,6 +44,7 @@ gem 'pry'
 gem 'will_paginate-bootstrap'
 gem 'capistrano',  '~> 3.1'
 gem 'capistrano-rails', '~> 1.1'
+gem 'jquery-validation-rails'
 gem 'rb-readline', '~> 0.5.2'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

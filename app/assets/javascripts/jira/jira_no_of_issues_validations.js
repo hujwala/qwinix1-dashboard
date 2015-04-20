@@ -13,6 +13,9 @@ function jira_no_of_issues_validator() {
   },
   "dashboard_widget[jira_password]": {
     required: true
+  },
+  "dashboard_widget[jira_project_key]":{
+    required: true
   }
 },
 
@@ -34,7 +37,10 @@ messages: {
 },
 
 "dashboard_widget[jira_password]": {
-  required: "This field is required",
+  required: "This field is required"
+  },
+  "dashboard_widget[jira_project_key]":{
+    required: "This field is required"
   }
 },
 

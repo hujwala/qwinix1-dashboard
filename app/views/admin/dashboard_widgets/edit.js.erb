@@ -3,45 +3,49 @@ heading = "Configure Widget";
 $('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/github/github_status'))  %>");
 $('#myModal').modal('show');
 <% elsif @widget.widget_type == "Github" && @widget.name == "Github-Open-PR" %>
-$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/github/github'))  %>");
+$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/github/github_pr'))  %>");
 $('#myModal').modal('show');
+github_validator()
 <% elsif @widget.widget_type == "Github" && @widget.name == "Github-Closed-PR" %>
-$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/github/github'))  %>");
+$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/github/github_pr'))  %>");
 $('#myModal').modal('show');
+github_validator()
 <% elsif @widget.widget_type == "Github" && @widget.name == "Github-Last-10-Commits" %>
-$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/github/github'))  %>");
+$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/github/github_commits'))  %>");
 $('#myModal').modal('show');
+github_validator()
 <% end %>
 
 
 <% if @widget.widget_type == "Code Climate" && @widget.name == "GPA" %>
 $('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/codeclimate/code_GPA'))  %>");
 $('#myModal').modal('show');
+code_gpa_validator()
 <% elsif @widget.widget_type == "Code Climate" && @widget.name == "Test-coverage" %>
 $('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/codeclimate/code_testcoverage'))  %>");
 $('#myModal').modal('show');
+code_test_coverage_validator()
 <% end %>
 
 
 <% if @widget.widget_type == "Jira" && @widget.name == "To-Do-list" %>
 $('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira'))  %>");
 $('#myModal').modal('show');
+jira_validator()
 <% elsif @widget.widget_type == "Jira" && @widget.name == "Assign-to-QA" %>
 $('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira'))  %>");
 $('#myModal').modal('show');
+jira_validator()
 <% elsif @widget.widget_type == "Jira" && @widget.name == "Sprint-remaning-days" %>
 $('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira'))  %>");
 $('#myModal').modal('show');
+jira_validator()
 <% elsif @widget.widget_type == "Jira" && @widget.name == "Sprint-progress" %>
 $('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira'))  %>");
 $('#myModal').modal('show');
+jira_validator()
 <% elsif @widget.widget_type == "Jira" && @widget.name == "No of open-issues" %>
 $('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira_noofissues'))  %>");
 $('#myModal').modal('show');
-<% end %>
-
-
-<% if @widget.widget_type == "Jenkins" && @widget.name == "Build-test" %>
-$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jenkins/jenkins_buildtest'))  %>");
-$('#myModal').modal('show');
+jira_no_of_issues_validator()
 <% end %>

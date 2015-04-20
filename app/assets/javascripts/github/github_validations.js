@@ -1,17 +1,14 @@
-function jira_todo_validator() {
- $('#form_todo_widget').validate({
+function github_validator() {
+ $('#form_github_widget').validate({
   debug: true,
   rules: {
-  "dashboard_widget[jira_url]": {
+   "dashboard_widget[access_token]": {
     required: true
   },
-   "dashboard_widget[jira_view_id]": {
-    required: true
-  },
-  "dashboard_widget[jira_name]": {
+  "dashboard_widget[organization_name]": {
     required:true
   },
-  "dashboard_widget[jira_password]": {
+  "dashboard_widget[repo_name]": {
     required: true
   }
 },
@@ -21,19 +18,15 @@ errorElement: "span",
 errorClass: "help-block",
 
 messages: {
-"dashboard_widget[jira_url]" : {
+ "dashboard_widget[access_token]" : {
   required: "This field is required"
 },
 
- "dashboard_widget[jira_view_id]" : {
+"dashboard_widget[organization_name]":{
   required: "This field is required"
 },
 
-"dashboard_widget[jira_name]":{
-  required: "This field is required"
-},
-
-"dashboard_widget[jira_password]": {
+"dashboard_widget[repo_name]": {
   required: "This field is required",
   }
 },
@@ -56,3 +49,4 @@ unhighlight: function(element) {
      });
 
 }
+

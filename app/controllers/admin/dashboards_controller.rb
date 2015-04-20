@@ -1,4 +1,5 @@
  class Admin::DashboardsController < ApplicationController
+  before_filter :require_login
 
   def index
     get_collections
@@ -47,6 +48,7 @@
 
   def update
     @dashboard = Dashboard.find(params[:id])
+    @dashboards = Dashboard.order("created_at desc").paginate(:page => params[:page], :per_page => 3)
     if @dashboard.valid?
       @dashboard.update_attributes(dashboard_params)
       @success = true
