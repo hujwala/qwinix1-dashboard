@@ -1,6 +1,6 @@
  <div class="row">
     <div class="col-sm-offset-2 col-sm-10">
-    <%= form_for :user, :url => admin_users_path, :method => :post, :remote => true do |f| %>
+    <%= form_for :user, :html => {:url => admin_users_path, :method => :post, :id => "create_user",:remote => true} do |f| %>
  <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">New Dashboard</h3>

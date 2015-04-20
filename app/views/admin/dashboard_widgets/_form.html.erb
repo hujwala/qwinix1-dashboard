@@ -18,10 +18,6 @@
                 <a href="#" class="list-group-item  list">JIRA</a>
                 <div class="number-of-widgets">0 item(s) selected</div>
               </div>
-              <div class="order-list" id="jenkins">
-                <a href="#" class="list-group-item list">JENKINS</a>
-                <div class="number-of-widgets">0 item(s) selected</div>
-              </div>
               <div class="order-list" id="code">
                 <a href="#" class="list-group-item  list">CODE CLIMATE</a>
                 <div class="number-of-widgets">0 item(s) selected</div>
@@ -50,14 +46,6 @@
                 <input type="checkbox">
                 <% @code_widgets.each do |widget| %>
                 <div><%= check_box_tag "codewidget[]", widget.id,@dashboard.widgets.include?(widget) %><%= widget.name %></div>
-                <% end %>
-              </label>
-            </div>
-            <div class="checkbox" id="jenkins-widget" style="display: none">
-              <label>
-                <input type="checkbox">
-                <% @jenkins_widgets.each do |widget| %>
-                <div><%= check_box_tag "jenkinswidget[]", widget.id, @dashboard.widgets.include?(widget) %><%= widget.name %></div>
                 <% end %>
               </label>
             </div>
