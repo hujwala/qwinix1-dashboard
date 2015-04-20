@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount Dashing::Engine, at: Dashing.config.engine_path
 
-  root :to => 'admin/users#index'
+  root :to => 'admin/sessions#index'
   # get "log_in" => "users#new", :as => "log_in"
 
   # Sign In URLs for users
@@ -11,9 +11,8 @@ Rails.application.routes.draw do
   # delete  '/sign_out' ,       to: "public/user_sessions#sign_out",        as:  :sign_out
 
   namespace :admin do
-    resources :users do
-      get 'add_new_user'
-    end
+    resources :users
+    resources :sessions
       get :admin_role
 
       resources :dashboards do

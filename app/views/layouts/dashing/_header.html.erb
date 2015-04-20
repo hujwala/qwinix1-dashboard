@@ -21,7 +21,7 @@
         <% end %>
       </li>
       <li>
-        <%= link_to  admin_user_path(current_user.id), :class =>"border-right" do %>
+        <%= link_to  admin_users_path, :class =>"border-right" do %>
         <i class="fa fa-cogs header-icons"></i> <br />
         manage users
         <% end %>
@@ -37,7 +37,7 @@
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
             <li class="divider"></li>
-            <li><%= link_to "Sign Out", admin_user_path(current_user), method: :delete %></li></li>
+            <li><%= link_to "Sign Out", admin_session_path(current_user), method: :delete %></li></li>
           </ul>
         </li>
       </ul>
