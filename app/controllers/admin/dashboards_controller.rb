@@ -1,4 +1,5 @@
  class Admin::DashboardsController < ApplicationController
+  before_filter :require_login
 
   def index
     get_collections

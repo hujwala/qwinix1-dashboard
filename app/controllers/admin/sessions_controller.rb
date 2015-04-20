@@ -1,4 +1,6 @@
 class Admin::SessionsController < ApplicationController
+  before_filter :sign_out, only:[:index]
+
   def index
     @user = User.new
   end
