@@ -10,9 +10,9 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require bootstrap
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require jquery.validate
 //= require jquery.validate.additional-methods
 //= require github/github_validations
@@ -21,3 +21,4 @@
 //= require jira/jira_no_of_issues_validations
 //= require background
 //= require create_user
+//= require_tree .
