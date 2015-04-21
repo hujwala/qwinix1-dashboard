@@ -53,6 +53,16 @@ namespace :deploy do
     end
   end
 
+  task :redis_server do
+    on roles(:app) do
+      within "#{current_path}" do
+        with rails_env: :production do
+          execute redis-server
+        end
+      end
+    end
+  end
+
   after :restart, :clear_cache do
     on roles(:web), :in => :groups, :limit => 3, :wait => 10 do
       # Here we can do anything such as:
