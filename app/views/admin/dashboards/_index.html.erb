@@ -1,6 +1,8 @@
-<% @dashboards.each do |dashboard| %>
-<%= link_to admin_dashboard_path(dashboard),remote: true do %>
-<%= render :partial=>"item", :locals=>{:dashboard=>dashboard} %>
-<% end %>
-<%end%>
-<%= will_paginate @dashboards, renderer: BootstrapPagination::Rails %>
+<div class="col-sm-offset-1">
+  <% @dashboards.each do |dashboard| %>
+  <%= link_to admin_dashboard_path(dashboard),remote: true do %>
+  <%= render :partial=>"item", :locals=>{:dashboard=>dashboard} %>
+  <% end %>
+  <%end%>
+  <%= will_paginate @dashboards, renderer: BootstrapPagination::Rails, :next_label => '>',:previous_label => '<',:inner_window   => 0, :outer_window => 0 %>
+</div>

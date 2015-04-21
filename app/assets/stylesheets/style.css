@@ -93,10 +93,6 @@
 .selected-widgets-area .tiles a:hover {
   text-decoration: none;
 }
-.diff_color{
-  background-color: pink;
-  color :white;
-}
 .nodashboard{
   text-align: center;
   color: #da121d;

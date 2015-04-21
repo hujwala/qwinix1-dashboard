@@ -15,15 +15,29 @@
     <ul class="nav navbar-nav">
       <!-- navbar lists -->
       <li>
+        <% if current_page?(admin_dashboards_path) %>
+        <%= link_to  admin_dashboards_path,:class=>"border-left border-right",  :class=>"active" do %>
+        <i class="fa fa-tachometer header-icons"></i><br />
+        manage dashboard
+        <% end %>
+        <% else %>
         <%= link_to  admin_dashboards_path,:class=>"border-left border-right" do %>
-          <i class="fa fa-tachometer header-icons"></i><br />
-          manage dashboard
+        <i class="fa fa-tachometer header-icons"></i><br />
+        manage dashboard
+        <% end %>
         <% end %>
       </li>
       <li>
+        <% if current_page?(admin_users_path) %>
+        <%= link_to  admin_users_path, :class =>"border-right active" do %>
+        <i class="fa fa-cogs header-icons"></i> <br />
+        manage users
+        <% end %>
+        <% else %>
         <%= link_to  admin_users_path, :class =>"border-right" do %>
         <i class="fa fa-cogs header-icons"></i> <br />
         manage users
+        <% end %>
         <% end %>
       </li>
     </ul>
@@ -42,22 +56,5 @@
         </li>
       </ul>
       <!-- search -->
-      <form class="navbar-form navbar-right" role="search">
-        <div class="input-group">
-          <input type="text" placeholder="Search" class="form-control border-right-none">
-          <span class="input-group-addon">
-            <i class="fa fa-search"></i>
-          </span>
-        </div>
-      </form>
     </nav>
   </div>
-
-
-  <script>
-    // $(document).ready(function(){
-    //   $(".border-right").click(function(){
-    //     $(this).addClass("active");
-    //   });
-    // });
-  </script>
