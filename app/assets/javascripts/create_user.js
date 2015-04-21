@@ -87,8 +87,11 @@ invalidHandler: function(event, validator) {
         }
 
       },
-      submitHandler: function(form) {
-        form.submit();
+      submitHandler: function(form){
+      showLoadingScreen();
+      $(form)
+      .submit()
+      .always(function(){ hideLoadingScreen() });
       }
     });
 

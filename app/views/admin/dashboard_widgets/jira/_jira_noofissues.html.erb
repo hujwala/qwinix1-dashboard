@@ -6,23 +6,48 @@
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title" id="myModalLabel">Configur Widget</h4>
 			</div>
-<%= form_for([:admin, @dashboard_widget], url: admin_dashboard_dashboard_widget_path(@dashboard, @widget), :html => {:id=>"form_no_of_issues_widget", :class=>"mb-0 form-horizontal", :role => "form", :method =>  :patch, :remote=>true}) do |f| %>
-<div class="modal-body">
-
-Jira URL:<%= f.text_field :jira_url %><br>
-Jira View ID:<%= f.text_field :jira_view_id %><br>
-Jira Name:<%= f.text_field :jira_name %><br>
-Jira Password:<%= f.text_field :jira_password %><br>
-Jira Project Key:<%= f.text_field :jira_project_key %>
-</div>
-
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<%= f.submit "Submit", :class=>"btn btn-primary" %>
-			</div>
-			<% end %>
-		</div>
-	</div>
+      <%= form_for([:admin, @dashboard_widget], url: admin_dashboard_dashboard_widget_path(@dashboard, @widget), :html => {:id=>"form_no_of_issues_widget", :method =>  :patch, :remote=>true}) do |f| %>
+      <div class="modal-body">
+        <div class="panel-body" style="height:auto;">
+          <div class="form-group">
+            <label for="inputName" class="col-sm-4 control-label">Jira URL *</label>
+            <div class="col-sm-8">
+              <%= f.text_field :jira_url, :class=>"form-control" %>
+            </div>
+          </div><br><br>
+          <div class="form-group">
+            <label for="inputName" class="col-sm-4 control-label">Jira View ID *</label>
+            <div class="col-sm-8">
+              <%= f.text_field :jira_view_id, :class=>"form-control" %>
+            </div>
+          </div><br><br>
+          <div class="form-group">
+            <label for="inputName" class="col-sm-4 control-label">Jira Name *</label>
+            <div class="col-sm-8">
+              <%= f.text_field :jira_name, :class=>"form-control" %>
+            </div>
+          </div><br><br>
+          <div class="form-group">
+            <label for="inputName" class="col-sm-4 control-label">Jira Password *</label>
+            <div class="col-sm-8">
+              <%= f.text_field :jira_password, :class=>"form-control" %>
+            </div>
+          </div><br><br>
+          <div class="form-group">
+            <label for="inputName" class="col-sm-4 control-label">JJira Project Key *</label>
+            <div class="col-sm-8">
+              <%= f.text_field :jira_project_key, :class=>"form-control" %>
+            </div>
+          </div><br><br>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= f.submit "Submit", :class=>"btn btn-primary" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 
 
 

@@ -17,7 +17,6 @@
 //= require jquery.validate.additional-methods
 //= require github/github_validations
 //= require codeclimate/code_gpa_validations
-//= require codeclimate/code_test_coverage_validations
 //= require jira/jira_validations
 //= require jira/jira_no_of_issues_validations
 //= require background

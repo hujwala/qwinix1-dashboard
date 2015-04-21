@@ -1,8 +1,9 @@
 class Admin::UsersController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   before_filter :require_login
 
 	def index
-		@users = User.all
+		@users = User.order("created_at desc").paginate(:page => params[:page], :per_page => 3)
   end
 
   def unique_email
