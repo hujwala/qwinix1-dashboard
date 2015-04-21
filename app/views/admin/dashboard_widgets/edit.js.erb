@@ -18,13 +18,13 @@ github_validator()
 
 
 <% if @widget.widget_type == "Code Climate" && @widget.name == "GPA" %>
-$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/codeclimate/code_GPA'))  %>");
+$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/codeclimate/code_climate'))  %>");
 $('#myModal').modal('show');
 code_gpa_validator()
 <% elsif @widget.widget_type == "Code Climate" && @widget.name == "Test-coverage" %>
-$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/codeclimate/code_testcoverage'))  %>");
+$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/codeclimate/code_climate'))  %>");
 $('#myModal').modal('show');
-code_test_coverage_validator()
+code_gpa_validator()
 <% end %>
 
 
