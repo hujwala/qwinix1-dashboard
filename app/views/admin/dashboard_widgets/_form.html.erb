@@ -8,23 +8,26 @@
       <%= form_for([:admin, @dashboard_widget], url: admin_dashboard_dashboard_widgets_path(@dashboard), :html => {:id=>"form_dashboard_widget", :class=>"mb-0 form-horizontal", :role => "form", :method => (@dashboard_widget.new_record? ? :post : :put), :remote=>true}) do |f| %>
       <div class="modal-body">
         <div class="row">
-          <div class="col-sm-3 text-center" >
-            <div class="list-group">
-              <div class="order-list selected" id="git">
-                <a href="#" class="list-group-item  list">GIT</a>
-                <div class="number-of-widgets">0 item(s) selected</div>
+          <div class="col-sm-4 text-center" >
+            <div class="modal-widgets">
+              <div class="widget-name" id="git">
+                <a href="#" class="widget-name selected">GIT
+                  <div class="num-widgets number-of-widgets">0 item(s) selected</div>
+                </a>
               </div>
               <div class="order-list" id="jira">
-                <a href="#" class="list-group-item  list">JIRA</a>
-                <div class="number-of-widgets">0 item(s) selected</div>
+                <a href="#" class="widget-name">JIRA
+                  <div class="num-widgets number-of-widgets">0 item(s) selected</div>
+                </a>
               </div>
               <div class="order-list" id="code">
-                <a href="#" class="list-group-item  list">CODE CLIMATE</a>
-                <div class="number-of-widgets">0 item(s) selected</div>
+                <a href="#" class="widget-name">CODE CLIMATE
+                  <div class="num-widgets number-of-widgets">0 item(s) selected</div>
+                </a>
               </div>
             </div>
           </div>
-          <div class="col-sm-9">
+          <div class="col-sm-8">
             <div class="add-tiles-content">
              <div class="checkbox" id="git-widget">
               <label>
@@ -66,4 +69,10 @@
   $('#jira-widget').hide();
   $('#code-widget').hide();
   $('#jenkins-widgets').hide();
+  $(document).ready(function() {
+    $('.widget-name').on('click', function(){
+      $('.widget-name').removeClass('selected');
+      $(this).addClass('selected');
+    });
+  });
 </script>
