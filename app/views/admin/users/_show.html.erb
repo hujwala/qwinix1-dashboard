@@ -1,6 +1,7 @@
+<div class="col-sm-offset-1">
 <div class="row">
   <!-- Dashboard tiles section -->
-  <div class="col-sm-offset-1 col-sm-9">
+  <div class="col-sm-9">
   <% @users.each do |user|%>
     <div class="dashbords ">
       <div class="tiles">
@@ -10,4 +11,5 @@
 <% end %>
   </div>
 </div>
-<%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+<%= will_paginate @users, renderer: BootstrapPagination::Rails, :next_label => '>',:previous_label => '<',:inner_window   => 0, :outer_window => 0  %>
+</div>
