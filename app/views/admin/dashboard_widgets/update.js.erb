@@ -1,5 +1,7 @@
 <% if @success %>
-window.location.reload();
+$('#div_dashboard_show').html("<%= escape_javascript(render(:partial=>'/admin/dashboards/show')) %>");
+$('#div_wallboard_button').html("<%= escape_javascript(render(:partial=>'/admin/dashboards/wallboard_button')) %>");
+$('.modal-backdrop').hide();
 <% else %>
 heading = "Configure Widget";
 <% if @widget.widget_type == "Github" && @widget.name == "Github-Status" %>

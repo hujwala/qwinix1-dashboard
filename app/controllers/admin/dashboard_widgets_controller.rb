@@ -34,7 +34,8 @@ class Admin::DashboardWidgetsController < ApplicationController
   end
 
 	def update
-		@widget = Widget.find_by_id params[:id]
+    @widget = Widget.find_by_id params[:id]
+		@dashboard = Dashboard.find_by_id params[:dashboard_id]
 		@dashboard_widget = DashboardWidget.find_by_widget_id(@widget.id)
 		@dashboard_widget.access_token = params[:dashboard_widget][:access_token]
 		@dashboard_widget.organization_name = params[:dashboard_widget][:organization_name]
