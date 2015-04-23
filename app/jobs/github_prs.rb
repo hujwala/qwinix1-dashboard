@@ -1,7 +1,7 @@
 require 'octokit'
 
 
-Dashing.scheduler.every '15s', :first_in => 0 do |job|
+Dashing.scheduler.every '15m', :first_in => 0 do |job|
 
   if $dashboard_widget_github.present? && $dashboard_widget_github.github_status_prs == 'open'
     

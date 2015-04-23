@@ -30,7 +30,7 @@ class Admin::DashboardWidgetsController < ApplicationController
   def edit
     @dashboard = Dashboard.find_by_id params[:dashboard_id]
     @widget = Widget.find_by_id params[:id]
-    @dashboard_widget = DashboardWidget.find_by_widget_id(@widget.id)
+    @dashboard_widget = DashboardWidget.find params[:widget_id]
   end
 
 	def update
