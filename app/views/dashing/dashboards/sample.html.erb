@@ -1,41 +1,8 @@
-<% content_for :title do %>
-Dashboard
-<% end %>
-<script type='text/javascript'>
-$(function() {
-  Dashing.gridsterLayout('[{"col":1,"row":1},{"col":2,"row":1},{"col":3,"row":1},{"col":1,"row":2},{"col":4,"row":1},{"col":2,"row":2}]')
-});
-</script>
 <div class="gridster">
-<ul>
-<% github_pr_job %>
-
-<%#require 'octokit'
-
-Dashing.scheduler.every '10s', :first_in => 0 do |job|
-  client = Octokit::Client.new(:access_token => "e59c0de446ffe9901e75db5e76ce4ec2a75c89c7")
-  my_organization = "Qwinix"
-  repos = client.organization_repositories(my_organization).map { |repo| repo.name }
-
-  open_pull_requests = repos.inject([]) { |pulls, repo|
-    client.pull_requests("#{my_organization}/#{repo}", :state => 'close').each do |pull|
-      if repo=="docdock"
-      pulls.push({
-        title: pull.title,
-        repo: repo,
-        updated_at: pull.updated_at.strftime("%b %-d %Y, %l:%m %p"),
-        creator: "@" + pull.user.login,
-        })
-      end
-    end
-    pulls
-  }
-
-  Dashing.send_event('AuthToken', { header: "Open Pull Requests", pulls: open_pull_requests })
-end%>
+  <ul>
+    <% github_pr_job(params[:dashboard_id]) %>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-view="PullRequests" data-id="AuthToken"></div>
     </li>
-</ul>
-
+  </ul>
 </div>
