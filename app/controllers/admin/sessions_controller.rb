@@ -6,13 +6,16 @@ class Admin::SessionsController < ApplicationController
     if @user
       session[:user_id] = @user.id
       redirect_to admin_dashboards_path
+      flash[:success] = "Loged In successfullly!"
     else
       redirect_to root_path
+      flash[:error] = "Sorry User Does Not Exist"
     end
   end
 
   def destroy
     session[:user_id] = nil
     redirect_to root_path
+    flash[:success] = "Loged Out successfullly!"
   end
 end
