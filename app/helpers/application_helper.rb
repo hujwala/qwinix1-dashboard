@@ -90,26 +90,25 @@ module ApplicationHelper
 		end
 	end
 
-	def github_status(obj)
-		GITHUB_STATUS_TO_TRAFFIC_LIGHT_MAP = {
-		  'good' => 'green',
-		  'minor' => 'amber',
-		  'major' => 'red'
-		}
-		GITHUB_STATUS_URI = obj["github_url"]
+	# def github_status(obj)
+	# 	GITHUB_STATUS_TO_TRAFFIC_LIGHT_MAP = {
+	# 	  'good' => 'green',
+	# 	  'minor' => 'amber',
+	# 	  'major' => 'red'
+	# 	}
+	# 	GITHUB_STATUS_URI = obj["github_url"]
 
-		Dashing.scheduler.every '10s', :first_in => 0 do
-		  response = HTTParty.get(GITHUB_STATUS_URI)
-		  data = {
-		    status: GITHUB_STATUS_TO_TRAFFIC_LIGHT_MAP[response["status"]],
-		    message: response["body"]
-		  }
-		  Dashing.send_event('github_status', data)
-		end
-	end
+	# 	Dashing.scheduler.every '10s', :first_in => 0 do
+	# 	  response = HTTParty.get(GITHUB_STATUS_URI)
+	# 	  data = {
+	# 	    status: GITHUB_STATUS_TO_TRAFFIC_LIGHT_MAP[response["status"]],
+	# 	    message: response["body"]
+	# 	  }
+	# 	  Dashing.send_event('github_status', data)
+	# 	end
+	# end
 
 	def gpa(obj)
-		binding.pry
 		Dashing.scheduler.every '10s', :first_in => 0 do |job|
 		  # repo_id = "5406f507e30ba0542305e4e3"
 		  # repo_id = "550134e1695680688f009211"
