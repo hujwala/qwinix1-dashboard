@@ -1,8 +1,21 @@
 module ApplicationHelper
 	require 'octokit'
+	def get_the_job_done(id)
+		json_obj = []
+		dashboard = Dashboard.find id
+		dashboard.dashboard_widgets.each do |dash_wid|
+			json_obj << JSON.parse(dash_wid.to_json).compact
+		end		
+		json_obj.each do |obj|
+			case obj
+			when (Widget.find json_obj.first["widget_id"]).name = ""
+
+			end
+		end
+	end
 
 	def github_pr_job(id)
-		Dashing.scheduler.every '10s', :first_in => 0 do |job|
+		Dashing.scheduler.every '10m', :first_in => 0 do |job|
 		  client = Octokit::Client.new(:access_token => "e59c0de446ffe9901e75db5e76ce4ec2a75c89c7")
 		  my_organization = "Qwinix"
 		  repos = client.organization_repositories(my_organization).map { |repo| repo.name }
@@ -23,5 +36,21 @@ module ApplicationHelper
 
 		  Dashing.send_event('AuthToken', { header: "Open Pull Requests", pulls: open_pull_requests })
 		end
+	end
+
+	def method_name
+		
+	end
+
+	def method_name
+		
+	end
+
+	def method_name
+		
+	end
+
+	def method_name
+		
 	end
 end
