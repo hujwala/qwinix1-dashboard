@@ -15,7 +15,7 @@ unless $dashboard_widget_jira_project_key.nil?
     :site     => host,
     :auth_type => :basic
   }
-  Dashing.scheduler.every '5s', :first_in => 0 do |job|
+  Dashing.scheduler.every '5m', :first_in => 0 do |job|
 
     client = JIRA::Client.new(options)
     num = 0;

@@ -1,7 +1,7 @@
 require 'net/http'
 require 'json'
 
-Dashing.scheduler.every '10s', :first_in => 0 do |job|
+Dashing.scheduler.every '10m', :first_in => 0 do |job|
   # repo_id = "5406f507e30ba0542305e4e3"
   # repo_id = "550134e1695680688f009211"
   # api_token = "f21310bb41e60a6890ee27343c865c3dc4784434ab7d32a6590ca637344451e1"

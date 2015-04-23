@@ -7,7 +7,7 @@ GITHUB_STATUS_TO_TRAFFIC_LIGHT_MAP = {
 }
 GITHUB_STATUS_URI = 'https://status.github.com/api/last-message.json'
 
-Dashing.scheduler.every '10s', :first_in => 0 do
+Dashing.scheduler.every '10m', :first_in => 0 do
   response = HTTParty.get(GITHUB_STATUS_URI)
   data = {
     status: GITHUB_STATUS_TO_TRAFFIC_LIGHT_MAP[response["status"]],
