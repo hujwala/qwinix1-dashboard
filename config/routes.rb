@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  mount Dashing::Engine, at: Dashing.config.engine_path
 
   root :to => 'admin/sessions#index'
   get 'users/unique_email' => 'admin/users#unique_email'
@@ -17,6 +16,7 @@ Rails.application.routes.draw do
       get :admin_role
 
       resources :dashboards do
+  mount Dashing::Engine, at: Dashing.config.engine_path
 
         resources :dashboard_widgets
 

@@ -7,39 +7,31 @@ $(function() {
 });
 </script>
 <div class="gridster">
+<ul>
+<%require 'octokit'
 
-  <ul>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="code-climate" data-view="Codeclimate" data-title="Code Climate GPA"></div>
-    </li>
-    <% if $dashboard_widget_github.present? && $dashboard_widget_github.github_status_prs == 'open' %>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-view="PullRequests" data-id="open_pull_requests"></div>
-    </li>
-    <% else %>
+Dashing.scheduler.every '15000s', :first_in => 0 do |job|
+    client = Octokit::Client.new(:access_token => $dashboard_widget_github.access_token)
+    my_organization = $dashboard_widget_github.organization_name
+    repos = client.organization_repositories(my_organization).map { |repo| repo.name }
+
+    open_pull_requests = repos.inject([]) { |pulls, repo|
+      client.pull_requests("#{my_organization}/#{$dashboard_widget_github.repo_name}", :state => 'open').each do |pull|
+        pulls.push({
+          title: pull.title,
+          repo: $dashboard_widget_github.repo_name,
+          updated_at: pull.updated_at.strftime("%b %-d %Y, %l:%m %p"),
+          creator: "@" + pull.user.login,
+          })
+      end
+      pulls
+    }
+    Dashing.send_event('open_pull_requests', { header: "Open Pull Requests", pulls: open_pull_requests })
+end%>
+<% binding.pry%>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-view="PullRequests" data-id="closed_pull_requests"></div>
     </li>
-    <% end %>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="github_status" data-view="TrafficLights" data-title="GitHub"></div>
-    </li>
-<!-- <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-  <div data-view="SprintProgress" data-id="sprint_progress"></div>
-</li>
-    </li>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="sprint" data-view="JiraSprintRemainingDays"></div>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="fblinkstat" data-view="List" data-unordered="true" data-title="FB link stats" data-moreinfo="for amnesty.ca links"></div>
-      <i class="icon-facebook icon-background"></i>
-
-    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
-      <div data-id="jira_details" data-view="JiraDetails" data-title="Jira Details"></div>
-</li>
-<li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-    <div data-id="twitter_user_followers" data-view="Number" data-title="Twitter Followers" style="background-color: #1d9fe3"></div>
-  </li> -->
 </ul>
 
 </div>

@@ -1,5 +1,6 @@
 <% if @success %>
 $('#div_dashboard_show').html("<%= escape_javascript(render(:partial=>'/admin/dashboards/show')) %>");
+$('#div_wallboard_button').html("<%= escape_javascript(render(:partial=>'/admin/dashboards/wallboard_button')) %>");
 $('.modal-backdrop').hide();
 <% else %>
 heading = "Add Widgets";

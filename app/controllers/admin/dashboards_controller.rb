@@ -3,23 +3,6 @@
 
   def index
     get_collections
-
-    if @dashboards.present?
-    dashboard_widgets = DashboardWidget.where(dashboard_id: @dashboard.id)
-    dashboard_widgets.each do |dw|
-      if dw.access_token.present? && dw.organization_name.present? && dw.repo_name.present? && dw.github_status_prs.present?
-        $dashboard_widget_github = dw
-      elsif dw.github_url.present?
-        $dashboard_widget_github_url = dw
-      elsif dw.code_repo_id.present? && dw.code_api_token.present?
-        $dashboard_widget_code = dw
-      elsif dw.jira_url.present? && dw.jira_view_id.present? && dw.jira_name.present? && dw.jira_password.present? && dw.jira_project_key.blank?
-        $dashboard_widget_jira = dw
-      elsif dw.jira_project_key.present? && dw.jira_url.present? && dw.jira_view_id.present? && dw.jira_name.present? && dw.jira_password.present?
-        $dashboard_widget_jira_project_key = dw
-      end
-    end
-  end
   end
 
   def new
