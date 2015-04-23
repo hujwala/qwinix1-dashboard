@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  mount Dashing::Engine, at: Dashing.config.engine_path
   root :to => 'admin/sessions#index'
   get 'users/unique_email' => 'admin/users#unique_email'
   # get "log_in" => "users#new", :as => "log_in"
