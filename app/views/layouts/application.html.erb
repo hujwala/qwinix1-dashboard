@@ -11,6 +11,9 @@
 <% end %>
 <body>
 	<div id="popup_modal"></div>
+	<div id="div_flash_message" class="container">
+		<%= render :partial=>"/layouts/dashing/flash_messages" -%>
+	</div>
 		<%= yield %>
 </body>
 </html>
