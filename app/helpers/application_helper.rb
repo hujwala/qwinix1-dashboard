@@ -18,8 +18,8 @@ module ApplicationHelper
 				github_closed_pr_job(obj)
 			when "GPA"
 				gpa(obj)
-			# when "Github-Status"
-			# 	github_status(obj)
+			when "Github-Status"
+				github_status(obj)
 			# when (Widget.find json_obj.first["widget_id"]).name = "Github-Last-10-Commits"
 			# 	github_open_pr_job(obj)
 			# when (Widget.find json_obj.first["widget_id"]).name = "To-Do-list"
@@ -61,7 +61,6 @@ module ApplicationHelper
 		    end
 		    pulls
 		  }
-		  p open_pull_requests
 		  Dashing.send_event('open_pr', { header: "Open Pull Requests", pulls: open_pull_requests })
 		end
 	end
@@ -90,23 +89,22 @@ module ApplicationHelper
 		end
 	end
 
-	# def github_status(obj)
-	# 	GITHUB_STATUS_TO_TRAFFIC_LIGHT_MAP = {
-	# 	  'good' => 'green',
-	# 	  'minor' => 'amber',
-	# 	  'major' => 'red'
-	# 	}
-	# 	GITHUB_STATUS_URI = obj["github_url"]
-
-	# 	Dashing.scheduler.every '10s', :first_in => 0 do
-	# 	  response = HTTParty.get(GITHUB_STATUS_URI)
-	# 	  data = {
-	# 	    status: GITHUB_STATUS_TO_TRAFFIC_LIGHT_MAP[response["status"]],
-	# 	    message: response["body"]
-	# 	  }
-	# 	  Dashing.send_event('github_status', data)
-	# 	end
-	# end
+	def github_status(obj)
+		@traffic_lights = {
+		  'good' => 'green',
+		  'minor' => 'amber',
+		  'major' => 'red'
+		}
+		# GITHUB_STATUS_URI = obj["github_url"].to_str
+		Dashing.scheduler.every '10s', :first_in => 0 do
+		  response = HTTParty.get("https://status.github.com/api/last-message.json")
+		  data = {
+		    status: @traffic_lights[response["status"]],
+		    message: response["body"]
+		  }
+		  Dashing.send_event('github_status', data)
+		end
+	end
 
 	def gpa(obj)
 		Dashing.scheduler.every '10s', :first_in => 0 do |job|
