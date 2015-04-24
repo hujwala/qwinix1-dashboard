@@ -13,6 +13,15 @@
       <label for="inputName" class="col-sm-3 control-label">Name *</label>
       <div class="col-sm-9">
         <%= f.text_field :name, :class=>"form-control", :id=>"inputName", :placeholder=>"Name" %>
+        <% if @dashboard.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @dashboard.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
       </div>
     </div>
   </div>
