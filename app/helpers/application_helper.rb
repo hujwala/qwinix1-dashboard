@@ -149,12 +149,4 @@ module ApplicationHelper
 		 Dashing.send_event('sprint_progress', { title: "Sprint Progress", min: 0, value: percentage, max: 100, moreinfo: moreinfo })
 		end
 	end
-
-	def method_name
-		
-	end
-
-	def method_name
-		
-	end
 end
