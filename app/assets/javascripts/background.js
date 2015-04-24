@@ -13,9 +13,6 @@ $(document).on("change", "#git-widget input[type='checkbox'], #jira-widget input
     fnCountItem(this.parentNode.parentNode.parentElement.id.split("-")[0]);
 });
 
-
-$(document).ready(function(){
-  setTimeout(function(){
-    $('.flash').remove();
+setTimeout(function(){
+    $('#flash').remove();
   }, 5000);
-})

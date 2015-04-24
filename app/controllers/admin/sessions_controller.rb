@@ -6,8 +6,9 @@ class Admin::SessionsController < ApplicationController
     if @user
       session[:user_id] = @user.id
       redirect_to admin_dashboards_path
-      flash[:success] = "Loged In successfullly!"
+      flash[:success] = "You have logged in successfullly!"
     else
+      flash[:error] = "Invalid email or password"
       redirect_to root_path
       flash[:error] = "Sorry User Does Not Exist"
     end
