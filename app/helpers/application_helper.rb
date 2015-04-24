@@ -3,7 +3,8 @@ module ApplicationHelper
 	require 'httparty'
 	require 'net/http'
 	require 'json'
-
+	require 'jira'
+		
 	def get_the_job_done(id)
 		json_obj = []
 		dashboard = Dashboard.find id
@@ -20,6 +21,8 @@ module ApplicationHelper
 				gpa(obj)
 			when "Github-Status"
 				github_status(obj)
+			when "Sprint-progress"
+				sprint_progress(obj)
 			# when (Widget.find json_obj.first["widget_id"]).name = "Github-Last-10-Commits"
 			# 	github_open_pr_job(obj)
 			# when (Widget.find json_obj.first["widget_id"]).name = "To-Do-list"
@@ -108,10 +111,6 @@ module ApplicationHelper
 
 	def gpa(obj)
 		Dashing.scheduler.every '10s', :first_in => 0 do |job|
-		  # repo_id = "5406f507e30ba0542305e4e3"
-		  # repo_id = "550134e1695680688f009211"
-		  # api_token = "f21310bb41e60a6890ee27343c865c3dc4784434ab7d32a6590ca637344451e1"
-		  # api_token = "255887c05d5a64ea167e4d3455f63d8f71574536"
 	    uri = URI.parse("https://codeclimate.com/api/repos/#{obj['code_repo_id']}")
 	    http = Net::HTTP.new(uri.host, uri.port)
 	    http.use_ssl = true
@@ -127,8 +126,28 @@ module ApplicationHelper
 		end		
 	end
 
-	def github_last_10_commits
-		
+	def sprint_progress(obj)
+		Dashing.scheduler.every '10s', :first_in => 0 do |job|
+		  @client = JIRA::Client.new({
+		    :username => obj["jira_name"],
+		    :password => obj["jira_password"],
+		    :site => obj["jira_url"] + "?rapidView=" +  obj["jira_view_id"],
+		    :auth_type => :basic,
+		    :context_path => ""
+		  })
+		  closed_points = @client.Issue.jql("sprint in openSprints() and status = \"Done\"").map{ |issue| issue.fields['customfield_10004'] }.reduce(:+) || 0
+		  total_points = @client.Issue.jql("sprint in openSprints()").map{ |issue| issue.fields['customfield_10004'] }.compact.reduce(:+) || 0
+
+		  if total_points == 0
+		    percentage = 0
+		    moreinfo = "No sprint currently in progress"
+		  else
+		    percentage = ((closed_points/total_points)*100).to_i
+		    moreinfo = "#{closed_points.to_i} / #{total_points.to_i}"
+		  end
+
+		 Dashing.send_event('sprint_progress', { title: "Sprint Progress", min: 0, value: percentage, max: 100, moreinfo: moreinfo })
+		end
 	end
 
 	def method_name
