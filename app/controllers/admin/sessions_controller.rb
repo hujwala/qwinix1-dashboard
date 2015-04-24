@@ -8,9 +8,8 @@ class Admin::SessionsController < ApplicationController
       redirect_to admin_dashboards_path
       flash[:success] = "You have logged in successfullly!"
     else
-      flash[:error] = "Invalid email or password"
       redirect_to root_path
-      flash[:error] = "Sorry User Does Not Exist"
+      flash[:error] = "Invalid email or password"
     end
   end
 
