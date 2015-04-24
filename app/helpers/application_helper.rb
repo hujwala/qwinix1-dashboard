@@ -14,7 +14,7 @@ module ApplicationHelper
 			case (Widget.find obj["widget_id"]).name
 			when "Github-Open-PR"
 				github_open_pr_job(obj)
-			when "Github-Closed-PRR"
+			when "Github-Closed-PR"
 				github_closed_pr_job(obj)
 			when "GPA"
 				gpa(obj)
