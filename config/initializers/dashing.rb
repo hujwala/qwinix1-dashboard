@@ -1,7 +1,7 @@
 # Use this hook to configure Dashing bahaviors.
 Dashing.configure do |config|
   # Scheduler instance.
-  # config.scheduler = ::Rufus::Scheduler.new
+  config.scheduler = ::Rufus::Scheduler.new
 
   # Redis credentials.
   # See https://devcenter.heroku.com/articles/redistogo to configure redis for heroku.
