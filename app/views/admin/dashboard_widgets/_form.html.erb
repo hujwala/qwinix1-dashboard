@@ -1,4 +1,4 @@
-<div id="popup_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="popup_modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -31,34 +31,41 @@
           <div class="col-sm-8">
             <div class="add-tiles-content">
              <div class="checkbox" id="git-widget">
-              <label>
+              <div>
+                <% count = 0 %>
                 <% @github_widgets.each do |widget| %>
-              <% unless dashwidgets.include?(widget.id) %>
-                <input type="checkbox">
+                <% unless dashwidgets.include?(widget.id) %>
                 <div><%= check_box_tag "gitwidget[]", widget.id %><%= widget.name %></div>
+                <% else %>
+                <% count += 1%>
                 <% end %>
                 <% end %>
-              </label>
+                <%= p "#{count} Github widgets are selected" if count == 4 %>
+              </div>
             </div>
             <div class="checkbox" id="jira-widget">
-              <label>
+              <div>
                 <% @jira_widgets.each do |widget| %>
                 <% unless dashwidgets.include?(widget.id) %>
-                <input type="checkbox">
-                <div><%= check_box_tag "jirawidget[]", widget.id,@dashboard.widgets.include?(widget) %><%= widget.name %></div>
+                <div><%= check_box_tag "jirawidget[]", widget.id %><%= widget.name %></div>
+                <% else %>
+                <div><%= check_box_tag "jirawidget[]", widget.id, checked: true %><%= widget.name %></div>
                 <% end %>
                 <% end %>
-              </label>
+              </div>
             </div>
             <div class="checkbox" id="code-widget">
-              <label>
+              <div>
+                <% count = 0 %>
                 <% @code_widgets.each do |widget| %>
                 <% unless dashwidgets.include?(widget.id) %>
-                <input type="checkbox">
-                <div><%= check_box_tag "codewidget[]", widget.id,@dashboard.widgets.include?(widget) %><%= widget.name %></div>
+                <div><%= check_box_tag "codewidget[]", widget.id %><%= widget.name %></div>
+                <% else %>
+                <% count += 1%>
                 <% end %>
                 <% end %>
-              </label>
+                <%= p "#{count} CodeClimate widgets are selected" if count == 2 %>
+              </div>
             </div>
           </div>
         </div>

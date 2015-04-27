@@ -14,5 +14,5 @@
     text = "You have few errors. They have been highlighted."
     error_message = content_tag(:div, text, class: "alert alert-danger")
   %>
-  $("#dashboard_form_error").html("<%= escape_javascript(error_message) %>");
+  $("#dashboard__error").html("<%= escape_javascript(error_message) %>");
 <% end %>
