@@ -1,5 +1,5 @@
 set :application, 'Dashingproject'
-set :repo_url, 'https://github.com/Kedarnag13/dashingproject.git'
+set :repo_url, 'https://github.com/Qwinix/dashingproject.git'
 set :scm, :git
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
