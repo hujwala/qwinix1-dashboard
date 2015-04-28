@@ -1,11 +1,11 @@
 <% if @success %>
   // Fill the right box with first item details
-  $('#div_dashboard_show').html("<%= escape_javascript(render(:partial=>"show")) %>");
-  $('#div_dashboard_index').html("<%= escape_javascript(render(:partial=>"index")) %>");
-
-  // Refresh the updated item in the list
- $("#div_dashboard_<%= @dashboard.id %>").html("<%= escape_javascript(render :partial => 'item', :locals => { :dashboard => @dashboard }) %>")
+  $('#div_dashboard_show').html("<%= escape_javascript(render(:partial=>'show')) %>");
+  $('#d_flash_message').html("<%= escape_javascript(render(:partial=>'/layouts/dashing/flash_messages')) %>");
+// Add the newly created item to the list
+  $("#div_dashboard_index").html("<%= escape_javascript(render(:partial => 'index', :locals => { :dashboards => @dashboards })) %>")
   $(".panel-message").hide();
+  <% flash[:success] = nil %>
 <% else %>
   $('#div_dashboard_show').html("<%= escape_javascript(render(:partial=>'form')) %>");
 
@@ -14,5 +14,5 @@
     text = "You have few errors. They have been highlighted."
     error_message = content_tag(:div, text, class: "alert alert-danger")
   %>
-  $("#dashboard_form_error").html("<%= escape_javascript(error_message) %>");
+  $("#dashboard__error").html("<%= escape_javascript(error_message) %>");
 <% end %>

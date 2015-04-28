@@ -14,11 +14,11 @@
     if @dashboard.valid?
       @dashboard.save
       @success = true
-      flash[:success] = "Dashboard created uccessfullly!"
+      flash[:success] = "Dashboard created successfully!"
     else
       @success = false
     end
-    @dashboards = Dashboard.order("created_at desc").paginate(:page => params[:page], :per_page => 3)
+    @dashboards = Dashboard.order("updated_at desc").paginate(:page => params[:page], :per_page => 3)
   end
 
   def edit
@@ -31,10 +31,11 @@
 
   def update
     @dashboard = Dashboard.find(params[:id])
-    @dashboards = Dashboard.order("created_at desc").paginate(:page => params[:page], :per_page => 3)
+    @dashboards = Dashboard.order("updated_at desc").paginate(:page => params[:page], :per_page => 3)
+    @dashboard.update_attributes(dashboard_params)
     if @dashboard.valid?
-      @dashboard.update_attributes(dashboard_params)
       @success = true
+      flash[:success] = "Dashboard updated successfully!"
     else
       @success = false
     end
@@ -42,7 +43,12 @@
 
   def destroy
     @dashboard = Dashboard.find(params[:id])
+    @dashboardwidgets = DashboardWidget.where(dashboard_id: params[:id])
+    @dashboardwidgets.destroy_all
     @dashboard.destroy
+    @dashboards = Dashboard.order("updated_at desc").paginate(:page => params[:page], :per_page => 3)
+    redirect_to admin_dashboards_path
+    flash[:notice] = "Dashboard deleted successfully!"
   end
 
   private
@@ -59,8 +65,8 @@
       @query = params[:query].strip
       relation = relation.search(@query) if !@query.blank?
     end
-    @dashboards = relation.order("created_at desc")
-    @dashboards = Dashboard.order("created_at desc").paginate(:page => params[:page], :per_page => 3)
+    @dashboards = relation.order("updated_at desc")
+    @dashboards = Dashboard.order("updated_at desc").paginate(:page => params[:page], :per_page => 3)
     ## Initializing the @dashboard object so that we can render the show partial
     @dashboard = @dashboards.first unless @dashboard
     return true

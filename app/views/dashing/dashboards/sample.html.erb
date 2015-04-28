@@ -1,37 +1,23 @@
-<% content_for :title do %>
-Dashboard
-<% end %>
-<script type='text/javascript'>
-$(function() {
-  Dashing.gridsterLayout('[{"col":1,"row":1},{"col":2,"row":1},{"col":3,"row":1},{"col":1,"row":2},{"col":4,"row":1},{"col":2,"row":2}]')
-});
-</script>
 <div class="gridster">
-<ul>
-<%require 'octokit'
-
-Dashing.scheduler.every '15000s', :first_in => 0 do |job|
-    client = Octokit::Client.new(:access_token => $dashboard_widget_github.access_token)
-    my_organization = $dashboard_widget_github.organization_name
-    repos = client.organization_repositories(my_organization).map { |repo| repo.name }
-
-    open_pull_requests = repos.inject([]) { |pulls, repo|
-      client.pull_requests("#{my_organization}/#{$dashboard_widget_github.repo_name}", :state => 'open').each do |pull|
-        pulls.push({
-          title: pull.title,
-          repo: $dashboard_widget_github.repo_name,
-          updated_at: pull.updated_at.strftime("%b %-d %Y, %l:%m %p"),
-          creator: "@" + pull.user.login,
-          })
-      end
-      pulls
-    }
-    Dashing.send_event('open_pull_requests', { header: "Open Pull Requests", pulls: open_pull_requests })
-end%>
-<% binding.pry%>
+  <% get_the_job_done(params[:dashboard_id]) %>
+  <ul>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-view="PullRequests" data-id="closed_pull_requests"></div>
+      <div data-view="PullRequests" data-id="open_pr"></div>
     </li>
-</ul>
-
+    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-view="PullRequests" data-id="closed_pr"></div>
+    </li>
+    <li data-row="1" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-view="PullRequests" data-id="AuthToken"></div>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="github_status" data-view="TrafficLights" data-title="GitHub"></div>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="code-climate" data-view="Codeclimate" data-title="Code Climate"></div>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+  		<div data-id="sprint_progress" data-view="SprintProgress" data-title="Sprint Progress"></div>
+		</li>
+  </ul>
 </div>

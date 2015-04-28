@@ -4,16 +4,11 @@ function CreateUserValidator() {
   return $("#user_password").val() == $('#user_password_confirmation').val();
 });
 
- jQuery.validator.addMethod("alpha", function(value, element) {
-  return this.optional(element) || value == value.match(/[a-zA-Z\s]+$/);
-});
-
  $('#create_user').validate({
   debug: true,
   rules: {
     "user[name]": {
-      required:true,
-      alpha:true
+      required:true
     },
     "user[email]": {
      email: true,
@@ -34,8 +29,7 @@ errorClass: "help-block",
 
 messages: {
  "user[name]":{
-  required: "This field is required!",
-  alpha: "Please enter a valid name!"
+  required: "This field is required!"
 },
 "user[email]": {
   required: "This field is required!",
