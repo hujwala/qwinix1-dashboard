@@ -1,64 +1,82 @@
-<div id="popup_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="popup_modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Add Widgets</h4>
       </div>
-      <%= form_for([:admin, @dashboard_widget], url: admin_dashboard_dashboard_widgets_path(@dashboard), :html => {:id=>"form_dashboard_widget", :class=>"mb-0 form-horizontal", :role => "form", :method => (@dashboard_widget.new_record? ? :post : :put), :remote=>true}) do |f| %>
+      <%= form_for([:admin, @dashboard_widget], url: admin_dashboard_dashboard_widgets_path(@dashboard), :html => {:id=>"form_dashboard_widget", :method => :post, :remote=>true}) do |f| %>
       <div class="modal-body">
+        <% dashwidgets = DashboardWidget.where(dashboard_id: @dashboard.id).pluck(:widget_id) %>
         <div class="row">
           <div class="col-sm-4 text-center" >
             <div class="modal-widgets">
               <div class="order-list selected" id="git">
                 <a href="#" class="widget-name selected">GIT
-                  <div class="num-widgets number-of-widgets">0 item(s) selected</div>
+                  <div class="num-widgets number-of-widgets">
+                  <% @count = 0 %>
+                  <% @github_widgets.each do |widget| %>
+                  <% if dashwidgets.include?(widget.id) %>
+                  <% @count += 1 %><% end %><% end %>
+                  <%=  @count %> item(s) selected</div>
                 </a>
               </div>
               <div class="order-list" id="jira">
                 <a href="#" class="widget-name">JIRA
-                  <div class="num-widgets number-of-widgets">0 item(s) selected</div>
+                  <div class="num-widgets number-of-widgets">
+                  <% @count = 0 %>
+                  <% @jira_widgets.each do |widget| %>
+                  <% if dashwidgets.include?(widget.id) %>
+                  <% @count += 1 %><% end %><% end %>
+                  <%=  @count %> item(s) selected</div>
                 </a>
               </div>
               <div class="order-list" id="code">
                 <a href="#" class="widget-name">CODE CLIMATE
-                  <div class="num-widgets number-of-widgets">0 item(s) selected</div>
+                  <div class="num-widgets number-of-widgets">
+                  <% @count = 0 %>
+                  <% @code_widgets.each do |widget| %>
+                  <% if dashwidgets.include?(widget.id) %>
+                  <% @count += 1 %><% end %><% end %>
+                  <%=  @count %> item(s) selected</div>
                 </a>
               </div>
             </div>
           </div>
-          <% dashwidgets = DashboardWidget.where(dashboard_id: @dashboard.id).pluck(:widget_id) %>
           <div class="col-sm-8">
             <div class="add-tiles-content">
              <div class="checkbox" id="git-widget">
-              <label>
+              <div>
                 <% @github_widgets.each do |widget| %>
-              <% unless dashwidgets.include?(widget.id) %>
-                <input type="checkbox">
+                <% unless dashwidgets.include?(widget.id) %>
                 <div><%= check_box_tag "gitwidget[]", widget.id %><%= widget.name %></div>
+                <% else %>
+                <div><input type="checkbox" checked="checked" disabled="true"></div><%= widget.name %>
                 <% end %>
                 <% end %>
-              </label>
+              </div>
             </div>
             <div class="checkbox" id="jira-widget">
-              <label>
+              <div>
                 <% @jira_widgets.each do |widget| %>
                 <% unless dashwidgets.include?(widget.id) %>
-                <input type="checkbox">
-                <div><%= check_box_tag "jirawidget[]", widget.id,@dashboard.widgets.include?(widget) %><%= widget.name %></div>
+                <div><%= check_box_tag "jirawidget[]", widget.id %><%= widget.name %></div>
+                <% else %>
+                <div><input type="checkbox" checked="checked" disabled="true"></div><%= widget.name %>
                 <% end %>
                 <% end %>
-              </label>
+              </div>
             </div>
             <div class="checkbox" id="code-widget">
-              <label>
+              <div>
                 <% @code_widgets.each do |widget| %>
                 <% unless dashwidgets.include?(widget.id) %>
-                <input type="checkbox">
-                <div><%= check_box_tag "codewidget[]", widget.id,@dashboard.widgets.include?(widget) %><%= widget.name %></div>
+                <div><%= check_box_tag "codewidget[]", widget.id %><%= widget.name %></div>
+                <% else %>
+                <div><input type="checkbox" checked="checked" disabled="true"></div><%= widget.name %>
                 <% end %>
                 <% end %>
-              </label>
+              </div>
             </div>
           </div>
         </div>

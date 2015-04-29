@@ -14,7 +14,7 @@
     if @dashboard.valid?
       @dashboard.save
       @success = true
-      flash[:success] = "Dashboard created successfullly!"
+      flash[:success] = "Dashboard created successfully!"
     else
       @success = false
     end
@@ -32,10 +32,10 @@
   def update
     @dashboard = Dashboard.find(params[:id])
     @dashboards = Dashboard.order("updated_at desc").paginate(:page => params[:page], :per_page => 3)
+    @dashboard.update_attributes(dashboard_params)
     if @dashboard.valid?
-      @dashboard.update_attributes(dashboard_params)
       @success = true
-      flash[:success] = "Dashboard updated successfullly!"
+      flash[:success] = "Dashboard updated successfully!"
     else
       @success = false
     end
@@ -43,9 +43,12 @@
 
   def destroy
     @dashboard = Dashboard.find(params[:id])
+    @dashboardwidgets = DashboardWidget.where(dashboard_id: params[:id])
+    @dashboardwidgets.destroy_all
     @dashboard.destroy
     @dashboards = Dashboard.order("updated_at desc").paginate(:page => params[:page], :per_page => 3)
     redirect_to admin_dashboards_path
+    flash[:notice] = "Dashboard deleted successfully!"
   end
 
   private

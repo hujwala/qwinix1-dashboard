@@ -1,6 +1,6 @@
  <div class="row">
     <div class="col-sm-offset-2 col-sm-10">
-    <%= form_for([:admin, @dashboard], :html => {:id=>"form_dashboard", :class=>"mb-0 form-horizontal", :role => "form", :method => (@dashboard.new_record? ? :post : :put), :remote=>true}) do |f| %>
+    <%= form_for([:admin, @dashboard], :html => {:id=>"form_dashboard", :remote=>true}) do |f| %>
  <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">New Dashboard</h3>
