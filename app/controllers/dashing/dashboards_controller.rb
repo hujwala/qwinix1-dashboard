@@ -133,7 +133,7 @@ module Dashing
           status: @traffic_lights[response["status"]],
           message: response["body"]
         }
-        Dashing.send_event('n_status', data)
+        Dashing.send_event('traffic-lights', data)
       end
     end
 
