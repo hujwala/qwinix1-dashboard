@@ -1,7 +1,9 @@
 <% if @success %>
 $('#div_dashboard_show').html("<%= escape_javascript(render(:partial=>'/admin/dashboards/show')) %>");
+$('#d_flash_message').html("<%= escape_javascript(render(:partial=>'/layouts/dashing/flash_messages')) %>");
 $('#div_wallboard_button').html("<%= escape_javascript(render(:partial=>'/admin/dashboards/wallboard_button')) %>");
 $('.modal-backdrop').hide();
+<% flash[:success] = nil %>
 <% else %>
 heading = "Add Widgets";
 bodyContent = "<%= escape_javascript(render(:partial=>'form')) %>";
