@@ -229,7 +229,6 @@ DEPENDENCIES
   octokit
   pg
   pry
-  puma (~> 2.10.0)
   rails (= 4.1.8)
   rb-readline (~> 0.5.2)
   responders
