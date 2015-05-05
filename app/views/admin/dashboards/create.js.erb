@@ -1,13 +1,7 @@
 <% if @success %>
-  // Fill the right box with first talk details
-  $('#div_dashboard_show').html("<%= escape_javascript(render(:partial=>'show')) %>");
-  $('#d_flash_message').html("<%= escape_javascript(render(:partial=>'/layouts/dashing/flash_messages')) %>");
-// Add the newly created item to the list
-  $("#div_dashboard_index").html("<%= escape_javascript(render(:partial => 'index', :locals => { :dashboards => @dashboards })) %>")
-  $(".panel-message").hide();
-  <% flash[:success] = nil %>
-  <% else %>
-  $('#div_dashboard_show').html("<%= escape_javascript(render(:partial=>'form')) %>");
+window.location.href = "/admin/dashboards"
+<% else %>
+$('#div_dashboard_show').html("<%= escape_javascript(render(:partial=>'form')) %>");
   // Populate Server Side Errors
   <%
   text = "You have few errors. They have been highlighted."

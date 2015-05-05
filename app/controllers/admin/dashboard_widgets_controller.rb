@@ -22,6 +22,7 @@ class Admin::DashboardWidgetsController < ApplicationController
     @dashboard_widget.savewidgets(widget_params, @dashboard)
     if @dashboard_widget.valid?
       @success = true
+      flash[:success] = "Widgets added successfully!"
     else
       @success = false
     end
@@ -63,6 +64,7 @@ class Admin::DashboardWidgetsController < ApplicationController
   @widget = Widget.find_by_id params[:id]
   @dashboard_widget = DashboardWidget.find_by_widget_id @widget.id
   @dashboard_widget.destroy
+  flash[:notice] = "Widget deleted successfully!"
 end
 
 def update_widgets
