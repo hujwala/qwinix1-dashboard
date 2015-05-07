@@ -93,7 +93,7 @@ module Dashing
           end
           pulls
         }
-        Dashing.send_event('open_pr', { header: "Open Pull Requests", pulls: open_pull_requests })
+        Dashing.send_event("open_pr_#{obj['dashboard_id']}", { header: "Open Pull Requests", pulls: open_pull_requests })
       end
     end
 
@@ -117,7 +117,7 @@ module Dashing
           pulls
         }
 
-        Dashing.send_event('closed_pr', { header: "Closed Pull Requests", pulls: closed_pull_requests })
+        Dashing.send_event("closed_pr_#{obj['dashboard_id']}", { header: "Closed Pull Requests", pulls: closed_pull_requests })
       end
     end
 
@@ -134,7 +134,7 @@ module Dashing
           status: @traffic_lights[response["status"]],
           message: response["body"]
         }
-        Dashing.send_event('traffic-lights', data)
+        Dashing.send_event("traffic-lights_#{obj['dashboard_id']}", data)
       end
     end
 
@@ -151,7 +151,7 @@ module Dashing
         app_name = stats['name']
         covered_percent = stats['last_snapshot']['covered_percent'].to_f
         last_gpa = stats['previous_snapshot']['gpa'].to_f
-        Dashing.send_event("code-climate", {current: current_gpa, last: last_gpa, name: app_name, percent_covered: covered_percent })
+        Dashing.send_event("code-climate_#{obj['dashboard_id']}", {current: current_gpa, last: last_gpa, name: app_name, percent_covered: covered_percent })
       end   
     end
 
@@ -175,7 +175,7 @@ module Dashing
           moreinfo = "#{closed_points.to_i} / #{total_points.to_i}"
         end
 
-       Dashing.send_event('sprint_progress', { title: "Sprint Progress", min: 0, value: percentage, max: 100, moreinfo: moreinfo })
+       Dashing.send_event("sprint_progress_#{obj['dashboard_id']}", { title: "Sprint Progress", min: 0, value: percentage, max: 100, moreinfo: moreinfo })
       end
     end
 
