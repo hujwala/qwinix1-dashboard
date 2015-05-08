@@ -1,4 +1,4 @@
 <div class="text-right dash-btn-group">
   <%= link_to 'Add New Dashboard', new_admin_dashboard_path, :remote => true, :class=>"btn btn-primary" %>
-  <%= link_to 'Wallboard', admin_dashboard_dashing_path(@dashboard), :class=>"btn btn-primary", :target=>"_blank" if @dashboard %>
+  <%= link_to 'Wallboard', admin_dashboard_dashing_path(@dashboard), :class=>"btn btn-primary", :target=>"_blank", :disabled => !(DashboardWidget.where(dashboard_id: @dashboard.id).pluck(:status).include?("configured")) %>
 </div>
