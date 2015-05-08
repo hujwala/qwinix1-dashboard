@@ -34,12 +34,12 @@ module Dashing
     end
 
     def get_the_job_done(id)
-      json_obj = []
+      @json_obj = []
       dashboard = Dashboard.find id
       dashboard.dashboard_widgets.each do |dash_wid|
-        json_obj << JSON.parse(dash_wid.to_json).compact
+        @json_obj << JSON.parse(dash_wid.to_json).compact
       end   
-      json_obj.each do |obj|
+      @json_obj.each do |obj|
         case (Widget.find obj["widget_id"]).name
         when "Github-Open-PR"
           github_open_pr_job(obj)
@@ -91,7 +91,7 @@ module Dashing
               })
             end
           end
-          pulls
+          pulls[0..3]
         }
         Dashing.send_event("open_pr_#{obj['dashboard_id']}", { header: "Open Pull Requests", pulls: open_pull_requests })
       end
@@ -114,7 +114,7 @@ module Dashing
               })
             end
           end
-          pulls
+          pulls[0..3]
         }
 
         Dashing.send_event("closed_pr_#{obj['dashboard_id']}", { header: "Closed Pull Requests", pulls: closed_pull_requests })

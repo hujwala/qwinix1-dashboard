@@ -1,19 +1,28 @@
 <div class="gridster">
   <ul>
+    <% @json_obj.each do |obj| %>
+    <% case (Widget.find obj["widget_id"]).name %>
+    <%  when "Github-Open-PR" %>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-view="PullRequests" data-id="open_pr_<%= params[:dashboard_id].to_i %>"></div>
     </li>
+    <% when "Github-Closed-PR" %>
     <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
       <div data-view="PullRequests" data-id="closed_pr_<%= params[:dashboard_id].to_i %>"></div>
     </li>
+    <% when "Github-Status" %>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="traffic-lights_<%= params[:dashboard_id].to_i %>" data-view="TrafficLights" data-title="Github"></div>
     </li>
+    <% when "GPA" %>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="code-climate_<%= params[:dashboard_id].to_i %>" data-view="Codeclimate" data-title="Code Climate"></div>
     </li>
+    <% when "Sprint-progress" %>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="sprint_progress_<%= params[:dashboard_id].to_i %>" data-view="SprintProgress" data-title="Sprint Progress"></div>
     </li>
+    <% end %>
+    <% end %>
   </ul>
 </div>
