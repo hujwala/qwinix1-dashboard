@@ -74,7 +74,7 @@ module Dashing
     end
 
     def github_open_pr_job(obj)
-      Dashing.scheduler.every '10s', :first_in => 0 do |job|
+      Dashing.scheduler.every '5m', :first_in => 0 do |job|
         client = Octokit::Client.new(:access_token => obj["access_token"])
         my_organization = obj["organization_name"]
 
@@ -98,7 +98,7 @@ module Dashing
     end
 
     def github_closed_pr_job(obj)
-      Dashing.scheduler.every '10s', :first_in => 0 do |job|
+      Dashing.scheduler.every '5m', :first_in => 0 do |job|
         client = Octokit::Client.new(:access_token => obj["access_token"])
         my_organization = obj["organization_name"]
         repos = client.organization_repositories(my_organization).map { |repo| repo.name }
@@ -128,7 +128,7 @@ module Dashing
         'major' => 'red'
       }
       # GITHUB_STATUS_URI = obj["github_url"].to_str
-      Dashing.scheduler.every '10s', :first_in => 0 do
+      Dashing.scheduler.every '5m', :first_in => 0 do
         response = HTTParty.get("https://status.github.com/api/last-message.json")
         data = {
           status: @traffic_lights[response["status"]],
@@ -139,7 +139,7 @@ module Dashing
     end
 
     def gpa(obj)
-      Dashing.scheduler.every '10s', :first_in => 0 do |job|
+      Dashing.scheduler.every '5m', :first_in => 0 do |job|
         uri = URI.parse("https://codeclimate.com/api/repos/#{obj['code_repo_id']}")
         http = Net::HTTP.new(uri.host, uri.port)
         http.use_ssl = true
@@ -156,7 +156,7 @@ module Dashing
     end
 
     def sprint_progress(obj)
-      Dashing.scheduler.every '10s', :first_in => 0 do |job|
+      Dashing.scheduler.every '5m', :first_in => 0 do |job|
         @client = JIRA::Client.new({
           :username => obj["jira_name"],
           :password => obj["jira_password"],
