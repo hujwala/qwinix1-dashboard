@@ -63,7 +63,7 @@ class Admin::DashboardWidgetsController < ApplicationController
  def destroy
   @dashboard = Dashboard.find_by_id params[:dashboard_id]
   @widget = Widget.find_by_id params[:id]
-  @dashboard_widget = DashboardWidget.find_by_widget_id @widget.id
+  @dashboard_widget = DashboardWidget.where(dashboard_id: @dashboard.id).find_by_widget_id(@widget.id)
   @dashboard_widget.destroy
   flash[:notice] = "Widget deleted successfully!"
 end
