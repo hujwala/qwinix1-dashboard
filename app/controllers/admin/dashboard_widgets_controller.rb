@@ -19,8 +19,8 @@ class Admin::DashboardWidgetsController < ApplicationController
   def create
     @dashboard = Dashboard.find_by_id params[:dashboard_id]
     @dashboard_widget = DashboardWidget.new
-    @dashboard_widget.savewidgets(widget_params, @dashboard)
-    if @dashboard_widget.valid?
+    if widget_params.present?
+      @dashboard_widget.savewidgets(widget_params, @dashboard)
       @success = true
       flash[:success] = "Widgets added successfully!"
     else
