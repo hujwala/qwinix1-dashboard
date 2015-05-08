@@ -51,6 +51,7 @@ class Admin::DashboardWidgetsController < ApplicationController
     @dashboard_widget.jira_password = params[:dashboard_widget][:jira_password]
     @dashboard_widget.jira_project_key = params[:dashboard_widget][:jira_project_key]
     @dashboard_widget.github_status_prs = params[:dashboard_widget][:github_status_prs]
+    @dashboard_widget.status = "configured"
     if @dashboard_widget.valid?
      @dashboard_widget.save
      @success = true
