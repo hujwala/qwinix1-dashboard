@@ -9,13 +9,15 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
   end
+
   def require_login
-    unless session[:user_id]
+    if session[:user_id] == nil || current_user.nil?
+      session[:user_id] = nil
       redirect_to root_path
     end
   end
   def sign_out
-    if session[:user_id]
+    if session[:user_id] 
       redirect_to admin_dashboards_path
     end
   end
