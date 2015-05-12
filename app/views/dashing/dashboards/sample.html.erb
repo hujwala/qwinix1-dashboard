@@ -22,6 +22,10 @@
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="sprint_progress_<%= params[:dashboard_id].to_i %>" data-view="SprintProgress" data-title="Sprint Progress"></div>
     </li>
+    <% when "Sprint-remaning-days" %>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="view<%= params[:dashboard_id].to_i %>" data-view="JiraSprintRemainingDays"></div>
+    </li>
     <% end %>
     <% end %>
   </ul>

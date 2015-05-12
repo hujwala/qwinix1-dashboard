@@ -84,7 +84,7 @@
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      <%= f.submit "Save changes", :class=>"btn btn-primary" %>
+      <%= f.submit "Save changes", :class=>"btn btn-primary", :id => "click_disable1" %>
     </div>
     <%end%>
   </div>
@@ -99,6 +99,11 @@
     $('.widget-name').on('click', function(){
       $('.widget-name').removeClass('selected');
       $(this).addClass('selected');
+    });
+  });
+  $(document).ready(function(){
+    $("#click_disable1").click(function(){
+        $("#click_disable1").addClass('disabled');
     });
   });
 </script>
