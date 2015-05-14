@@ -27,16 +27,7 @@ $('#myModal').modal('show');
 code_gpa_validator()
 <% end %>
 
-
-<% if @widget.widget_type == "Jira" && @widget.name == "To-Do-list" %>
-$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira'))  %>");
-$('#myModal').modal('show');
-jira_validator()
-<% elsif @widget.widget_type == "Jira" && @widget.name == "Assign-to-QA" %>
-$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira'))  %>");
-$('#myModal').modal('show');
-jira_validator()
-<% elsif @widget.widget_type == "Jira" && @widget.name == "Sprint-remaning-days" %>
+<% if @widget.widget_type == "Jira" && @widget.name == "Sprint-remaning-days" %>
 $('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira'))  %>");
 $('#myModal').modal('show');
 jira_validator()
@@ -44,7 +35,7 @@ jira_validator()
 $('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira'))  %>");
 $('#myModal').modal('show');
 jira_validator()
-<% elsif @widget.widget_type == "Jira" && @widget.name == "No of open-issues" %>
+<% elsif @widget.widget_type == "Jira" && @widget.name == "Jira Stories Details" %>
 $('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira_noofissues'))  %>");
 $('#myModal').modal('show');
 jira_no_of_issues_validator()
