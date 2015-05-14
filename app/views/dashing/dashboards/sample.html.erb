@@ -1,3 +1,8 @@
+<script type='text/javascript'>
+  $(function() {
+    Dashing.gridsterLayout('[{"col":2,"row":1},{"col":1,"row":1},{"col":3,"row":1},{"col":4,"row":1},{"col":1,"row":2},{"col":3,"row":2}]')
+  });
+</script>
 <div class="gridster">
   <ul>
     <% @json_obj.each do |obj| %>
@@ -25,6 +30,10 @@
     <% when "Sprint-remaning-days" %>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="view<%= params[:dashboard_id].to_i %>" data-view="JiraSprintRemainingDays"></div>
+    </li>
+    <% when "No of open-issues" %>
+    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="jira<%= params[:dashboard_id].to_i %>" data-view="JiraDetails"></div>
     </li>
     <% end %>
     <% end %>

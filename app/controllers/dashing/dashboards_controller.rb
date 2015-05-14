@@ -58,8 +58,8 @@ module Dashing
             sprint_progress(obj)
           when "Sprint-remaning-days"
             sprint_remaining_days(obj)
-          # when (Widget.find json_obj.first["widget_id"]).name = "To-Do-list"
-          #   github_open_pr_job(obj)
+          when "Jira Stories Details"
+            number_of_open_issues(obj)
           # when (Widget.find json_obj.first["widget_id"]).name = "Assign-to-QA"
           #   github_open_pr_job(obj)
           # when (Widget.find json_obj.first["widget_id"]).name = "Sprint-remaning-day"
