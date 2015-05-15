@@ -35,6 +35,10 @@
     <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
       <div data-id="jira<%= params[:dashboard_id].to_i %>" data-view="JiraDetails"></div>
     </li>
+    <% when "Build-test" %>
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="jenkinsBuildStatus" data-view="JenkinsBuildStatus" data-title="Jenkins"></div>
+    </li>
     <% end %>
     <% end %>
   </ul>

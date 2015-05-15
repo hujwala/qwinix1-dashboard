@@ -40,3 +40,9 @@ $('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_wid
 $('#myModal').modal('show');
 jira_no_of_issues_validator()
 <% end %>
+
+<% if @widget.widget_type == "Jenkins" && @widget.name == "Build-test" %>
+$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jenkins/jenkins_build_status'))  %>");
+$('#myModal').modal('show');
+jira_no_of_issues_validator()
+<% end %>
