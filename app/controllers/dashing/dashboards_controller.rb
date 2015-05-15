@@ -10,6 +10,7 @@ module Dashing
     include GitHub
     include CodeClimate
     include Jira
+    include Jenkins
 
     before_filter :check_dashboard_name, only: :show
 
@@ -45,35 +46,23 @@ module Dashing
         @json_obj << JSON.parse(dash_wid.to_json).compact
       end   
       @json_obj.each do |obj|
-        case (Widget.find obj["widget_id"]).name
-          when "Github-Open-PR"
-            github_open_pr_job(obj)
-          when "Github-Closed-PR"
-            github_closed_pr_job(obj)
-          when "GPA"
-            gpa(obj)
-          when "Github-Status"
-            github_status(obj)
-          when "Sprint-progress"
-            sprint_progress(obj)
-          when "Sprint-remaning-days"
-            sprint_remaining_days(obj)
-          when "Jira Stories Details"
-            number_of_open_issues(obj)
-          # when (Widget.find json_obj.first["widget_id"]).name = "Assign-to-QA"
-          #   github_open_pr_job(obj)
-          # when (Widget.find json_obj.first["widget_id"]).name = "Sprint-remaning-day"
-          #   github_open_pr_job(obj)
-          # when (Widget.find json_obj.first["widget_id"]).name = "Sprint-progress"
-          #   github_open_pr_job(obj)
-          # when (Widget.find json_obj.first["widget_id"]).name = "No of open-issues"
-          #   github_open_pr_job(obj)
-          # when (Widget.find json_obj.first["widget_id"]).name = "GPA"
-          #   github_open_pr_job(obj)
-          # when (Widget.find json_obj.first["widget_id"]).name = "Test-coverage"
-          #   github_open_pr_job(obj)
-          # when (Widget.find json_obj.first["widget_id"]).name = "Build-test"
-          #   github_open_pr_job(obj)
+        case (Widget.find obj["widget_id"]).name 
+          when "Github-Open-PR" 
+            github_open_pr_job(obj) if obj["status"] == "configured"
+          when "Github-Closed-PR" 
+            github_closed_pr_job(obj) if obj["status"] == "configured"
+          when "GPA" 
+            gpa(obj) if obj["status"] == "configured"
+          when "Github-Status" 
+            github_status(obj) if obj["status"] == "configured"
+          when "Sprint-progress" 
+            sprint_progress(obj) if obj["status"] == "configured"
+          when "Sprint-remaning-days" 
+            sprint_remaining_days(obj) if obj["status"] == "configured"
+          when "Jira Stories Details" 
+            number_of_open_issues(obj) if obj["status"] == "configured" 
+          when "Build-test" 
+            jenkins_build_status(obj) if obj["status"] == "configured"
         end
       end
     end
