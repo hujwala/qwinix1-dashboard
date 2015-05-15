@@ -60,7 +60,7 @@ module Dashing
           when "Sprint-remaning-days" 
             sprint_remaining_days(obj) if obj["status"] == "configured"
           when "Jira Stories Details" 
-            number_of_open_issues(obj) if obj["status"] == "configured"when "Jira Stories Details" 
+            number_of_open_issues(obj) if obj["status"] == "configured" 
           when "Build-test" 
             jenkins_build_status(obj) if obj["status"] == "configured"
         end
