@@ -2,31 +2,21 @@ module GitHub
 
   extend ActiveSupport::Concern
 
-  def github_open_pr_job(obj)
-    Dashing.scheduler.every '5m', :first_in => 0 do |job|
-      client = Octokit::Client.new(:access_token => obj["access_token"])
-      my_organization = obj["organization_name"]
-
-      repos = client.organization_repositories(my_organization).map { |repo| repo.name }
-
-      open_pull_requests = repos.inject([]) { |pulls, repo|
-        if repo==obj["repo_name"]
-          client.pull_requests("#{my_organization}/#{repo}", :state => 'open').each do |pull|
-            pulls.push({
-              title: pull.title,
-              repo: repo,
-              updated_at: pull.updated_at.strftime("%b %-d %Y, %l:%m %p"),
-              creator: "@" + pull.user.login,
-              })
-          end
-        end
-        pulls[0..3]
+  def github_commits(obj)
+    Dashing.scheduler.every '2m', :first_in => 0 do |job|
+      githubcommits = Octokit.list_commits("#{obj["organization_name"]}/#{obj["repo_name"]}").map do |commit_obj|
+       { 
+        title: commit_obj.commit.message,
+        repo: commit_obj.commit.author.name, 
+        creator: commit_obj.commit.author.email, 
+        updated_at: commit_obj.commit.author.date
       }
-      Dashing.send_event("open_pr_#{obj['dashboard_id']}", { header: "Open Pull Requests", pulls: open_pull_requests })
     end
+    Dashing.send_event("commits#{obj['dashboard_id']}", { header: "Github Commits", pulls: githubcommits })
   end
+end
 
-  def github_status(obj)
+def github_status(obj)
   @traffic_lights = {
     'good' => 'green',
     'minor' => 'amber',

@@ -11,7 +11,7 @@ $('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_wid
 $('#myModal').modal('show');
 github_validator()
 <% elsif @widget.widget_type == "Github" && @widget.name == "Github-Last-10-Commits" %>
-$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/github/github_commits'))  %>");
+$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/github/github_pr'))  %>");
 $('#myModal').modal('show');
 github_validator()
 <% end %>

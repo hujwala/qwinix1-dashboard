@@ -63,6 +63,8 @@ module Dashing
             number_of_open_issues(obj) if obj["status"] == "configured" 
           when "Build-test" 
             jenkins_build_status(obj) if obj["status"] == "configured"
+          when "Github-Last-10-Commits" 
+            github_commits(obj) if obj["status"] == "configured"
         end
       end
     end
