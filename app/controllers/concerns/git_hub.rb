@@ -3,12 +3,13 @@ module GitHub
   extend ActiveSupport::Concern
 
   def github_commits(obj)
-    Dashing.scheduler.every '2m', :first_in => 0 do |job|
-      githubcommits = Octokit.list_commits("#{obj["organization_name"]}/#{obj["repo_name"]}").map do |commit_obj|
+    Dashing.scheduler.every '1m', :first_in => 0 do |job|
+      client = Octokit::Client.new(:access_token => obj["access_token"])
+      githubcommits = client.list_commits("#{obj["organization_name"]}/#{obj["repo_name"]}").map do |commit_obj|
        { 
         title: commit_obj.commit.message,
-        repo: commit_obj.commit.author.name, 
-        creator: commit_obj.commit.author.email, 
+        repo: "#{obj["repo_name"]}", 
+        creator: commit_obj.commit.author.name, 
         updated_at: commit_obj.commit.author.date
       }
     end
