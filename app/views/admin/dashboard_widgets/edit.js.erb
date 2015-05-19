@@ -32,7 +32,7 @@ $('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_wid
 $('#myModal').modal('show');
 jira_validator()
 <% elsif @widget.widget_type == "Jira" && @widget.name == "Sprint-progress" %>
-$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira'))  %>");
+$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira_noofissues'))  %>");
 $('#myModal').modal('show');
 jira_validator()
 <% elsif @widget.widget_type == "Jira" && @widget.name == "Jira Stories Details" %>
