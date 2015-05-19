@@ -44,7 +44,7 @@ module Jenkins
 
 			failed = failedJobs.size > 0
 
-			Dashing.send_event('jenkinsBuildStatus', { failedJobs: failedJobs, succeededJobs: succeededJobs, failed: failed })
+			Dashing.send_event("jenkinsBuildStatus#{obj['dashboard_id']}", { failedJobs: failedJobs, succeededJobs: succeededJobs, failed: failed })
 		end
 	end
 
