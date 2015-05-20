@@ -25,7 +25,7 @@
     </li>
     <% when "Sprint-progress" %>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="sprint_progress_<%= params[:dashboard_id].to_i %>" data-view="Meter" data-title="Sprint Progress"></div>
+      <div data-id="sprint_progress_<%= params[:dashboard_id].to_i %>" data-view="SprintProgress" data-title="Sprint Progress"></div>
     </li>
     <% when "Sprint-remaning-days" %>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
@@ -45,11 +45,11 @@
     </li>
     <% when "Error-Rate" %>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="rpm<%= params[:dashboard_id].to_i %>_error_rate" data-view="Number" data-title="Error Rate" data-min="0" data-max="100"></div>
+      <div data-id="rpm<%= params[:dashboard_id].to_i %>_error_rate" data-view="Number" data-title="New Relic Error Rate" data-min="0" data-max="100"></div>
     </li>
     <% when "Response-Time" %>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="rpm<%= params[:dashboard_id].to_i %>_response_time" data-view="Number" data-title="Response Time" data-min="0" data-max="100"></div>
+      <div data-id="rpm<%= params[:dashboard_id].to_i %>_response_time" data-view="Number" data-title="New Relic Response Time" data-min="0" data-max="100"></div>
     </li>
     <% end %>
     <% end %>
