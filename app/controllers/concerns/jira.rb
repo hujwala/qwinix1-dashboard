@@ -1,22 +1,47 @@
 module Jira
   extend ActiveSupport::Concern
   def sprint_progress(obj)
-    Dashing.scheduler.every '10s', :first_in => 0 do |job|
-      @client = JIRA::Client.new({
-        :username => obj["jira_name"],
-        :password => obj["jira_password"],
-        :site => obj["jira_url"] + "?rapidView=" +  obj["jira_view_id"],
-        :auth_type => :basic,
-        :context_path => ""
-        })
-      closed_points = @client.Issue.jql("sprint in openSprints() and status = \"Done\"").map{ |issue| issue.fields['customfield_10004'] }.reduce(:+) || 0
-      total_points = @client.Issue.jql("sprint in openSprints()").map{ |issue| issue.fields['customfield_10004'] }.compact.reduce(:+) || 0
+    host = obj["jira_url"]
+    username = obj["jira_name"]
+    password = obj["jira_password"]
+    project = obj["jira_project_key"]
+    resolved = "RESOLVED"
+    done = "DONE"
+    closed = "CLOSED"
+
+    sprint_name = obj["jira_view_id"]
+
+    options = {
+      :username => username,
+      :password => password,
+      :context_path => '',
+      :site     => host,
+      :auth_type => :basic
+    }
+
+    Dashing.scheduler.every '5m', :first_in => 0 do |job|
+
+      client = JIRA::Client.new(options)
+      total_points = 0;
+      client.Issue.jql("PROJECT = \"#{project}\" AND SPRINT = \"#{sprint_name}\"").each do |issue|
+        total_points+=1
+      end
+      closed_points = 0;
+      client.Issue.jql("PROJECT = \"#{project}\" AND SPRINT = \"#{sprint_name}\" AND STATUS = \"#{resolved}\"").each do |issue|
+        closed_points+=1
+      end
+      client.Issue.jql("PROJECT = \"#{project}\" AND SPRINT = \"#{sprint_name}\" AND STATUS = \"#{done}\"").each do |issue|
+        closed_points+=1
+      end
+      client.Issue.jql("PROJECT = \"#{project}\" AND SPRINT = \"#{sprint_name}\" AND STATUS = \"#{closed}\"").each do |issue|
+        closed_points+=1
+      end
 
       if total_points == 0
         percentage = 0
         moreinfo = "No sprint currently in progress"
       else
-        percentage = ((closed_points/total_points)*100).to_i
+        percentage = (((closed_points/1.0)/(total_points/1.0))*100).to_i
         moreinfo = "#{closed_points.to_i} / #{total_points.to_i}"
       end
 
@@ -85,7 +110,7 @@ module Jira
     end
 
     view_mapping.each do |view, view_id|
-      Dashing.scheduler.every '10s', :first_in => 0 do |id|
+      Dashing.scheduler.every '5m', :first_in => 0 do |id|
         view_name = ""
         sprint_name = ""
         days = ""
@@ -122,6 +147,7 @@ module Jira
     uat = "UAT"
     resolved = "RESOLVED"
     done = "DONE"
+    closed = "CLOSED"
 
     sprint_name = obj["jira_view_id"]
 
@@ -133,7 +159,7 @@ module Jira
       :auth_type => :basic
     }
 
-    Dashing.scheduler.every '10s', :first_in => 0 do |job|
+    Dashing.scheduler.every '5m', :first_in => 0 do |job|
 
       client = JIRA::Client.new(options)
       todo_count = 0;
@@ -172,8 +198,12 @@ module Jira
       client.Issue.jql("PROJECT = \"#{project}\" AND STATUS = \"#{done}\" AND SPRINT = \"#{sprint_name}\"").each do |issue|
         done_count+=1
       end
-      total = todo_count + open_count + reopened_count + in_progress_count + done_count + dev_done_count + qa_count + uat_count + resolved_count
-      Dashing.send_event("jira#{obj['dashboard_id']}", { title: "Jira Story Details", todo: todo_count, open: open_count, reopened: reopened_count, inprogress: in_progress_count, qa: qa_count, uat: uat_count, dev_done: dev_done_count, resolved:resolved_count, done: done_count, total: total })
+      closed_count = 0;
+      client.Issue.jql("PROJECT = \"#{project}\" AND STATUS = \"#{closed}\" AND SPRINT = \"#{sprint_name}\"").each do |issue|
+        closed_count+=1
+      end
+      total_points = todo_count + open_count + reopened_count + in_progress_count + done_count + dev_done_count + qa_count + uat_count + resolved_count
+      Dashing.send_event("jira#{obj['dashboard_id']}", { title: "Jira Story Details", todo: todo_count, open: open_count, reopened: reopened_count, inprogress: in_progress_count, qa: qa_count, uat: uat_count, dev_done: dev_done_count, resolved:resolved_count, done: done_count, closed: closed_count, total: total_points })
     end
   end
 end

@@ -12,6 +12,8 @@ gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'jira-ruby', :require => 'jira'
 gem "rolify"
+gem 'activeresource'
+gem 'newrelic_api'
 # Use postgres as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets

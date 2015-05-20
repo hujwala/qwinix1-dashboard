@@ -32,7 +32,7 @@ $('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_wid
 $('#myModal').modal('show');
 jira_validator()
 <% elsif @widget.widget_type == "Jira" && @widget.name == "Sprint-progress" %>
-$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira'))  %>");
+$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira_noofissues'))  %>");
 $('#myModal').modal('show');
 jira_validator()
 <% elsif @widget.widget_type == "Jira" && @widget.name == "Jira Stories Details" %>
@@ -43,6 +43,16 @@ jira_no_of_issues_validator()
 
 <% if @widget.widget_type == "Jenkins" && @widget.name == "Build-test" %>
 $('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jenkins/jenkins_build_status'))  %>");
+$('#myModal').modal('show');
+jira_no_of_issues_validator()
+<% end %>
+
+<% if @widget.widget_type == "Newrelic" && @widget.name == "Error-Rate" %>
+$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/newrelic/newrelic'))  %>");
+$('#myModal').modal('show');
+jira_validator()
+<% elsif @widget.widget_type == "Newrelic" && @widget.name == "Response-Time" %>
+$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/newrelic/newrelic'))  %>");
 $('#myModal').modal('show');
 jira_no_of_issues_validator()
 <% end %>

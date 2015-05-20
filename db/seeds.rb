@@ -19,6 +19,9 @@ Widget.create(name:'Test-coverage', widget_type: 'Code Climate')
 
 Widget.create(name:'Build-test', widget_type: 'Jenkins')
 
+Widget.create(name:'Error-Rate', widget_type: 'Newrelic')
+Widget.create(name:'Response-Time', widget_type: 'Newrelic')
+
 Widget.all.each do |u|
 	puts "Widget '#{u.name}' created"
 end
