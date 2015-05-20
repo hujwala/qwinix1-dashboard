@@ -51,6 +51,16 @@
                   <%=  @count %> item(s) selected</div>
                 </a>
               </div>
+              <div class="order-list" id="newrelic">
+                <a href="#" class="widget-name">Newrelic
+                  <div class="num-widgets number-of-widgets">
+                  <% @count = 0 %>
+                  <% @newreli_widgets.each do |widget| %>
+                  <% if dashwidgets.include?(widget.id) %>
+                  <% @count += 1 %><% end %><% end %>
+                  <%=  @count %> item(s) selected</div>
+                </a>
+              </div>
             </div>
           </div>
           <div class="col-sm-8">
@@ -99,6 +109,17 @@
                 <% end %>
               </div>
             </div>
+            <div class="checkbox" id="newrelic-widget">
+              <div>
+                <% @newreli_widgets.each do |widget| %>
+                <% unless dashwidgets.include?(widget.id) %>
+                <div><%= check_box_tag "jirawidget[]", widget.id %><%= widget.name %></div>
+                <% else %>
+                <div><input type="checkbox" checked="checked" disabled="true"></div><%= widget.name %>
+                <% end %>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -116,6 +137,7 @@
   $('#jira-widget').hide();
   $('#code-widget').hide();
   $('#jenkins-widget').hide();
+  $('#newrelic-widget').hide();
   $(document).ready(function() {
     $('.widget-name').on('click', function(){
       $('.widget-name').removeClass('selected');

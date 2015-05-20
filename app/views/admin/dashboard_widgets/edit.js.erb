@@ -46,3 +46,13 @@ $('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_wid
 $('#myModal').modal('show');
 jira_no_of_issues_validator()
 <% end %>
+
+<% if @widget.widget_type == "Newrelic" && @widget.name == "Error-Rate" %>
+$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/newrelic/newrelic'))  %>");
+$('#myModal').modal('show');
+jira_validator()
+<% elsif @widget.widget_type == "Newrelic" && @widget.name == "Response-Time" %>
+$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/newrelic/newrelic'))  %>");
+$('#myModal').modal('show');
+jira_no_of_issues_validator()
+<% end %>

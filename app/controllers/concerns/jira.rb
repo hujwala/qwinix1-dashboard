@@ -202,8 +202,7 @@ module Jira
       client.Issue.jql("PROJECT = \"#{project}\" AND STATUS = \"#{closed}\" AND SPRINT = \"#{sprint_name}\"").each do |issue|
         closed_count+=1
       end
-      @total_points = todo_count + open_count + reopened_count + in_progress_count + done_count + dev_done_count + qa_count + uat_count + resolved_count
-      @closed_points = dev_done_count + resolved_count
+      total_points = todo_count + open_count + reopened_count + in_progress_count + done_count + dev_done_count + qa_count + uat_count + resolved_count
       Dashing.send_event("jira#{obj['dashboard_id']}", { title: "Jira Story Details", todo: todo_count, open: open_count, reopened: reopened_count, inprogress: in_progress_count, qa: qa_count, uat: uat_count, dev_done: dev_done_count, resolved:resolved_count, done: done_count, closed: closed_count, total: total_points })
     end
   end

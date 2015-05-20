@@ -25,7 +25,7 @@
     </li>
     <% when "Sprint-progress" %>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="sprint_progress_<%= params[:dashboard_id].to_i %>" data-view="SprintProgress" data-title="Sprint Progress"></div>
+      <div data-id="sprint_progress_<%= params[:dashboard_id].to_i %>" data-view="Meter" data-title="Sprint Progress"></div>
     </li>
     <% when "Sprint-remaning-days" %>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
@@ -36,12 +36,20 @@
       <div data-id="jira<%= params[:dashboard_id].to_i %>" data-view="JiraDetails"></div>
     </li>
     <% when "Build-test" %>
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="jenkinsBuildStatus" data-view="JenkinsBuildStatus" data-title="Jenkins"></div>
     </li>
     <% when "Github-Last-10-Commits" %>
     <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
       <div data-view="PullRequests" data-id="commits<%= params[:dashboard_id].to_i %>"></div>
+    </li>
+    <% when "Error-Rate" %>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="rpm<%= params[:dashboard_id].to_i %>_error_rate" data-view="Number" data-title="Error Rate" data-min="0" data-max="100"></div>
+    </li>
+    <% when "Response-Time" %>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="rpm<%= params[:dashboard_id].to_i %>_response_time" data-view="Number" data-title="Response Time" data-min="0" data-max="100"></div>
     </li>
     <% end %>
     <% end %>

@@ -14,6 +14,7 @@ class Admin::DashboardWidgetsController < ApplicationController
     @jira_widgets = @widgets.all.select{|w|w.name if w.widget_type=='Jira'}
     @code_widgets = @widgets.all.select{|w|w.name if w.widget_type=='Code Climate'}
     @jenkins_widgets = @widgets.all.select{|w|w.name if w.widget_type=='Jenkins'}
+    @newreli_widgets = @widgets.all.select{|w|w.name if w.widget_type=='Newrelic'}
   end
 
   def create
