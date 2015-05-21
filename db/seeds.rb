@@ -4,7 +4,7 @@ User.all.each do |u|
   puts "User '#{u.name}' created"
 end
 
-Widget.delete_all
+# Widget.delete_all
 Widget.create(name:'Github-Status', widget_type: 'Github')
 Widget.create(name:'Github-Open-PR', widget_type: 'Github')
 Widget.create(name:'Github-Closed-PR', widget_type: 'Github')
