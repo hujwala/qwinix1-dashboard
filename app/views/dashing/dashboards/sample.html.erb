@@ -19,6 +19,9 @@
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="traffic-lights_<%= params[:dashboard_id].to_i %>" data-view="TrafficLights" data-title="Github"></div>
     </li>
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1" style="background-color: white">
+      <div data-id="myBurndown" data-view="JiraBurndown" ></div>
+    </li>
     <% when "GPA" %>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="code-climate_<%= params[:dashboard_id].to_i %>" data-view="Codeclimate" data-title="Code Climate"></div>
