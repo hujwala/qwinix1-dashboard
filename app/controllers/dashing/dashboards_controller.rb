@@ -7,12 +7,15 @@ module Dashing
     require 'jira'
     require 'time'
     require 'newrelic_api'
+    require 'open-uri'
+    require 'cgi'
 
     include GitHub
     include CodeClimate
     include Jira
     include Jenkins
     include Newrelic
+    include BurnDownChart
 
     before_filter :check_dashboard_name, only: :show
 
@@ -56,6 +59,7 @@ module Dashing
         when "GPA" 
           gpa(obj) if obj["status"] == "configured"
         when "Github-Status" 
+          BurnDown.burn_down_chart(obj)
           github_status(obj) if obj["status"] == "configured"
         when "Sprint-progress" 
           sprint_progress(obj) if obj["status"] == "configured"
