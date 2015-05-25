@@ -13,6 +13,7 @@ Widget.create(name:'Github-Last-10-Commits', widget_type: 'Github')
 Widget.create(name:'Sprint-remaning-days', widget_type: 'Jira')
 Widget.create(name:'Sprint-progress', widget_type: 'Jira')
 Widget.create(name:'Jira Stories Details', widget_type: 'Jira')
+Widget.create(name:'Burn Down Chart', widget_type: 'Jira')
 
 Widget.create(name:'GPA', widget_type: 'Code Climate')
 Widget.create(name:'Test-coverage', widget_type: 'Code Climate')

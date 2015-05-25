@@ -59,7 +59,6 @@ module Dashing
         when "GPA" 
           gpa(obj) if obj["status"] == "configured"
         when "Github-Status" 
-          BurnDown.burn_down_chart(obj)
           github_status(obj) if obj["status"] == "configured"
         when "Sprint-progress" 
           sprint_progress(obj) if obj["status"] == "configured"
@@ -75,6 +74,8 @@ module Dashing
           newrelic_job(obj) if obj["status"] == "configured"
         when "Response-Time" 
           newrelic_job(obj) if obj["status"] == "configured"
+        when "Burn Down Chart" 
+          BurnDown.burn_down_chart(obj) if obj["status"] == "configured"
         end
       end
     end

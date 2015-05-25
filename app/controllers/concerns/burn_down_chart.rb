@@ -3,12 +3,12 @@ module BurnDownChart
 	class BurnDown	
 		def self.burn_down_chart(obj)
 			@jira_config = {
-				jira_url: "https://qwinix.atlassian.net",
-				username:  "snarayanasamy",
-				password: "Qwinix123",
+				jira_url: obj["jira_url"],
+				username:  obj["jira_name"],
+				password: obj["jira_password"],
 				numberOfSprintsToShow: 1,
 				sprint_mapping: {
-					'myBurndown' => 77 
+					"myBurndown#{obj['dashboard_id']}" => obj["jira_view_id"].to_i 
 				}
 			}
 			@jira_burndowns = Hash.new()
