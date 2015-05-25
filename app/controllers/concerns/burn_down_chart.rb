@@ -20,7 +20,6 @@ module BurnDownChart
 					if !burndowns.nil? && !burndowns.empty?
 						tempSprintIndex = sprintIndex
 						sprintIndex = (sprintIndex >= @jira_config[:numberOfSprintsToShow]-1) ? 0 : sprintIndex + 1
-						# binding.pry
 						Dashing.send_event(mappingName, burndowns[tempSprintIndex])
 					end
 				end
