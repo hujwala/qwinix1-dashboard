@@ -51,6 +51,10 @@
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="rpm<%= params[:dashboard_id].to_i %>_response_time" data-view="Number" data-title="New Relic Response Time" data-min="0" data-max="100"></div>
     </li>
+    <% when "Burn Down Chart" %>
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1" style="background-color: white">
+      <div data-id="myBurndown<%= params[:dashboard_id].to_i %>" data-view="JiraBurndown" ></div>
+    </li>
     <% end %>
     <% end %>
   </ul>

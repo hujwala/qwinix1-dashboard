@@ -7,12 +7,15 @@ module Dashing
     require 'jira'
     require 'time'
     require 'newrelic_api'
+    require 'open-uri'
+    require 'cgi'
 
     include GitHub
     include CodeClimate
     include Jira
     include Jenkins
     include Newrelic
+    include BurnDownChart
 
     before_filter :check_dashboard_name, only: :show
 
@@ -71,6 +74,8 @@ module Dashing
           newrelic_job(obj) if obj["status"] == "configured"
         when "Response-Time" 
           newrelic_job(obj) if obj["status"] == "configured"
+        when "Burn Down Chart" 
+          BurnDown.burn_down_chart(obj) if obj["status"] == "configured"
         end
       end
     end

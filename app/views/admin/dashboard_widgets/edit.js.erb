@@ -39,6 +39,10 @@ jira_validator()
 $('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira_noofissues'))  %>");
 $('#myModal').modal('show');
 jira_no_of_issues_validator()
+<% elsif @widget.widget_type == "Jira" && @widget.name == "Burn Down Chart" %>
+$('#myModal').html("<%= escape_javascript(render(:partial=>'/admin/dashboard_widgets/jira/jira'))  %>");
+$('#myModal').modal('show');
+jira_validator()
 <% end %>
 
 <% if @widget.widget_type == "Jenkins" && @widget.name == "Build-test" %>
