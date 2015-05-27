@@ -8,7 +8,7 @@ class Dashing.Codeclimate extends Dashing.Widget
       if parseFloat(@get('current')) >= 3.5 
         $(@get('node')).css("background-color", "green")
       if parseFloat(@get('current')) < 3.5 && parseFloat(@get('current')) >= 2.5
-        $(@get('node')).css("background-color", "yellow")
+        $(@get('node')).css("background-color", "#ff9122")
       if parseFloat(@get('current')) < 2.5
         $(@get('node')).css("background-color", "red")
 
