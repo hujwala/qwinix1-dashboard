@@ -11,6 +11,7 @@ class Dashing.Codeclimate extends Dashing.Widget
         $(@get('node')).css("background-color", "#ff9122")
       if parseFloat(@get('current')) < 2.5
         $(@get('node')).css("background-color", "red")
+        $(@get('node')).addClass("blink")
 
 
 
