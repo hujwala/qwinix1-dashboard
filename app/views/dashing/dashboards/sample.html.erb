@@ -1,58 +1,53 @@
-<script type='text/javascript'>
-  $(function() {
-    Dashing.gridsterLayout('[{"col":2,"row":1},{"col":1,"row":1},{"col":3,"row":1},{"col":4,"row":1},{"col":1,"row":2},{"col":3,"row":2}]')
-  });
-</script>
 <div class="gridster">
   <ul>
     <% @json_obj.each do |obj| %>
     <% case (Widget.find obj["widget_id"]).name %>
     <%  when "Github-Open-PR" %>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-view="PullRequests" data-id="open_pr_<%= params[:dashboard_id].to_i %>"></div>
+    <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-view="PullRequests" data-id="open_pr_<%= params[:dashboard_id].to_i %>" style="height:680px;"></div>
     </li>
     <% when "Github-Closed-PR" %>
-    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
-      <div data-view="PullRequests" data-id="closed_pr_<%= params[:dashboard_id].to_i %>"></div>
+    <li data-row="3" data-col="4" data-sizex="1" data-sizey="1">
+      <div data-view="PullRequests" data-id="closed_pr_<%= params[:dashboard_id].to_i %>" style="height:680px;"></div>
     </li>
     <% when "Github-Status" %>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="traffic-lights_<%= params[:dashboard_id].to_i %>" data-view="TrafficLights" data-title="Github"></div>
     </li>
     <% when "GPA" %>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
       <div data-id="code-climate_<%= params[:dashboard_id].to_i %>" data-view="Codeclimate" data-title="Code Climate"></div>
     </li>
     <% when "Sprint-progress" %>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+    <li data-row="1" data-col="3" data-sizex="1" data-sizey="1">
       <div data-id="sprint_progress_<%= params[:dashboard_id].to_i %>" data-view="SprintProgress" data-title="Sprint Progress"></div>
     </li>
     <% when "Sprint-remaning-days" %>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+    <li data-row="1" data-col="4" data-sizex="1" data-sizey="1">
       <div data-id="view<%= params[:dashboard_id].to_i %>" data-view="JiraSprintRemainingDays"></div>
     </li>
     <% when "Jira Stories Details" %>
-    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="jira<%= params[:dashboard_id].to_i %>" data-view="JiraDetails"></div>
     </li>
     <% when "Build-test" %>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+    <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="jenkinsBuildStatus" data-view="JenkinsBuildStatus" data-title="Jenkins"></div>
     </li>
     <% when "Github-Last-10-Commits" %>
-    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
-      <div data-view="PullRequests" data-id="commits<%= params[:dashboard_id].to_i %>"></div>
+    <li data-row="3" data-col="2" data-sizex="1" data-sizey="2">
+      <div data-view="PullRequests" data-id="commits<%= params[:dashboard_id].to_i %>" style="height:680px;"></div>
     </li>
     <% when "Error-Rate" %>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+    <li data-row="4" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="rpm<%= params[:dashboard_id].to_i %>_error_rate" data-view="Number" data-title="New Relic Error Rate" data-min="0" data-max="100"></div>
     </li>
     <% when "Response-Time" %>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+    <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
       <div data-id="rpm<%= params[:dashboard_id].to_i %>_response_time" data-view="Number" data-title="New Relic Response Time" data-min="0" data-max="100"></div>
     </li>
     <% when "Burn Down Chart" %>
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1" style="background-color: white">
+    <li data-row="2" data-col="2" data-sizex="2" data-sizey="1" style="background-color: white">
       <div data-id="myBurndown<%= params[:dashboard_id].to_i %>" data-view="JiraBurndown" ></div>
     </li>
     <% end %>
