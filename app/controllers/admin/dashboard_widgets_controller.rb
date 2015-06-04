@@ -10,11 +10,11 @@ class Admin::DashboardWidgetsController < ApplicationController
     @dw = DashboardWidget.all
     @dashboard_widget = DashboardWidget.new
     @widgets = Widget.all
-    @github_widgets = @widgets.all.select{|w|w.name if w.widget_type=='Github'}
-    @jira_widgets = @widgets.all.select{|w|w.name if w.widget_type=='Jira'}
+    @github_widgets = @widgets.all.select{|w|w.name if w.widget_type=='Github' && w.name == 'Github-Open-PR'}
+    @jira_widgets = @widgets.all.select{|w|w.name if w.widget_type=='Jira' && w.name != 'Jira Stories Details'}
     @code_widgets = @widgets.all.select{|w|w.name if w.widget_type=='Code Climate'}
     @jenkins_widgets = @widgets.all.select{|w|w.name if w.widget_type=='Jenkins'}
-    @newreli_widgets = @widgets.all.select{|w|w.name if w.widget_type=='Newrelic'}
+    @newreli_widgets = @widgets.all.select{|w|w.name if w.widget_type=='Newrelic'&& w.name != 'Response-Time'}
   end
 
   def create
