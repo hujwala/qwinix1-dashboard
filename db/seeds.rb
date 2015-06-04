@@ -1,5 +1,5 @@
 User.delete_all
-User.create(name:'Sharmila', username: 'sharmila',email:'sjayaramu@qwinixtech.com',status:'active',user_type:'admin', password:"Password@1", password_confirmation:"Password@1")
+User.create(name:'Admin', username: 'admin',email:'admin@qwinixtech.com',status:'active',user_type:'admin', password:"Password@1", password_confirmation:"Password@1")
 User.all.each do |u|
   puts "User '#{u.name}' created"
 end
@@ -16,7 +16,6 @@ Widget.create(name:'Jira Stories Details', widget_type: 'Jira')
 Widget.create(name:'Burn Down Chart', widget_type: 'Jira')
 
 Widget.create(name:'GPA', widget_type: 'Code Climate')
-Widget.create(name:'Test-coverage', widget_type: 'Code Climate')
 
 Widget.create(name:'Build-test', widget_type: 'Jenkins')
 
