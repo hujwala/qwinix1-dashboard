@@ -5,13 +5,13 @@ body {
 }
 .navbar-nav > li > a {
 	font: bold 12px Arial,Helvetica,sans-serif;
-	color: #22CD76;
+	color: #15894F;
     line-height: 20px;
     padding: 15px 30px;  text-align: center;text-transform: uppercase;
 }
 .navbar-nav > li > a:hover, .navbar-nav > li > a.active {
 	color: #FFFFFF;
-    background-color: #22CD76;
+    background-color: #15894F;
 }
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
     background-color: #DA121D;color: #FFFFFF;
@@ -26,13 +26,13 @@ body {
 	margin: 22px 0px;
 }
 .form-control {
-	border: 1px solid #22CD76;color: #454545;
+	border: 1px solid #15894F;color: #454545;
 }
 .navbar-form .form-control {
 	 border-radius: 16px;color: #454545;
 }
 .form-control:focus {
-    border-color: #22CD76;
+    border-color: #15894F;
     box-shadow: 0 1px 1px rgba(218, 18, 29, 0.075) inset, 0 0 8px rgba(218, 18, 29, 0.6);
     outline: 0 none;
 }
@@ -46,7 +46,7 @@ body {
   color: #454545;
 }
 .navbar-form .form-control:focus {
-    border-color: #22CD76;
+    border-color: #15894F;
     box-shadow: none;
     outline: 0 none;
 }
@@ -57,22 +57,23 @@ body {
 }
 .pagination > li > a, .pagination > li > span {
     background-color: #fff;
-    border: 1px solid #22CD76;
-    color: #22CD76;
+    border: 1px solid #15894F;
+    color: #15894F;
 }
 .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
-    background-color: #22CD76;
-    border-color: #22CD76;
-    color: #22CD76;
+    background-color: #15894F;
+    border-color: #15894F;
+    color: #15894F;
 }
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-    background-color: #22CD76;
-    border-color: #22CD76;
+    background-color: #15894F;
+    border-color: #15894F;
 }
+
 .btn-primary {
   color: #fff;
-  background-color: #22CD76;
-  border-color: #22CD76;
+  background-color: #15894F;
+  border-color: #15894F;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -80,9 +81,9 @@ body {
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
-  color: #22CD76;
+  color: #15894F;
   background-color: #ffffff;
-  border-color: #22CD76;
+  border-color: #15894F;
 }
 .btn-primary:active,
 .btn-primary.active,
