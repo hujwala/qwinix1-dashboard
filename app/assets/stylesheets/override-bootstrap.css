@@ -1,7 +1,7 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	color: #454545;
-	font-size: 14px;
+	font-size: 16px;
 }
 .navbar-nav > li > a {
 	font: bold 12px Arial,Helvetica,sans-serif;
@@ -58,12 +58,12 @@ body {
 .pagination > li > a, .pagination > li > span {
     background-color: #fff;
     border: 1px solid #15894F;
-    color: #15894F;
+   /* color: #15894F;*/
 }
 .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
     background-color: #15894F;
     border-color: #15894F;
-    color: #15894F;
+    color: white;
 }
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
     background-color: #15894F;
