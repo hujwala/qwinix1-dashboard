@@ -1,15 +1,12 @@
-<div class="col-sm-offset-1">
-<div class="row">
-  <!-- Dashboard tiles section -->
-  <div class="col-sm-9">
-  <% @users.each do |user|%>
-    <div class="dashbords ">
-      <div class="tiles">
-        <%= user.name %>
-      </div>
+ <div class="row">
+ <% @user.dashboards.each do |dashboard| %>
+  <div class="col-sm-offset-2 col-sm-10">
+      <div class="span5 well"><%= @user.name %> - <%= dashboard.name%></div>
+     
     </div>
-<% end %>
+    <% end %>
   </div>
-</div>
-<%= will_paginate @users, renderer: BootstrapPagination::Rails, :next_label => '>',:previous_label => '<',:inner_window   => 0, :outer_window => 0  %>
-</div>
+<script type="text/javascript">
+  setTimeout(function(){
+    $('.flash').remove();
+  }, 5000);

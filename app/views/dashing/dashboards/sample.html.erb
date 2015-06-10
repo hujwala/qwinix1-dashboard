@@ -1,62 +1,119 @@
+<% dashboard_widgets=DashboardWidget.where(dashboard_id: params[:dashboard_id])%>
+
 <script type='text/javascript'>
-$(function() {
+  $(function() {
   // These settings override the defaults set in application.coffee. You can do this on a per dashboard basis.
-  Dashing.widget_base_dimensions = [(window.screen.width*23)/100, (window.screen.height*43)/100]
-  Dashing.numColumns = 4
+  // var count = <% dashboard_widgets.count%>
+  var count = <%= dashboard_widgets.count.to_json %>;
+  /*alert(count);
+  if (count == 1 ){
+    Dashing.widget_base_dimensions = [((window.screen.width*92)/100), ((window.screen.height*86)/100)] 
+  }else if(count == 2){
+    Dashing.widget_base_dimensions = [((window.screen.width*46)/100), ((window.screen.height*86)/100)]  
+  }else if(count == 3){
+    Dashing.widget_base_dimensions = [((window.screen.width*25)/100), ((window.screen.height*86)/100)]
+  }else if(count == 4){
+    Dashing.widget_base_dimensions = [((window.screen.width*46)/100), ((window.screen.height*43)/100)]
+  }else if(count == 5 || count == 6){
+    Dashing.widget_base_dimensions = [((window.screen.width*25)/100), ((window.screen.height*43)/100)]
+  }else if(count == 7 || count == 8){
+    Dashing.widget_base_dimensions = [((window.screen.width*23)/100), ((window.screen.height*43)/100)]
+  }*/
+  // Dashing.widget_base_dimensions = [((window.screen.width*23)/100)*(4/count), ((window.screen.height*43)/100)*(4/count)]
+  
+
+
+  /*Dashing.widget_base_dimensions = [((window.screen.width-40) / (Math.floor( (count /8) * 10 ))),(window.screen.height-100)];*/
+
+  if( count <= 4 ) {
+     Dashing.widget_base_dimensions = [((window.screen.width-40) / count),(window.screen.height-100)];
+
+     Dashing.numColumns = count;
+   }else if(count > 4 && count <= 8){
+     Dashing.widget_base_dimensions = [((window.screen.width-40) / count),((window.screen.height-100) / 2)];
+
+      Dashing.numColumns = count;
+   }
+  /*if( count === 1 )  {
+    Dashing.numColumns = 1;
+  }else{
+    Dashing.numColumns = Math.round( ((count-1) /8) * 10 );
+  }*/
+
+  
+ /* if (count == 1 ){
+    r = 1;
+console.log(1);
+  }else if(count > 1 && count < 4){
+    Dashing.numColumns = 4;
+    console.log("col:"+3);
+  }else if(count > 4 ){
+    Dashing.numColumns = 5;
+    console.log(4);
+  }else if(count == 7 || count == 8){
+    Dashing.numColumns = 4
+  }*/
+   
 });
 </script>
 <div class="gridster">
   <% dashboard = Dashboard.find(params[:dashboard_id])%>
   <div class="hh"><%= dashboard.name %></div>
   <ul>
-    <% @json_obj.each do |obj| %>
+    <% @json_obj.each_with_index do |obj,index| %>
+    
     <% case (Widget.find obj["widget_id"]).name %>
     <%  when "Github-Open-PR" %>
-    <li data-row="1" data-col="4" data-sizex="1" data-sizey="1">
+    
+    <% if ( (index+1) <= 4 ) %>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-view="PullRequests" data-id="open_pr_<%= params[:dashboard_id].to_i %>"></div>
     </li>
-    <%# when "Github-Closed-PR" %>
-   <!--  <li data-row="3" data-col="4" data-sizex="1" data-sizey="1">
-      <div data-view="PullRequests" data-id="closed_pr_<%= params[:dashboard_id].to_i %>"></div>
-    </li> -->
-    <%# when "Github-Status" %>
-    <!-- <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="traffic-lights_<%= params[:dashboard_id].to_i %>" data-view="TrafficLights" data-title="Github"></div>
-    </li> -->
+    <% end %>
+
+    <% if ( (index+1) == 5 ) %>
+    <li data-row="2" data-col="1" data-sizex="4" data-sizey="1">
+      <div data-view="PullRequests" data-id="open_pr_<%= params[:dashboard_id].to_i %>"></div>
+    </li>
+    <% end %>
+
+    <% if ( (index+1) == 6 ) %>
+    <li data-row="2" data-col="2" data-sizex="3" data-sizey="1">
+      <div data-view="PullRequests" data-id="open_pr_<%= params[:dashboard_id].to_i %>"></div>
+    </li>
+    <% end %>
+
+    <% if ( (index+1) == 7 ) %>
+    <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-view="PullRequests" data-id="open_pr_<%= params[:dashboard_id].to_i %>"></div>
+    </li>
+    <% end %>
+
     <% when "GPA" %>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="code-climate_<%= params[:dashboard_id].to_i %>" data-view="Codeclimate" data-title="Code Climate"></div>
     </li>
     <% when "Sprint-progress" %>
-    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="sprint_progress_<%= params[:dashboard_id].to_i %>" data-view="SprintProgress" data-title="Sprint Progress"></div>
     </li>
     <% when "Sprint-remaning-days" %>
-    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="view<%= params[:dashboard_id].to_i %>" data-view="JiraSprintRemainingDays"></div>
     </li>
-    <%# when "Jira Stories Details" %>
-    <!-- <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="jira<%= params[:dashboard_id].to_i %>" data-view="JiraDetails"></div>
-    </li> -->
+
     <% when "Build-test" %>
-    <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="jenkinsBuildStatus" data-view="JenkinsBuildStatus" data-title="Jenkins"></div>
     </li>
-    <%# when "Github-Last-10-Commits" %>
-    <!-- <li data-row="3" data-col="2" data-sizex="1" data-sizey="2">
-      <div data-view="PullRequests" data-id="commits<%= params[:dashboard_id].to_i %>"></div>
-    </li> -->
+    
     <% when "Error-Rate" %>
-    <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="rpm<%= params[:dashboard_id].to_i %>_error_rate" data-view="Number" data-title="New Relic Error Rate" data-min="0" data-max="100"></div>
     </li>
-    <%# when "Response-Time" %>
-    <!-- <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
-      <div data-id="rpm<%= params[:dashboard_id].to_i %>_response_time" data-view="Number" data-title="New Relic Response Time" data-min="0" data-max="100"></div>
-    </li> -->
+    
     <% when "Burn Down Chart" %>
-    <li data-row="1" data-col="2" data-sizex="2" data-sizey="1" style="background-color: white">
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1" style="background-color: white">
       <div data-id="myBurndown<%= params[:dashboard_id].to_i %>" data-view="JiraBurndown" ></div>
     </li>
     <% end %>
@@ -69,7 +126,7 @@ $(function() {
     border-left:  4px ;
     border-right:  4px;
     border-top: 4px;
-    font: italic normal 280% 'Times New Roman', Times, serif;
+    font: italic normal 180% 'Times New Roman', Times, serif;
     letter-spacing: 0.1em;
     margin: 0;
     padding: 5px 5px 5px 20px;

@@ -11,6 +11,7 @@
 
   def create
     @dashboard = Dashboard.new(dashboard_params)
+    @dashboard.user_id = current_user.id
     if @dashboard.valid?
       @dashboard.save
       @success = true

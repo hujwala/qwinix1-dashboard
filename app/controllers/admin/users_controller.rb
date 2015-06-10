@@ -6,6 +6,10 @@ class Admin::UsersController < ApplicationController
 		@users = User.order("created_at desc").paginate(:page => params[:page], :per_page => 3)
   end
 
+   def show
+    @user = User.find(params[:id])
+  end
+
   def unique_email
     @user = User.find_by_email(params[:user][:email])
     respond_to do |format|
