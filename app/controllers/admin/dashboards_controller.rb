@@ -14,9 +14,11 @@
     if @dashboard.valid?
       @dashboard.save
       @success = true
+      redirect_to admin_dashboards_path
       flash[:success] = "Dashboard created successfully!"
     else
       @success = false
+      redirect_to admin_dashboards_path
     end
     @dashboards = Dashboard.order("updated_at desc").paginate(:page => params[:page], :per_page => 4)
   end

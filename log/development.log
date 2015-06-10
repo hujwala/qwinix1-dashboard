@@ -75927,3 +75927,1754 @@ Migrating to CreateUsers (20150415071243)
 PG::DuplicateTable: ERROR:  relation "users" already exists
 : CREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "username" character varying(255), "email" character varying(255), "status" character varying(255), "user_type" character varying(255), "password" character varying(255), "password_confirmation" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
   [1m[35m (0.3ms)[0m  ROLLBACK
+
+
+Started GET "/admin/dashboards" for 127.0.0.1 at 2015-06-08 17:39:04 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Admin::DashboardsController#index as HTML
+  [1m[35mUser Load (1.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mDashboard Load (1.4ms)[0m  [1mSELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 1 OFFSET 0[0m
+  Rendered layouts/dashing/_flash_messages.html.erb (0.5ms)
+  [1m[35m (1.0ms)[0m  SELECT "dashboard_widgets"."status" FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6
+  Rendered admin/dashboards/_wallboard_button.html.erb (10.5ms)
+  [1m[36mDashboard Load (0.7ms)[0m  [1mSELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 4 OFFSET 0[0m
+  Rendered admin/dashboards/_index.html.erb (1.7ms)
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6
+  Rendered admin/dashboards/_show.html.erb (4.7ms)
+  Rendered admin/dashboards/index.html.erb within layouts/application (25.9ms)
+  Rendered layouts/dashing/_header.html.erb (2.2ms)
+Completed 200 OK in 638ms (Views: 583.0ms | ActiveRecord: 15.8ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+
+
+
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+Started GET "/assets/override-bootstrap.css?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+
+
+
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+Started GET "/assets/jquery.validate.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+Started GET "/assets/github/github_validations.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+
+
+
+
+
+
+
+
+Started GET "/assets/jira/jira_no_of_issues_validations.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+Started GET "/assets/codeclimate/code_gpa_validations.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+
+
+Started GET "/assets/jira/jira_validations.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+Started GET "/assets/create_user.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+Started GET "/assets/c3.min.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+Started GET "/assets/background.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+
+
+
+
+Started GET "/assets/dashing/widgets/codeclimate.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+
+
+Started GET "/assets/d3-3.2.8.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+Started GET "/assets/dashing/widgets/jira_burndown.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+Started GET "/assets/dashing/widgets/jira_details.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+
+
+Started GET "/assets/dashing/widgets/jenkins_build_status.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+Started GET "/assets/dashing/widgets/jira_sprint_remaining_days.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+
+
+Started GET "/assets/dashing/widgets/pull_requests.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+Started GET "/assets/dashing/widgets/server_status.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+
+
+
+Started GET "/assets/dashing/widgets/sprint_progress.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+
+
+Started GET "/assets/dashing/widgets/traffic_lights.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+Started GET "/assets/titles.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+Started GET "/assets/dashing/widgets/index.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+Started GET "/assets/fontawesome-webfont.woff2?v=4.3.0" for 127.0.0.1 at 2015-06-08 17:39:05 +0530
+
+
+Started GET "/admin/dashboards" for 127.0.0.1 at 2015-06-08 17:40:07 +0530
+Processing by Admin::DashboardsController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mDashboard Load (0.7ms)[0m  SELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 1 OFFSET 0
+  Rendered layouts/dashing/_flash_messages.html.erb (0.1ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT "dashboard_widgets"."status" FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6[0m
+  Rendered admin/dashboards/_wallboard_button.html.erb (3.3ms)
+  [1m[35mDashboard Load (0.4ms)[0m  SELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 4 OFFSET 0
+  Rendered admin/dashboards/_index.html.erb (0.4ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6[0m
+  Rendered admin/dashboards/_show.html.erb (2.2ms)
+  Rendered admin/dashboards/index.html.erb within layouts/application (9.7ms)
+  Rendered layouts/dashing/_header.html.erb (1.0ms)
+Completed 200 OK in 236ms (Views: 227.5ms | ActiveRecord: 5.0ms)
+
+
+
+
+
+
+
+
+
+
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-08 17:40:07 +0530
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2015-06-08 17:40:07 +0530
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2015-06-08 17:40:07 +0530
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2015-06-08 17:40:07 +0530
+Started GET "/assets/override-bootstrap.css?body=1" for 127.0.0.1 at 2015-06-08 17:40:07 +0530
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:07 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:07 +0530
+
+
+
+Started GET "/assets/jquery.validate.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:07 +0530
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+
+
+
+
+
+Started GET "/assets/codeclimate/code_gpa_validations.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+Started GET "/assets/github/github_validations.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+
+
+
+Started GET "/assets/jira/jira_no_of_issues_validations.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+
+
+
+Started GET "/assets/background.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+
+
+Started GET "/assets/create_user.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+
+Started GET "/assets/jira/jira_validations.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+
+Started GET "/assets/c3.min.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+
+
+
+
+Started GET "/assets/d3-3.2.8.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+
+
+
+
+Started GET "/assets/dashing/widgets/codeclimate.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+Started GET "/assets/dashing/widgets/jenkins_build_status.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+
+
+
+
+Started GET "/assets/dashing/widgets/jira_burndown.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+
+
+Started GET "/assets/dashing/widgets/jira_sprint_remaining_days.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+
+
+Started GET "/assets/dashing/widgets/jira_details.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+
+Started GET "/assets/dashing/widgets/pull_requests.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+
+
+
+
+Started GET "/assets/dashing/widgets/server_status.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+Started GET "/assets/dashing/widgets/sprint_progress.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+Started GET "/assets/dashing/widgets/traffic_lights.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+
+
+
+
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+Started GET "/assets/titles.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+Started GET "/assets/dashing/widgets/index.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+
+
+Started GET "/assets/fontawesome-webfont.woff2?v=4.3.0" for 127.0.0.1 at 2015-06-08 17:40:08 +0530
+
+
+Started GET "/admin/dashboards" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+Processing by Admin::DashboardsController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mDashboard Load (0.4ms)[0m  [1mSELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 1 OFFSET 0[0m
+  Rendered layouts/dashing/_flash_messages.html.erb (0.3ms)
+  [1m[35m (0.8ms)[0m  SELECT "dashboard_widgets"."status" FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6
+  Rendered admin/dashboards/_wallboard_button.html.erb (2.7ms)
+  [1m[36mDashboard Load (0.8ms)[0m  [1mSELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 4 OFFSET 0[0m
+  Rendered admin/dashboards/_index.html.erb (0.4ms)
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6
+  Rendered admin/dashboards/_show.html.erb (2.6ms)
+  Rendered admin/dashboards/index.html.erb within layouts/application (11.2ms)
+  Rendered layouts/dashing/_header.html.erb (0.6ms)
+Completed 200 OK in 242ms (Views: 235.8ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+Started GET "/assets/override-bootstrap.css?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+
+
+
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+Started GET "/assets/jquery.validate.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+Started GET "/assets/github/github_validations.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+
+
+
+
+Started GET "/assets/codeclimate/code_gpa_validations.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+
+
+Started GET "/assets/jira/jira_validations.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+
+Started GET "/assets/jira/jira_no_of_issues_validations.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+Started GET "/assets/c3.min.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+
+Started GET "/assets/create_user.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+
+
+
+Started GET "/assets/d3-3.2.8.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+Started GET "/assets/background.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+Started GET "/assets/dashing/widgets/codeclimate.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+
+
+
+Started GET "/assets/dashing/widgets/jenkins_build_status.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+Started GET "/assets/dashing/widgets/jira_burndown.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+
+
+
+
+
+Started GET "/assets/dashing/widgets/jira_sprint_remaining_days.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+Started GET "/assets/dashing/widgets/pull_requests.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+Started GET "/assets/dashing/widgets/jira_details.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+Started GET "/assets/dashing/widgets/server_status.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+
+
+
+Started GET "/assets/dashing/widgets/traffic_lights.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+Started GET "/assets/dashing/widgets/sprint_progress.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+
+
+Started GET "/assets/titles.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:20 +0530
+
+Started GET "/assets/dashing/widgets/index.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:21 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-08 17:40:21 +0530
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-06-08 17:40:21 +0530
+
+
+Started GET "/assets/fontawesome-webfont.woff2?v=4.3.0" for 127.0.0.1 at 2015-06-08 17:40:21 +0530
+
+
+Started GET "/admin/dashboards" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+Processing by Admin::DashboardsController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mDashboard Load (1.8ms)[0m  SELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 1 OFFSET 0
+  Rendered layouts/dashing/_flash_messages.html.erb (0.1ms)
+  [1m[36m (0.7ms)[0m  [1mSELECT "dashboard_widgets"."status" FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6[0m
+  Rendered admin/dashboards/_wallboard_button.html.erb (3.4ms)
+  [1m[35mDashboard Load (0.4ms)[0m  SELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 4 OFFSET 0
+  Rendered admin/dashboards/_index.html.erb (0.3ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6[0m
+  Rendered admin/dashboards/_show.html.erb (1.7ms)
+  Rendered admin/dashboards/index.html.erb within layouts/application (9.0ms)
+  Rendered layouts/dashing/_header.html.erb (0.4ms)
+Completed 200 OK in 223ms (Views: 211.7ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+
+
+
+
+
+
+Started GET "/assets/override-bootstrap.css?body=1" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+
+
+
+
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+
+Started GET "/assets/jquery.validate.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+
+Started GET "/assets/github/github_validations.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+
+
+
+
+
+Started GET "/assets/codeclimate/code_gpa_validations.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+
+
+
+
+Started GET "/assets/jira/jira_validations.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+Started GET "/assets/create_user.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+Started GET "/assets/jira/jira_no_of_issues_validations.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+Started GET "/assets/background.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+
+
+
+Started GET "/assets/c3.min.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+
+Started GET "/assets/d3-3.2.8.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+
+
+Started GET "/assets/dashing/widgets/codeclimate.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:33 +0530
+
+
+
+
+
+Started GET "/assets/dashing/widgets/jira_burndown.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:34 +0530
+Started GET "/assets/dashing/widgets/jenkins_build_status.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:34 +0530
+
+
+
+
+
+Started GET "/assets/dashing/widgets/jira_details.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:34 +0530
+
+
+Started GET "/assets/dashing/widgets/pull_requests.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:34 +0530
+
+
+Started GET "/assets/dashing/widgets/server_status.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:34 +0530
+Started GET "/assets/dashing/widgets/jira_sprint_remaining_days.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:34 +0530
+
+
+
+
+
+
+
+Started GET "/assets/dashing/widgets/sprint_progress.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:34 +0530
+Started GET "/assets/dashing/widgets/index.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:34 +0530
+
+Started GET "/assets/dashing/widgets/traffic_lights.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:34 +0530
+Started GET "/assets/titles.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:34 +0530
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-08 17:49:34 +0530
+
+
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-06-08 17:49:34 +0530
+Started GET "/assets/fontawesome-webfont.woff2?v=4.3.0" for 127.0.0.1 at 2015-06-08 17:49:34 +0530
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (18.3ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "status", "updated_at", "user_type", "username") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-06-10 10:20:18.464485"], ["email", "email@gmail.com"], ["name", "name of user"], ["password_digest", "Password@1"], ["status", "status"], ["updated_at", "2015-06-10 10:20:18.464485"], ["user_type", "type of user"], ["username", "name of user"]]
+  [1m[36m (34.2ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-10 16:31:25 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (26.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Admin::SessionsController#index as HTML
+  Rendered layouts/dashing/_flash_messages.html.erb (0.9ms)
+  Rendered admin/sessions/index.html.erb within layouts/application (48.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-06-10 16:31:26 +0530
+Processing by Admin::SessionsController#index as HTML
+  Rendered layouts/dashing/_flash_messages.html.erb (0.1ms)
+  Rendered admin/sessions/index.html.erb within layouts/application (1.3ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1
+Completed 200 OK in 982ms (Views: 949.6ms | ActiveRecord: 31.4ms)
+  [1m[36mUser Load (28.1ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" IS NULL LIMIT 1[0m
+Completed 200 OK in 1641ms (Views: 1577.5ms | ActiveRecord: 39.3ms)
+
+
+
+
+
+
+
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+
+Started GET "/assets/override-bootstrap.css?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+Started GET "/assets/github/github_validations.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+
+
+Started GET "/assets/background.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+Started GET "/assets/codeclimate/code_gpa_validations.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+
+Started GET "/assets/c3.min.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+
+Started GET "/assets/d3-3.2.8.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+
+
+
+Started GET "/assets/create_user.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+Started GET "/assets/jira/jira_validations.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+
+Started GET "/assets/dashing/widgets/jenkins_build_status.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+
+Started GET "/assets/dashing/widgets/jira_burndown.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+
+Started GET "/assets/dashing/widgets/jira_details.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+
+
+
+Started GET "/assets/dashing/widgets/jira_sprint_remaining_days.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+Started GET "/assets/dashing/widgets/pull_requests.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+Started GET "/assets/dashing/widgets/server_status.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+
+Started GET "/assets/dashing/widgets/sprint_progress.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+
+Started GET "/assets/dashing/widgets/traffic_lights.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+
+
+Started GET "/assets/titles.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+Started GET "/assets/dashing/widgets/index.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+
+Started GET "/assets/jira/jira_no_of_issues_validations.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+
+
+
+
+Started GET "/assets/jquery.validate.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+Started GET "/assets/dashing/widgets/codeclimate.js?body=1" for 127.0.0.1 at 2015-06-10 16:31:28 +0530
+
+
+Started POST "/admin/sessions" for 127.0.0.1 at 2015-06-10 16:32:31 +0530
+Processing by Admin::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xCmQO7yOIf4004z/zsKwvG1A+sG8Snxff64a121zt3M=", "email"=>"admin@qwinixtech.com", "password"=>"[FILTERED]", "commit"=>"OK"}
+  [1m[35mUser Load (34.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'admin@qwinixtech.com' LIMIT 1
+Redirected to http://localhost:3000/admin/dashboards
+Completed 302 Found in 144ms (ActiveRecord: 39.4ms)
+
+
+Started GET "/admin/dashboards" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+Processing by Admin::DashboardsController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mDashboard Load (51.3ms)[0m  SELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 1 OFFSET 0
+  Rendered layouts/dashing/_flash_messages.html.erb (0.2ms)
+  [1m[36m (34.7ms)[0m  [1mSELECT "dashboard_widgets"."status" FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6[0m
+  Rendered admin/dashboards/_wallboard_button.html.erb (47.0ms)
+  [1m[35mDashboard Load (1.0ms)[0m  SELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 4 OFFSET 0
+  Rendered admin/dashboards/_index.html.erb (1.5ms)
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6[0m
+  Rendered admin/dashboards/_show.html.erb (4.4ms)
+  Rendered admin/dashboards/index.html.erb within layouts/application (105.4ms)
+  Rendered layouts/dashing/_header.html.erb (3.8ms)
+Completed 200 OK in 599ms (Views: 494.3ms | ActiveRecord: 93.7ms)
+
+
+
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+Started GET "/assets/override-bootstrap.css?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+
+Started GET "/assets/jquery.validate.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+
+
+Started GET "/assets/codeclimate/code_gpa_validations.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+
+Started GET "/assets/github/github_validations.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+
+
+
+
+Started GET "/assets/jira/jira_validations.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+Started GET "/assets/background.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+
+Started GET "/assets/create_user.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+Started GET "/assets/jira/jira_no_of_issues_validations.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+
+
+
+
+Started GET "/assets/d3-3.2.8.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+Started GET "/assets/c3.min.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+
+
+
+Started GET "/assets/dashing/widgets/codeclimate.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+Started GET "/assets/dashing/widgets/jira_burndown.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+Started GET "/assets/dashing/widgets/jenkins_build_status.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+
+
+Started GET "/assets/dashing/widgets/jira_sprint_remaining_days.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+
+
+
+Started GET "/assets/dashing/widgets/pull_requests.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+
+Started GET "/assets/dashing/widgets/jira_details.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+Started GET "/assets/dashing/widgets/traffic_lights.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+Started GET "/assets/dashing/widgets/server_status.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+
+Started GET "/assets/dashing/widgets/sprint_progress.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+
+Started GET "/assets/titles.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+Started GET "/assets/dashing/widgets/index.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+
+Started GET "/assets/fontawesome-webfont.woff2?v=4.3.0" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2015-06-10 16:32:32 +0530
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2015-06-10 16:33:00 +0530
+Processing by Admin::UsersController#index as HTML
+  [1m[35mUser Load (1.3ms)[0m  SELECT  "users".* FROM "users"   ORDER BY created_at desc LIMIT 3 OFFSET 0
+  Rendered admin/users/_show.html.erb (3.2ms)
+  Rendered admin/users/index.html.erb within layouts/application (87.1ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  Rendered layouts/dashing/_header.html.erb (0.5ms)
+Completed 200 OK in 471ms (Views: 467.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+
+
+
+
+
+
+
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+Started GET "/assets/override-bootstrap.css?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+
+
+Started GET "/assets/jquery.validate.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+
+
+
+
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+
+
+
+
+Started GET "/assets/github/github_validations.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+Started GET "/assets/codeclimate/code_gpa_validations.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+Started GET "/assets/jira/jira_validations.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+
+
+Started GET "/assets/jira/jira_no_of_issues_validations.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+Started GET "/assets/background.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+Started GET "/assets/create_user.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+
+
+
+
+
+Started GET "/assets/c3.min.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+Started GET "/assets/d3-3.2.8.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+Started GET "/assets/dashing/widgets/codeclimate.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+Started GET "/assets/dashing/widgets/jenkins_build_status.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+Started GET "/assets/dashing/widgets/jira_burndown.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+
+
+Started GET "/assets/dashing/widgets/jira_sprint_remaining_days.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+Started GET "/assets/dashing/widgets/pull_requests.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+Started GET "/assets/dashing/widgets/jira_details.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+
+Started GET "/assets/dashing/widgets/server_status.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+
+Started GET "/assets/dashing/widgets/traffic_lights.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+
+Started GET "/assets/dashing/widgets/sprint_progress.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+
+Started GET "/assets/dashing/widgets/index.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+
+Started GET "/assets/titles.js?body=1" for 127.0.0.1 at 2015-06-10 16:33:01 +0530
+
+
+Started GET "/admin/users/new" for 127.0.0.1 at 2015-06-10 16:33:04 +0530
+Processing by Admin::UsersController#new as JS
+  Rendered admin/users/_form.html.erb (37.8ms)
+  Rendered admin/users/new.js.erb (57.0ms)
+Completed 200 OK in 64ms (Views: 63.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2015-06-10 16:34:21 +0530
+Processing by Admin::UsersController#index as JS
+  Rendered admin/users/_user.html.erb (0.2ms)
+  Rendered admin/users/index.js.erb (3.7ms)
+Completed 200 OK in 34ms (Views: 27.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/dashboards" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+Processing by Admin::DashboardsController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mDashboard Load (1.1ms)[0m  [1mSELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 1 OFFSET 0[0m
+  Rendered layouts/dashing/_flash_messages.html.erb (0.1ms)
+  [1m[35m (0.8ms)[0m  SELECT "dashboard_widgets"."status" FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6
+  Rendered admin/dashboards/_wallboard_button.html.erb (9.1ms)
+  [1m[36mDashboard Load (0.5ms)[0m  [1mSELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 4 OFFSET 0[0m
+  Rendered admin/dashboards/_index.html.erb (0.3ms)
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6
+  Rendered admin/dashboards/_show.html.erb (1.8ms)
+  Rendered admin/dashboards/index.html.erb within layouts/application (14.9ms)
+  Rendered layouts/dashing/_header.html.erb (0.9ms)
+Completed 200 OK in 304ms (Views: 263.0ms | ActiveRecord: 17.2ms)
+
+
+
+
+
+Started GET "/assets/override-bootstrap.css?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+
+
+
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+
+Started GET "/assets/jquery.validate.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+Started GET "/assets/github/github_validations.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+
+Started GET "/assets/codeclimate/code_gpa_validations.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+
+Started GET "/assets/jira/jira_validations.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+
+
+Started GET "/assets/create_user.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+
+
+Started GET "/assets/jira/jira_no_of_issues_validations.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+
+
+
+Started GET "/assets/background.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+
+Started GET "/assets/d3-3.2.8.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+Started GET "/assets/c3.min.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+Started GET "/assets/dashing/widgets/codeclimate.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+
+
+
+
+
+Started GET "/assets/dashing/widgets/jira_sprint_remaining_days.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+Started GET "/assets/dashing/widgets/jenkins_build_status.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+Started GET "/assets/dashing/widgets/jira_burndown.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+
+Started GET "/assets/dashing/widgets/pull_requests.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+Started GET "/assets/dashing/widgets/jira_details.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+
+
+
+
+Started GET "/assets/dashing/widgets/server_status.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+
+Started GET "/assets/dashing/widgets/sprint_progress.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+
+Started GET "/assets/dashing/widgets/traffic_lights.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+Started GET "/assets/dashing/widgets/index.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+Started GET "/assets/titles.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-10 16:49:51 +0530
+
+
+Started GET "/admin/dashboards/new" for 127.0.0.1 at 2015-06-10 16:49:55 +0530
+Processing by Admin::DashboardsController#new as JS
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  Rendered admin/dashboards/_form.html.erb (41.7ms)
+  Rendered admin/dashboards/new.js.erb (54.3ms)
+Completed 200 OK in 83ms (Views: 79.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2015-06-10 16:55:18 +0530
+Processing by Admin::UsersController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY created_at desc LIMIT 3 OFFSET 0[0m
+  Rendered admin/users/_show.html.erb (1.3ms)
+  Rendered admin/users/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/dashing/_header.html.erb (0.5ms)
+Completed 200 OK in 287ms (Views: 266.0ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2015-06-10 16:55:18 +0530
+
+
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2015-06-10 16:55:18 +0530
+Started GET "/assets/override-bootstrap.css?body=1" for 127.0.0.1 at 2015-06-10 16:55:18 +0530
+
+
+
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:18 +0530
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2015-06-10 16:55:18 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+
+
+
+
+
+
+
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+Started GET "/assets/github/github_validations.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+Started GET "/assets/jquery.validate.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+
+
+
+
+
+Started GET "/assets/codeclimate/code_gpa_validations.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+
+Started GET "/assets/jira/jira_validations.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+Started GET "/assets/background.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+
+
+
+Started GET "/assets/jira/jira_no_of_issues_validations.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+
+
+
+
+Started GET "/assets/create_user.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+Started GET "/assets/c3.min.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+
+
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+
+
+Started GET "/assets/d3-3.2.8.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+
+
+Started GET "/assets/dashing/widgets/jenkins_build_status.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+
+
+
+
+Started GET "/assets/dashing/widgets/jira_details.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+Started GET "/assets/dashing/widgets/codeclimate.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+
+Started GET "/assets/dashing/widgets/jira_sprint_remaining_days.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+Started GET "/assets/dashing/widgets/jira_burndown.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+
+
+
+
+Started GET "/assets/dashing/widgets/server_status.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+Started GET "/assets/dashing/widgets/pull_requests.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+
+
+
+Started GET "/assets/dashing/widgets/sprint_progress.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+
+Started GET "/assets/dashing/widgets/traffic_lights.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+
+
+
+
+Started GET "/assets/dashing/widgets/index.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+
+Started GET "/assets/titles.js?body=1" for 127.0.0.1 at 2015-06-10 16:55:19 +0530
+
+
+Started GET "/admin/users/new" for 127.0.0.1 at 2015-06-10 16:55:21 +0530
+Processing by Admin::UsersController#new as JS
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  Rendered admin/users/_form.html.erb (0.7ms)
+  Rendered admin/users/new.js.erb (3.6ms)
+Completed 200 OK in 12ms (Views: 9.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/unique_email?user%5Bemail%5D=sjayaramu%40qwinixtech.com" for 127.0.0.1 at 2015-06-10 16:55:26 +0530
+Processing by Admin::UsersController#unique_email as JSON
+  Parameters: {"user"=>{"email"=>"sjayaramu@qwinixtech.com"}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'sjayaramu@qwinixtech.com' LIMIT 1
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2015-06-10 16:55:33 +0530
+Processing by Admin::UsersController#create as JS
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"sjayaramu@qwinixtech.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"OK"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mRole Load (48.7ms)[0m  SELECT  "roles".* FROM "roles"  WHERE "roles"."name" = 'admin' AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL  ORDER BY "roles"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (11.9ms)[0m  INSERT INTO "roles" ("created_at", "name", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", "2015-06-10 11:25:33.598865"], ["name", "admin"], ["updated_at", "2015-06-10 11:25:33.598865"]]
+  [1m[36m (28.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mRole Load (0.6ms)[0m  SELECT  "roles".* FROM "roles"  WHERE "roles"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("created_at", "email", "password_digest", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2015-06-10 11:25:33.678974"], ["email", "sjayaramu@qwinixtech.com"], ["password_digest", "$2a$10$uNIA6VtLuOJA123lSb9PnuYw.irqDqah6LmmyuHtXXHw05aHqP8Kq"], ["updated_at", "2015-06-10 11:25:33.678974"]]
+  [1m[36mSQL (30.0ms)[0m  [1mINSERT INTO "users_roles" ("role_id", "user_id") VALUES ($1, $2)[0m  [["role_id", 1], ["user_id", 4]]
+  [1m[35m (29.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/users
+Completed 302 Found in 308ms (ActiveRecord: 159.7ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2015-06-10 16:55:33 +0530
+Processing by Admin::UsersController#index as JS
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  Rendered admin/users/_user.html.erb (0.1ms)
+  Rendered admin/users/index.js.erb (3.7ms)
+Completed 200 OK in 16ms (Views: 12.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/users/new" for 127.0.0.1 at 2015-06-10 17:00:56 +0530
+Processing by Admin::UsersController#new as JS
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  Rendered admin/users/_form.html.erb (0.8ms)
+  Rendered admin/users/new.js.erb (3.8ms)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/unique_email?user%5Bemail%5D=r%40ui.com" for 127.0.0.1 at 2015-06-10 17:01:15 +0530
+Processing by Admin::UsersController#unique_email as JSON
+  Parameters: {"user"=>{"email"=>"r@ui.com"}}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mUser Load (1.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."email" = 'r@ui.com' LIMIT 1
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 6.8ms)
+
+
+Started POST "/admin/users" for 127.0.0.1 at 2015-06-10 17:01:22 +0530
+Processing by Admin::UsersController#create as JS
+  Parameters: {"utf8"=>"✓", "user"=>{"email"=>"r@ui.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"OK"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mRole Load (0.6ms)[0m  SELECT  "roles".* FROM "roles"  WHERE "roles"."name" = 'admin' AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL  ORDER BY "roles"."id" ASC LIMIT 1
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT  "roles".* FROM "roles"  WHERE "roles"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "password_digest", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-06-10 11:31:22.402481"], ["email", "r@ui.com"], ["password_digest", "$2a$10$o2lsc9BFh3hVin/S.Y5hiuVi2uUw8hWaOVx/m73rixq478W1VXO4G"], ["updated_at", "2015-06-10 11:31:22.402481"]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users_roles" ("role_id", "user_id") VALUES ($1, $2)  [["role_id", 1], ["user_id", 5]]
+  [1m[36m (19.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/users
+Completed 302 Found in 132ms (ActiveRecord: 25.2ms)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2015-06-10 17:01:22 +0530
+Processing by Admin::UsersController#index as JS
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  Rendered admin/users/_user.html.erb (0.0ms)
+  Rendered admin/users/index.js.erb (2.6ms)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/dashboards" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+Processing by Admin::DashboardsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mDashboard Load (0.6ms)[0m  SELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 1 OFFSET 0
+  Rendered layouts/dashing/_flash_messages.html.erb (0.1ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT "dashboard_widgets"."status" FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6[0m
+  Rendered admin/dashboards/_wallboard_button.html.erb (9.0ms)
+  [1m[35mDashboard Load (0.5ms)[0m  SELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 4 OFFSET 0
+  Rendered admin/dashboards/_index.html.erb (0.4ms)
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6[0m
+  Rendered admin/dashboards/_show.html.erb (3.4ms)
+  Rendered admin/dashboards/index.html.erb within layouts/application (16.9ms)
+  Rendered layouts/dashing/_header.html.erb (0.5ms)
+Completed 200 OK in 286ms (Views: 245.1ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+
+
+Started GET "/assets/override-bootstrap.css?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+
+
+
+
+
+
+
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+
+
+Started GET "/assets/jquery.validate.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+
+
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+
+
+Started GET "/assets/jira/jira_no_of_issues_validations.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+
+
+
+Started GET "/assets/codeclimate/code_gpa_validations.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+
+
+Started GET "/assets/github/github_validations.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+
+Started GET "/assets/jira/jira_validations.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+
+
+Started GET "/assets/background.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+
+
+
+
+
+
+
+Started GET "/assets/c3.min.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+Started GET "/assets/create_user.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+
+Started GET "/assets/d3-3.2.8.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+
+
+Started GET "/assets/dashing/widgets/jenkins_build_status.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+Started GET "/assets/dashing/widgets/codeclimate.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+
+
+
+
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+Started GET "/assets/dashing/widgets/jira_details.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+Started GET "/assets/dashing/widgets/jira_burndown.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+
+
+Started GET "/assets/dashing/widgets/pull_requests.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+
+
+
+
+
+
+
+Started GET "/assets/dashing/widgets/server_status.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:10 +0530
+Started GET "/assets/dashing/widgets/jira_sprint_remaining_days.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:11 +0530
+
+
+Started GET "/assets/dashing/widgets/index.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:11 +0530
+
+Started GET "/assets/dashing/widgets/traffic_lights.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:11 +0530
+
+Started GET "/assets/titles.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:11 +0530
+
+Started GET "/assets/dashing/widgets/sprint_progress.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:11 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-10 17:25:11 +0530
+
+
+Started GET "/admin/dashboards/6" for 127.0.0.1 at 2015-06-10 17:25:13 +0530
+Processing by Admin::DashboardsController#show as JS
+  Parameters: {"id"=>"6"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mDashboard Load (0.5ms)[0m  [1mSELECT  "dashboards".* FROM "dashboards"  WHERE "dashboards"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6
+  Rendered admin/dashboards/_show.html.erb (3.7ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT "dashboard_widgets"."status" FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6[0m
+  Rendered admin/dashboards/_wallboard_button.html.erb (2.7ms)
+  Rendered admin/dashboards/show.js.erb (17.0ms)
+Completed 200 OK in 52ms (Views: 44.3ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/admin/dashboards/6/edit" for 127.0.0.1 at 2015-06-10 17:27:43 +0530
+Processing by Admin::DashboardsController#edit as JS
+  Parameters: {"id"=>"6"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mDashboard Load (0.8ms)[0m  [1mSELECT  "dashboards".* FROM "dashboards"  WHERE "dashboards"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  Rendered admin/dashboards/_form.html.erb (1.3ms)
+  Rendered admin/dashboards/edit.js.erb (4.7ms)
+Completed 200 OK in 48ms (Views: 43.0ms | ActiveRecord: 1.3ms)
+
+
+Started PATCH "/admin/dashboards/6" for 127.0.0.1 at 2015-06-10 17:32:45 +0530
+Processing by Admin::DashboardsController#update as JS
+  Parameters: {"utf8"=>"✓", "dashboard"=>{"name"=>"test1"}, "commit"=>"OK", "id"=>"6"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mDashboard Load (0.3ms)[0m  [1mSELECT  "dashboards".* FROM "dashboards"  WHERE "dashboards"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mDashboard Exists (30.7ms)[0m  [1mSELECT  1 AS one FROM "dashboards"  WHERE ("dashboards"."name" = 'test1' AND "dashboards"."id" != 6) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "dashboards" SET "name" = $1, "updated_at" = $2 WHERE "dashboards"."id" = 6  [["name", "test1"], ["updated_at", "2015-06-10 12:02:45.583425"]]
+  [1m[36m (37.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mDashboard Exists (0.5ms)[0m  SELECT  1 AS one FROM "dashboards"  WHERE ("dashboards"."name" = 'test1' AND "dashboards"."id" != 6) LIMIT 1
+  Rendered admin/dashboards/update.js.erb (1.1ms)
+Completed 200 OK in 141ms (Views: 36.2ms | ActiveRecord: 70.5ms)
+
+
+Started GET "/admin/dashboards" for 127.0.0.1 at 2015-06-10 17:32:45 +0530
+Processing by Admin::DashboardsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mDashboard Load (0.8ms)[0m  SELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 1 OFFSET 0
+  Rendered layouts/dashing/_flash_messages.html.erb (0.5ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT "dashboard_widgets"."status" FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6[0m
+  Rendered admin/dashboards/_wallboard_button.html.erb (3.5ms)
+  [1m[35mDashboard Load (0.4ms)[0m  SELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 4 OFFSET 0
+  Rendered admin/dashboards/_index.html.erb (0.3ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6[0m
+  Rendered admin/dashboards/_show.html.erb (1.3ms)
+  Rendered admin/dashboards/index.html.erb within layouts/application (10.1ms)
+  Rendered layouts/dashing/_header.html.erb (0.5ms)
+Completed 200 OK in 240ms (Views: 233.6ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2015-06-10 17:32:45 +0530
+
+
+
+Started GET "/assets/override-bootstrap.css?body=1" for 127.0.0.1 at 2015-06-10 17:32:45 +0530
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2015-06-10 17:32:45 +0530
+
+
+
+
+
+
+
+
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:45 +0530
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:45 +0530
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:45 +0530
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-10 17:32:45 +0530
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2015-06-10 17:32:45 +0530
+
+
+
+
+
+
+
+
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+Started GET "/assets/jquery.validate.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+
+
+Started GET "/assets/github/github_validations.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+
+Started GET "/assets/codeclimate/code_gpa_validations.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+Started GET "/assets/jira/jira_validations.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+
+
+
+
+
+Started GET "/assets/jira/jira_no_of_issues_validations.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+
+Started GET "/assets/create_user.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+
+Started GET "/assets/background.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+Started GET "/assets/c3.min.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+
+
+Started GET "/assets/d3-3.2.8.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+
+
+
+Started GET "/assets/dashing/widgets/codeclimate.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+
+
+
+Started GET "/assets/dashing/widgets/jenkins_build_status.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+
+Started GET "/assets/dashing/widgets/jira_burndown.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+
+
+
+Started GET "/assets/dashing/widgets/jira_details.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+
+
+
+
+
+
+Started GET "/assets/dashing/widgets/server_status.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+
+Started GET "/assets/dashing/widgets/pull_requests.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+
+
+Started GET "/assets/dashing/widgets/traffic_lights.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+Started GET "/assets/dashing/widgets/sprint_progress.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+Started GET "/assets/dashing/widgets/jira_sprint_remaining_days.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+
+
+
+
+Started GET "/assets/dashing/widgets/index.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+
+Started GET "/assets/titles.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-10 17:32:46 +0530
+
+
+Started GET "/admin/dashboards/6/edit" for 127.0.0.1 at 2015-06-10 17:48:14 +0530
+Processing by Admin::DashboardsController#edit as JS
+  Parameters: {"id"=>"6"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mDashboard Load (0.4ms)[0m  [1mSELECT  "dashboards".* FROM "dashboards"  WHERE "dashboards"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  Rendered admin/dashboards/_form.html.erb (1.3ms)
+  Rendered admin/dashboards/edit.js.erb (4.3ms)
+Completed 200 OK in 42ms (Views: 11.6ms | ActiveRecord: 7.4ms)
+
+
+Started PATCH "/admin/dashboards/6" for 127.0.0.1 at 2015-06-10 17:48:40 +0530
+Processing by Admin::DashboardsController#update as JS
+  Parameters: {"utf8"=>"✓", "dashboard"=>{"name"=>"test1"}, "commit"=>"OK", "id"=>"6"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mDashboard Load (0.5ms)[0m  [1mSELECT  "dashboards".* FROM "dashboards"  WHERE "dashboards"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mDashboard Exists (1.5ms)[0m  [1mSELECT  1 AS one FROM "dashboards"  WHERE ("dashboards"."name" = 'test1' AND "dashboards"."id" != 6) LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "dashboards"  WHERE ("dashboards"."name" = 'test1' AND "dashboards"."id" != 6) LIMIT 1[0m
+  Rendered admin/dashboards/update.js.erb (0.1ms)
+Completed 200 OK in 15298ms (Views: 10.0ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/admin/dashboards" for 127.0.0.1 at 2015-06-10 17:48:55 +0530
+Processing by Admin::DashboardsController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mDashboard Load (1.1ms)[0m  [1mSELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 1 OFFSET 0[0m
+  Rendered layouts/dashing/_flash_messages.html.erb (0.2ms)
+  [1m[35m (0.8ms)[0m  SELECT "dashboard_widgets"."status" FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6
+  Rendered admin/dashboards/_wallboard_button.html.erb (5.4ms)
+  [1m[36mDashboard Load (0.6ms)[0m  [1mSELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 4 OFFSET 0[0m
+  Rendered admin/dashboards/_index.html.erb (0.6ms)
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6
+  Rendered admin/dashboards/_show.html.erb (2.4ms)
+  Rendered admin/dashboards/index.html.erb within layouts/application (13.3ms)
+  Rendered layouts/dashing/_header.html.erb (0.5ms)
+Completed 200 OK in 259ms (Views: 250.8ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+
+
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+
+
+
+
+
+
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+Started GET "/assets/jquery.validate.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+Started GET "/assets/override-bootstrap.css?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+
+Started GET "/assets/github/github_validations.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+Started GET "/assets/codeclimate/code_gpa_validations.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+
+Started GET "/assets/jira/jira_validations.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+
+
+Started GET "/assets/jira/jira_no_of_issues_validations.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+Started GET "/assets/background.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+
+
+
+Started GET "/assets/c3.min.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+Started GET "/assets/create_user.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+Started GET "/assets/d3-3.2.8.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+Started GET "/assets/dashing/widgets/codeclimate.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+
+
+
+Started GET "/assets/dashing/widgets/jenkins_build_status.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+
+
+
+
+
+
+
+Started GET "/assets/dashing/widgets/jira_details.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+Started GET "/assets/dashing/widgets/jira_sprint_remaining_days.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+Started GET "/assets/dashing/widgets/jira_burndown.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+Started GET "/assets/dashing/widgets/server_status.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+
+Started GET "/assets/dashing/widgets/pull_requests.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+Started GET "/assets/dashing/widgets/sprint_progress.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+
+Started GET "/assets/dashing/widgets/traffic_lights.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+
+Started GET "/assets/dashing/widgets/index.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+Started GET "/assets/titles.js?body=1" for 127.0.0.1 at 2015-06-10 17:48:56 +0530
+
+
+Started GET "/admin/dashboards/6/edit" for 127.0.0.1 at 2015-06-10 18:07:38 +0530
+Processing by Admin::DashboardsController#edit as JS
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mDashboard Load (0.5ms)[0m  SELECT  "dashboards".* FROM "dashboards"  WHERE "dashboards"."id" = $1 LIMIT 1  [["id", 6]]
+  Rendered admin/dashboards/_form.html.erb (1.9ms)
+  Rendered admin/dashboards/edit.js.erb (6.5ms)
+Completed 200 OK in 44ms (Views: 15.9ms | ActiveRecord: 8.0ms)
+
+
+Started PATCH "/admin/dashboards/6" for 127.0.0.1 at 2015-06-10 18:07:42 +0530
+Processing by Admin::DashboardsController#update as JS
+  Parameters: {"utf8"=>"✓", "dashboard"=>{"name"=>"test1234"}, "commit"=>"OK", "id"=>"6"}
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mDashboard Load (0.5ms)[0m  SELECT  "dashboards".* FROM "dashboards"  WHERE "dashboards"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mDashboard Exists (0.4ms)[0m  SELECT  1 AS one FROM "dashboards"  WHERE ("dashboards"."name" = 'test1234' AND "dashboards"."id" != 6) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "dashboards" SET "name" = $1, "updated_at" = $2 WHERE "dashboards"."id" = 6[0m  [["name", "test1234"], ["updated_at", "2015-06-10 12:37:42.422704"]]
+  [1m[35m (36.1ms)[0m  COMMIT
+  [1m[36mDashboard Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM "dashboards"  WHERE ("dashboards"."name" = 'test1234' AND "dashboards"."id" != 6) LIMIT 1[0m
+  Rendered admin/dashboards/update.js.erb (0.1ms)
+Completed 200 OK in 6986ms (Views: 15.5ms | ActiveRecord: 39.4ms)
+
+
+Started GET "/admin/dashboards" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+Processing by Admin::DashboardsController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mDashboard Load (0.4ms)[0m  [1mSELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 1 OFFSET 0[0m
+  Rendered layouts/dashing/_flash_messages.html.erb (0.2ms)
+  [1m[35m (0.6ms)[0m  SELECT "dashboard_widgets"."status" FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6
+  Rendered admin/dashboards/_wallboard_button.html.erb (5.1ms)
+  [1m[36mDashboard Load (0.4ms)[0m  [1mSELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 4 OFFSET 0[0m
+  Rendered admin/dashboards/_index.html.erb (0.3ms)
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6
+  Rendered admin/dashboards/_show.html.erb (1.6ms)
+  Rendered admin/dashboards/index.html.erb within layouts/application (10.9ms)
+  Rendered layouts/dashing/_header.html.erb (0.5ms)
+Completed 200 OK in 257ms (Views: 251.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+
+
+
+
+
+
+
+Started GET "/assets/override-bootstrap.css?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+
+
+
+
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+
+Started GET "/assets/jquery.validate.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+
+
+
+
+
+
+Started GET "/assets/codeclimate/code_gpa_validations.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+
+
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+Started GET "/assets/github/github_validations.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+Started GET "/assets/jira/jira_validations.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+Started GET "/assets/jira/jira_no_of_issues_validations.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+
+
+
+
+
+
+Started GET "/assets/background.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+
+Started GET "/assets/create_user.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+Started GET "/assets/d3-3.2.8.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+
+
+
+
+
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+Started GET "/assets/c3.min.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+Started GET "/assets/dashing/widgets/jenkins_build_status.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+Started GET "/assets/dashing/widgets/codeclimate.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+
+
+
+
+Started GET "/assets/dashing/widgets/jira_burndown.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+
+
+Started GET "/assets/dashing/widgets/jira_sprint_remaining_days.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+
+
+
+Started GET "/assets/dashing/widgets/jira_details.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+
+
+Started GET "/assets/dashing/widgets/pull_requests.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+Started GET "/assets/dashing/widgets/server_status.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+
+Started GET "/assets/dashing/widgets/sprint_progress.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+
+
+
+
+
+Started GET "/assets/dashing/widgets/traffic_lights.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+
+
+Started GET "/assets/titles.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+Started GET "/assets/dashing/widgets/index.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-10 18:07:49 +0530
+
+
+Started DELETE "/admin/dashboards/6" for 127.0.0.1 at 2015-06-10 18:20:56 +0530
+Processing by Admin::DashboardsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xCmQO7yOIf4004z/zsKwvG1A+sG8Snxff64a121zt3M=", "id"=>"6"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mDashboard Load (0.4ms)[0m  SELECT  "dashboards".* FROM "dashboards"  WHERE "dashboards"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mDashboardWidget Load (0.5ms)[0m  [1mSELECT "dashboard_widgets".* FROM "dashboard_widgets"  WHERE "dashboard_widgets"."dashboard_id" = 6[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM "dashboards" WHERE "dashboards"."id" = $1[0m  [["id", 6]]
+  [1m[35m (29.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/dashboards
+Completed 302 Found in 74ms (ActiveRecord: 40.9ms)
+
+
+Started GET "/admin/dashboards" for 127.0.0.1 at 2015-06-10 18:20:56 +0530
+Processing by Admin::DashboardsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mDashboard Load (1.3ms)[0m  SELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 1 OFFSET 0
+  Rendered layouts/dashing/_flash_messages.html.erb (0.3ms)
+  Rendered admin/dashboards/_wallboard_button.html.erb (0.5ms)
+  [1m[36mDashboard Load (1.2ms)[0m  [1mSELECT  "dashboards".* FROM "dashboards"   ORDER BY updated_at desc LIMIT 4 OFFSET 0[0m
+  Rendered admin/dashboards/index.html.erb within layouts/application (5.6ms)
+  Rendered layouts/dashing/_header.html.erb (0.5ms)
+Completed 200 OK in 250ms (Views: 242.2ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+
+Started GET "/assets/override-bootstrap.css?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+
+
+
+
+
+
+
+Started GET "/assets/font-awesome.css?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+Started GET "/assets/jquery.validate.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+
+Started GET "/assets/jquery.validate.additional-methods.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+
+
+Started GET "/assets/jira/jira_validations.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+
+Started GET "/assets/codeclimate/code_gpa_validations.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+
+
+Started GET "/assets/jira/jira_no_of_issues_validations.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+Started GET "/assets/github/github_validations.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+
+
+Started GET "/assets/background.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+
+
+
+Started GET "/assets/create_user.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+Started GET "/assets/c3.min.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+
+
+
+Started GET "/assets/d3.min.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+
+Started GET "/assets/dashing/widgets/jira_details.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+
+
+
+Started GET "/assets/dashing/widgets/jira_burndown.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+
+
+Started GET "/assets/d3-3.2.8.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+Started GET "/assets/dashing/widgets/codeclimate.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+Started GET "/assets/dashing/widgets/jira_sprint_remaining_days.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+Started GET "/assets/dashing/widgets/jenkins_build_status.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+Started GET "/assets/dashing/widgets/pull_requests.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+
+
+
+
+Started GET "/assets/dashing/widgets/sprint_progress.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+Started GET "/assets/dashing/widgets/server_status.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+Started GET "/assets/dashing/widgets/traffic_lights.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+Started GET "/assets/dashing/widgets/index.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+
+
+
+
+Started GET "/assets/titles.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-06-10 18:20:57 +0530

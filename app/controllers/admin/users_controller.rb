@@ -19,8 +19,10 @@ class Admin::UsersController < ApplicationController
       @user.add_role :admin
       @user.save
       @success = true
+      redirect_to admin_users_path
     else
      @success = false
+     redirect_to admin_users_path
    end
  end
 
