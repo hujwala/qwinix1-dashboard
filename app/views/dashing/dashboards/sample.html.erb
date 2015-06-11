@@ -1,5 +1,7 @@
 
 <div class="gridster">
+<% dashboard = Dashboard.find(params[:dashboard_id])%>
+  <div class="hh"><%= dashboard.name %></div>
   <ul>
     <% @json_obj.each do |obj| %>
     <% case (Widget.find obj["widget_id"]).name %>
@@ -291,3 +293,16 @@
 
   });
 </script>
+<style> 
+  .hh{ background: black;
+    border-bottom: 4px;
+    border-left:  4px ;
+    border-right:  4px;
+    border-top: 4px;
+    font: italic normal 160% 'Times New Roman', Times, serif;
+    letter-spacing: 0.1em;
+    margin: 0;
+    padding: 5px 5px 5px 20px;
+    text-align: center;
+  }
+</style>
