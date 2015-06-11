@@ -1,0 +1,29 @@
+
+tinymce-rails<div class="page-title">
+	Qwinix Updates
+</div>
+<div id="div_flash_message">
+	<%= render :partial=>"/layouts/dashing/flash_messages" -%>
+</div>
+<div class="container">
+	<div id="div_wallboard_button">
+		<div class="text-right dash-btn-group">
+		<%= link_to 'Wallboard', admin_update_dashing_path(@qwinix_update) %>
+		</div>  
+	</div>
+	<div class="row dashboard_index">
+		<div id="div_dashboard_index" class="col-sm-6 hidden-xs">
+			<%#= render :partial=>"index" %>
+		</div>
+		<div id="div_dashboard_show" class="col-xs-12 col-sm-6">
+			<%#= render :partial=>"show", locals: {:dashboard => @dashboard } %>
+		</div>
+	</div>
+</div>
+<%= form_for :updates do |f| %>
+  Title: <%= f.text_field :widget_name %><br /></br>
+
+  Description: <%= f.text_area :description %><br />
+  
+  <%= f.submit %>
+<% end %>
