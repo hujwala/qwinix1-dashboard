@@ -1,9 +1,8 @@
  <div class="row">
  <% @user.dashboards.each do |dashboard| %>
   <div class="col-sm-offset-2 col-sm-10">
-      <div class="span5 well"><%= @user.name %> - <%= dashboard.name%></div>
-     
-    </div>
+  <div class="span5 well"><%= @user.name %> - <%= dashboard.name%></div>  
+  </div>
     <% end %>
   </div>
 <script type="text/javascript">
