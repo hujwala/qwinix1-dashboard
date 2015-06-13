@@ -99,3 +99,12 @@
   color: #15894F;
   font-size: 25px;
 }
+.updates{
+  height:40px;
+  width: 600px;
+}
+.check{
+  /*height:40px;
+  width: 600px;*/
+  margin-left: 1000px;
+}

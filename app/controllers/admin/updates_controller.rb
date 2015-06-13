@@ -12,6 +12,8 @@ class Admin::UpdatesController < ApplicationController
    end
       redirect_to admin_updates_path
 	end
+  def update
+  end
 	def update_params
     params[:updates].permit(:widget_name, :description)
   end

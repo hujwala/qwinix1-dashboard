@@ -1,4 +1,4 @@
-
+<% if (params[:dashboard_id]).present? %>
 <div class="gridster">
 <% dashboard = Dashboard.find(params[:dashboard_id])%>
   <div class="hh"><%= dashboard.name %></div>
@@ -51,6 +51,23 @@
     <% end %>
   </ul>
 </div>
+<% else %>
+<div class="gridster">
+  <div class="hh">Qwinix Updates</div>
+  <ul>
+<li data-row="1" data-col="1" data-sizex="1" data-sizey="2">
+    <div data-id="fblinkstat" data-view="List" data-unordered="true" data-title="FB link stats" ></div>
+    <i class="icon-facebook icon-background"></i>
+  </li>
+  <li data-row="1" data-col="2" data-sizex="1" data-sizey="2">
+    <div data-id="twitter_user_followers" data-view="Number" data-title="Twitter Followers" style="background-color: #1d9fe3"></div>
+  </li>
+  <li data-row="1" data-col="3" data-sizex="2" data-sizey="2">
+      <div data-view="Text" data-id="update"></div>
+    </li>
+  </ul>
+</div>
+<% end %>
 <script type='text/javascript'>
   $(".gridster").hide();
   $(window).load(function() {
