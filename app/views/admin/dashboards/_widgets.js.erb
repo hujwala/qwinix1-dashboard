@@ -1,3 +1,5 @@
 heading = "List of widgets";
 bodyContent = "<%= escape_javascript(render(:partial=>'admin/dasboards/widgets.html.erb', locals: {redirect_back_url: request.original_url})) %>";
 showModal(heading, bodyContent);
+
+window.location.reload();

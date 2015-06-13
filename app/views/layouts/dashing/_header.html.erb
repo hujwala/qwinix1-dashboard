@@ -42,14 +42,14 @@
       </li>
       <li>
         <% if current_page?(admin_users_path) %>
-        <%= link_to  root_path, :class =>"border-left border-right" do %>
+        <%= link_to  admin_updates_path, :class =>"border-left border-right" do %>
         <i class="fa fa-cogs header-icons"></i> <br />
-        COMPANY UPDATES
+        QWINIX UPDATES
         <% end %>
         <% else %>
-        <%= link_to  root_path, :class =>"border-left border-right" do %>
+        <%= link_to  admin_updates_path, :class =>"border-left border-right" do %>
        <i class="fa fa-cogs header-icons"></i> <br />
-        COMPANY UPDATES
+        QWINIX UPDATES
         <% end %>
         <% end %>
       </li>
