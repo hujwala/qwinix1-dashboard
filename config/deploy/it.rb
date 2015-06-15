@@ -4,9 +4,9 @@ set :rails_env, :it
 set :deploy_to, '/u01/apps/qwinix/it_qwinix_dashboard'
 set :log_level, :debug
 
-role :app, %w{deploy@52.24.205.24}
-role :web, %w{deploy@52.24.205.24}
-role :db,  %w{deploy@52.24.205.24}
+role :app, %w{deploy@52.10.46.44}
+role :web, %w{deploy@52.10.46.44}
+role :db,  %w{deploy@52.10.46.44}
 
 # Extended Server Syntax
 # ======================
