@@ -13,13 +13,13 @@ before(:each) do
 
 
   it "should create dashboard" do
-    dashboard_params = {
+    widget_params = {
       dashboard: {
         name: "Mystring"
 
       }
     }
-    post :create, dashboard_params
+    post :create, widget_params
     expect(Dashboard.count).to eq 1
 end
 
