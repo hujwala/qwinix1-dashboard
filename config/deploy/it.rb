@@ -14,7 +14,7 @@ role :db,  %w{deploy@52.10.46.44}
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server '52.24.205.24', :user => 'deploy', :roles => %w{web app db}
+server '52.10.46.44', :user => 'deploy', :roles => %w{web app db}
 set :ssh_options, {
    #verbose: :debug,
    keys: %w(~/.ssh/id_rsa.pub),
