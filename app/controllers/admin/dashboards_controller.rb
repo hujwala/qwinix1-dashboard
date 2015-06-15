@@ -1,4 +1,4 @@
- class Admin::DashboardsController < ApplicationController
+  class Admin::DashboardsController < ApplicationController
   before_filter :require_login
 
   def index
