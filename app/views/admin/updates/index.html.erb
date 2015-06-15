@@ -7,10 +7,11 @@
 </div>
 <div class="container">
 	<div id="div_wallboard_button">
-		<div class="text-right dash-btn-group">
+		<div class="text-right dash-btn-group" id="lnkdb">
 		<%= link_to 'Wallboard', admin_update_dashing_path(@qwinix_update) %>
 		</div>  
 	</div>
+
 	<div class="row dashboard_index">
 		<div id="div_dashboard_index" class="col-sm-6 hidden-xs">
 			<%#= render :partial=>"index" %>
@@ -20,31 +21,61 @@
 		</div>
 	</div>
 </div>
-</br>
-<div class="up">
-<u><h3>Company Updates </h3></u>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-6">
+		<h3>Company Updates </h3>
+		<%= form_for :updates do |f| %>
+		<div class="from-group">
+			<label>Title</label>
+			<%= f.text_field :widget_name, :class=>"form-control" %>
+		</div>
+		<div class="from-group">
+			<label>Title</label>
+			<%= f.text_area :description,:class => "tinymce" %>
+		</div>
+		 <%= f.submit %>
+		<% end %>
+
+		</div>
+		<div class="col-lg-6 cb-selection  check">
+		<h3> Select widgets </h3>
+			<div class="from-group">
+				 <div class="checkbox span5 well">
+			        <label>
+			          <h4><input type="checkbox"  onchange="document.getElementById('cu').disabled = !this.checked;"id="cu"> Company updates</h4>
+			        </label>
+			      </div>
+			</div>
+			<div class="from-group">
+				 <div class="checkbox span5 well">
+			        <label>
+			         <h4> <input type="checkbox"  onchange="document.getElementById('fb').disabled = !this.checked;"id="fb"> Facebook</h4>
+			        </label>
+			      </div>
+			</div>
+			<div class="from-group ">
+				 <div class="checkbox span5 well">
+			        <label>
+			          <h4><input type="checkbox"  onchange="document.getElementById('tw').disabled = !this.checked;"id="tw"> Twitter</h4>
+			        </label>
+			      </div>
+			</div>
+		</div>
+	</div>
 </div>
-<%= form_for :updates do |f| %>
- Title: <%= f.text_field :widget_name %></br>
 
-<div class="updates">
- </br>Description: <%= f.text_area :description,:class => "tinymce" %>
- </br>
-  <%= f.submit %>
- </div>
-<% end %>
-<html>
-<body>
-
-<form class="check">
-<%= form_for :updates do |f| %>
-
-<input type="checkbox" >Company updates<br></br>
-<input type="checkbox" >Facebook <br></br>
-<input type="checkbox" >Twitter</br></br>
-  <%= f.submit %>
-<% end %>
-</form>
-
-</body>
-</html>
+<script type="text/javascript">
+	
+	$(document).on("change",".cb-selection input[type='checkbox']", function(){
+		var _url="";
+		$(".cb-selection input[type='checkbox']").each(function(_index, _ele){
+			if( $(_ele).prop("checked") )
+				_url += "|"+$(_ele).attr("id") 		
+		});
+		_url = _url.substring(1);
+		$("#lnkdb a").attr("href", "/admin/updates/28/dashing/?w="+_url);
+	});
+</script>
