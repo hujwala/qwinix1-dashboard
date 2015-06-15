@@ -23,7 +23,7 @@ test:
   host: localhost
   port: 5432
 
-  it:
+it:
   adapter: postgresql
   encoding: unicode
   reconnect: false
