@@ -46,10 +46,19 @@ gem 'puma', '~> 2.11.2'
 gem 'pry'
 
 gem 'will_paginate-bootstrap'
-gem 'capistrano',  '~> 3.1'
-gem 'capistrano-rails', '~> 1.1'
+# gem 'capistrano',  '~> 3.1'
+# gem 'capistrano-rails', '~> 1.1'
 gem 'jquery-validation-rails'
 gem 'rb-readline', '~> 0.5.2'
+
+group :development do
+  # Use thin as the development server
+  gem 'thin', '~> 1.6.3'
+  gem 'capistrano', '~> 3.3.5'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-rbenv', '~> 2.0.2'
+end
 group :development, :test do
 
   gem 'rspec-rails','~> 3.0'
