@@ -82402,3 +82402,195 @@ ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.ma
   [1m[36mWidget Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Response-Time' LIMIT 1[0m
   [1m[35m (0.2ms)[0m  ROLLBACK
   [1m[36mWidget Load (0.5ms)[0m  [1mSELECT "widgets".* FROM "widgets"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (20.8ms)[0m  DELETE FROM "users"
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "status", "updated_at", "user_type", "username") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-06-15 04:56:31.704971"], ["email", "admin@qwinixtech.com"], ["name", "Admin"], ["password_digest", "$2a$10$Xc.6ZKdwxsA06ou7T0nVGuatI.5zCe8EfoOVmjcAxq7MIJhNYY83O"], ["status", "active"], ["updated_at", "2015-06-15 04:56:31.704971"], ["user_type", "admin"], ["username", "admin"]]
+  [1m[36m (11.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (1.2ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Github-Status' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mWidget Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Github-Open-PR' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.4ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Github-Closed-PR' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mWidget Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Github-Last-10-Commits' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.6ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Sprint-remaning-days' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mWidget Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Sprint-progress' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.5ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Jira Stories Details' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mWidget Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Burn Down Chart' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.4ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'GPA' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mWidget Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Build-test' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.4ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Error-Rate' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mWidget Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Response-Time' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.4ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'likes' LIMIT 1
+  [1m[36mSQL (29.1ms)[0m  [1mINSERT INTO "widgets" ("created_at", "name", "updated_at", "widget_type") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-06-15 04:56:31.795586"], ["name", "likes"], ["updated_at", "2015-06-15 04:56:31.795586"], ["widget_type", "facebook"]]
+  [1m[35m (27.0ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.6ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'followers' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "widgets" ("created_at", "name", "updated_at", "widget_type") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-06-15 04:56:31.856909"], ["name", "followers"], ["updated_at", "2015-06-15 04:56:31.856909"], ["widget_type", "twitter"]]
+  [1m[35m (5.6ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.6ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'updates' LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "widgets" ("created_at", "name", "updated_at", "widget_type") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-06-15 04:56:31.868504"], ["name", "updates"], ["updated_at", "2015-06-15 04:56:31.868504"], ["widget_type", "company-updates"]]
+  [1m[35m (4.5ms)[0m  COMMIT
+  [1m[36mWidget Load (0.6ms)[0m  [1mSELECT "widgets".* FROM "widgets"[0m
+  [1m[36m (42.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (84.3ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateDashboards (20150410072626)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (88.5ms)[0m  [1mCREATE TABLE "dashboards" ("id" serial primary key, "name" character varying(255), "icon" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150410072626"]]
+  [1m[36m (20.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateWidgets (20150410072653)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (110.0ms)[0m  [1mCREATE TABLE "widgets" ("id" serial primary key, "name" character varying(255), "widget_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150410072653"]]
+  [1m[36m (27.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateDashboardWidgets (20150410072856)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (110.5ms)[0m  [1mCREATE TABLE "dashboard_widgets" ("id" serial primary key, "access_token" character varying(255), "organization_name" character varying(255), "repo_name" character varying(255), "status" character varying(255), "github_url" character varying(255), "jira_url" character varying(255), "jira_view_id" character varying(255), "jira_name" character varying(255), "jira_password" character varying(255), "code_repo_id" character varying(255), "code_api_token" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150410072856"]]
+  [1m[36m (29.6ms)[0m  [1mCOMMIT[0m
+Migrating to AddReferencesToDashboardWidgets (20150410073721)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.7ms)[0m  [1mALTER TABLE "dashboard_widgets" ADD COLUMN "dashboard_id" integer[0m
+  [1m[35m (62.2ms)[0m  CREATE  INDEX  "index_dashboard_widgets_on_dashboard_id" ON "dashboard_widgets"  ("dashboard_id")
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "dashboard_widgets" ADD COLUMN "widget_id" integer[0m
+  [1m[35m (41.1ms)[0m  CREATE  INDEX  "index_dashboard_widgets_on_widget_id" ON "dashboard_widgets"  ("widget_id")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150410073721"]]
+  [1m[35m (28.5ms)[0m  COMMIT
+Migrating to AddProjectNameToDashboardWidgets (20150415091216)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "dashboard_widgets" ADD COLUMN "jira_project_key" character varying(255)
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150415091216"]]
+  [1m[35m (4.3ms)[0m  COMMIT
+Migrating to AddColumnToDashboardWidgets (20150417061805)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "dashboard_widgets" ADD COLUMN "github_status_prs" character varying(255)
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150417061805"]]
+  [1m[35m (4.1ms)[0m  COMMIT
+Migrating to CreateUsers (20150417080457)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (110.4ms)[0m  CREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "username" character varying(255), "email" character varying(255), "status" character varying(255), "user_type" character varying(255), "password_digest" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150417080457"]]
+  [1m[35m (28.0ms)[0m  COMMIT
+Migrating to RolifyCreateRoles (20150417092354)
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (99.8ms)[0m  CREATE TABLE "roles" ("id" serial primary key, "name" character varying(255), "resource_id" integer, "resource_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "users_roles" ("user_id" integer, "role_id" integer) [0m
+  [1m[35m (41.0ms)[0m  CREATE  INDEX  "index_roles_on_name" ON "roles"  ("name")
+  [1m[36m (55.2ms)[0m  [1mCREATE  INDEX  "index_roles_on_name_and_resource_type_and_resource_id" ON "roles"  ("name", "resource_type", "resource_id")[0m
+  [1m[35m (43.1ms)[0m  CREATE  INDEX  "index_users_roles_on_user_id_and_role_id" ON "users_roles"  ("user_id", "role_id")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150417092354"]]
+  [1m[35m (24.3ms)[0m  COMMIT
+Migrating to AddColumnToDashboardwidgets (20150515055709)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "dashboard_widgets" ADD COLUMN "jenkins_name" character varying(255)
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "dashboard_widgets" ADD COLUMN "jenkins_password" character varying(255)[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "dashboard_widgets" ADD COLUMN "jenkins_url" character varying(255)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150515055709"]]
+  [1m[35m (3.8ms)[0m  COMMIT
+Migrating to AddUserIdToDashboards (20150609035252)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "dashboards" ADD COLUMN "user_id" integer
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150609035252"]]
+  [1m[35m (6.5ms)[0m  COMMIT
+Migrating to CreateQwinixUpdates (20150611095715)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (104.7ms)[0m  CREATE TABLE "qwinix_updates" ("id" serial primary key, "widget_name" character varying(255), "description" text, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150611095715"]]
+  [1m[35m (22.7ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "users"
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "status", "updated_at", "user_type", "username") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-06-15 07:21:02.398749"], ["email", "admin@qwinixtech.com"], ["name", "Admin"], ["password_digest", "$2a$10$WHhlT6DeCdpqvsiaLDWbGeGPYhZUbbEZBbLcGa5fdsTfLiLYDGxpK"], ["status", "active"], ["updated_at", "2015-06-15 07:21:02.398749"], ["user_type", "admin"], ["username", "admin"]]
+  [1m[36m (29.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (1.4ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Github-Status' LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "widgets" ("created_at", "name", "updated_at", "widget_type") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-06-15 07:21:02.548845"], ["name", "Github-Status"], ["updated_at", "2015-06-15 07:21:02.548845"], ["widget_type", "Github"]]
+  [1m[35m (23.2ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.6ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Github-Open-PR' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "widgets" ("created_at", "name", "updated_at", "widget_type") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-06-15 07:21:02.577727"], ["name", "Github-Open-PR"], ["updated_at", "2015-06-15 07:21:02.577727"], ["widget_type", "Github"]]
+  [1m[35m (5.3ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.5ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Github-Closed-PR' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "widgets" ("created_at", "name", "updated_at", "widget_type") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-06-15 07:21:02.588308"], ["name", "Github-Closed-PR"], ["updated_at", "2015-06-15 07:21:02.588308"], ["widget_type", "Github"]]
+  [1m[35m (6.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.5ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Github-Last-10-Commits' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "widgets" ("created_at", "name", "updated_at", "widget_type") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-06-15 07:21:02.599367"], ["name", "Github-Last-10-Commits"], ["updated_at", "2015-06-15 07:21:02.599367"], ["widget_type", "Github"]]
+  [1m[35m (5.7ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.5ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Sprint-remaning-days' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "widgets" ("created_at", "name", "updated_at", "widget_type") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-06-15 07:21:02.610538"], ["name", "Sprint-remaning-days"], ["updated_at", "2015-06-15 07:21:02.610538"], ["widget_type", "Jira"]]
+  [1m[35m (5.5ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.5ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Sprint-progress' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "widgets" ("created_at", "name", "updated_at", "widget_type") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-06-15 07:21:02.621534"], ["name", "Sprint-progress"], ["updated_at", "2015-06-15 07:21:02.621534"], ["widget_type", "Jira"]]
+  [1m[35m (5.6ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.6ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Jira Stories Details' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "widgets" ("created_at", "name", "updated_at", "widget_type") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-06-15 07:21:02.632658"], ["name", "Jira Stories Details"], ["updated_at", "2015-06-15 07:21:02.632658"], ["widget_type", "Jira"]]
+  [1m[35m (5.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.5ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Burn Down Chart' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "widgets" ("created_at", "name", "updated_at", "widget_type") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-06-15 07:21:02.642769"], ["name", "Burn Down Chart"], ["updated_at", "2015-06-15 07:21:02.642769"], ["widget_type", "Jira"]]
+  [1m[35m (6.8ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.5ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'GPA' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "widgets" ("created_at", "name", "updated_at", "widget_type") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-06-15 07:21:02.653884"], ["name", "GPA"], ["updated_at", "2015-06-15 07:21:02.653884"], ["widget_type", "Code Climate"]]
+  [1m[35m (6.4ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.6ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Build-test' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "widgets" ("created_at", "name", "updated_at", "widget_type") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-06-15 07:21:02.665564"], ["name", "Build-test"], ["updated_at", "2015-06-15 07:21:02.665564"], ["widget_type", "Jenkins"]]
+  [1m[35m (5.6ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.5ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Error-Rate' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "widgets" ("created_at", "name", "updated_at", "widget_type") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-06-15 07:21:02.676282"], ["name", "Error-Rate"], ["updated_at", "2015-06-15 07:21:02.676282"], ["widget_type", "Newrelic"]]
+  [1m[35m (6.2ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.6ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'Response-Time' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "widgets" ("created_at", "name", "updated_at", "widget_type") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-06-15 07:21:02.687192"], ["name", "Response-Time"], ["updated_at", "2015-06-15 07:21:02.687192"], ["widget_type", "Newrelic"]]
+  [1m[35m (6.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.8ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'likes' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "widgets" ("created_at", "name", "updated_at", "widget_type") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-06-15 07:21:02.699737"], ["name", "likes"], ["updated_at", "2015-06-15 07:21:02.699737"], ["widget_type", "facebook"]]
+  [1m[35m (4.0ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.6ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'followers' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "widgets" ("created_at", "name", "updated_at", "widget_type") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-06-15 07:21:02.710049"], ["name", "followers"], ["updated_at", "2015-06-15 07:21:02.710049"], ["widget_type", "twitter"]]
+  [1m[35m (4.9ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mWidget Exists (0.6ms)[0m  SELECT  1 AS one FROM "widgets"  WHERE "widgets"."name" = 'updates' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "widgets" ("created_at", "name", "updated_at", "widget_type") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2015-06-15 07:21:02.720758"], ["name", "updates"], ["updated_at", "2015-06-15 07:21:02.720758"], ["widget_type", "company-updates"]]
+  [1m[35m (5.5ms)[0m  COMMIT
+  [1m[36mWidget Load (0.8ms)[0m  [1mSELECT "widgets".* FROM "widgets"[0m

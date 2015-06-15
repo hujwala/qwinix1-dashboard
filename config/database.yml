@@ -2,7 +2,7 @@ development:
   adapter: postgresql
   encoding: unicode
   reconnect: false
-  database: dashing_development
+  database: qwinix_dashboard_development
   pool: 5
   username: postgres
   password: password
@@ -16,7 +16,18 @@ test:
   adapter: postgresql
   encoding: unicode
   reconnect: false
-  database: d_dash_test
+  database: test_qwinix_dashboard
+  pool: 5
+  username: postgres
+  password: password
+  host: localhost
+  port: 5432
+
+  it:
+  adapter: postgresql
+  encoding: unicode
+  reconnect: false
+  database: it_qwinix_dashboard
   pool: 5
   username: postgres
   password: password
@@ -27,7 +38,7 @@ production:
   adapter: postgresql
   encoding: unicode
   reconnect: false
-  database: d_dash_production
+  database: production_qwinix_dashboard
   pool: 5
   username: postgres
   password: password

@@ -1,5 +1,5 @@
 set :application, 'Dashingproject'
-set :repo_url, 'https://github.com/Qwinix/dashingproject.git'
+set :repo_url, 'https://github.com/hujwala/qwinix1-dashboard.git'
 set :scm, :git
 set :puma_threads,    [4, 16]
 set :puma_workers,    1
