@@ -22,6 +22,13 @@ Widget.create(name:'Build-test', widget_type: 'Jenkins')
 Widget.create(name:'Error-Rate', widget_type: 'Newrelic')
 Widget.create(name:'Response-Time', widget_type: 'Newrelic')
 
+Widget.create(name:'likes', widget_type: 'facebook')
+
+Widget.create(name:'followers', widget_type: 'twitter')
+Widget.create(name:'updates', widget_type: 'company-updates')
+
+
+
 Widget.all.each do |u|
 	puts "Widget '#{u.name}' created"
 end

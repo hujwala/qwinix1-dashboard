@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require tinymce
 //= require jquery.validate
 //= require jquery.validate.additional-methods
 //= require github/github_validations

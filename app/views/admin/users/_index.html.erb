@@ -1,0 +1,14 @@
+<% @users.each do |user| %>
+<div class="col-sm-offset-1 col-sm-10">
+  <div class="dashbords">
+<%= link_to admin_user_path(user),remote: true do %>
+    <div class="tiles btn btn-default">
+      <%= user.name %>
+    </div>
+<% end %>
+  </div>
+</div>
+<%end%>
+<div class="col-sm-offset-1 col-sm-10">
+<%= will_paginate @dashboards, renderer: BootstrapPagination::Rails, :next_label => '>',:previous_label => '<',:inner_window   => 0, :outer_window => 0 %>
+</div>

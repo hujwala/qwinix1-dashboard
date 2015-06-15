@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150611095715) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+<<<<<<< HEAD
   end
 
   create_table "qwinix_updates", force: true do |t|
@@ -55,6 +56,8 @@ ActiveRecord::Schema.define(version: 20150611095715) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+=======
+>>>>>>> master
   end
 
   create_table "roles", force: true do |t|
