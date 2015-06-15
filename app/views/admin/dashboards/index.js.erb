@@ -1,3 +1,4 @@
+window.location.reload();
 <% if @dashboards.any? %>
   // Fill the right box with first dashboard details in the list
   $('#div_dashboard_show').html("<%= escape_javascript(render(:partial=>'show')) %>");
@@ -11,3 +12,4 @@
   $('#div_dashboard_show').html(noResultsText);
   $('#div_dashboard_details').html("");
 <% end %>
+

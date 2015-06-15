@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users
+    resources :updates
     resources :sessions
     get :admin_role
     resources :dashboards do

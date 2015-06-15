@@ -1,0 +1,50 @@
+<%= tinymce %>
+<div class="page-title">
+	Qwinix Updates
+</div>
+<div id="div_flash_message">
+	<%= render :partial=>"/layouts/dashing/flash_messages" -%>
+</div>
+<div class="container">
+	<div id="div_wallboard_button">
+		<div class="text-right dash-btn-group">
+		<%= link_to 'Wallboard',"#" %>
+		</div>  
+	</div>
+	<div class="row dashboard_index">
+		<div id="div_dashboard_index" class="col-sm-6 hidden-xs">
+			<%#= render :partial=>"index" %>
+		</div>
+		<div id="div_dashboard_show" class="col-xs-12 col-sm-6">
+			<%#= render :partial=>"show", locals: {:dashboard => @dashboard } %>
+		</div>
+	</div>
+</div>
+</br>
+<div class="up">
+<u><h3>Company Updates </h3></u>
+</div>
+<%= form_for :updates do |f| %>
+ Title: <%= f.text_field :widget_name %></br>
+
+<div class="updates">
+ </br>Description: <%= f.text_area :description,:class => "tinymce" %>
+ </br>
+  <%= f.submit %>
+ </div>
+<% end %>
+<html>
+<body>
+
+<form class="check">
+<%= form_for :updates do |f| %>
+
+<input type="checkbox" >Company updates<br></br>
+<input type="checkbox" >Facebook <br></br>
+<input type="checkbox" >Twitter</br></br>
+  <%= f.submit %>
+<% end %>
+</form>
+
+</body>
+</html>
