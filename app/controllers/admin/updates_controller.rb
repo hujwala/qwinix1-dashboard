@@ -2,6 +2,7 @@ class Admin::UpdatesController < ApplicationController
 	def index
     	@qwinix_update = QwinixUpdates.last
 	end
+  
 	def create
 		@qwinix_update = QwinixUpdates.new(update_params)
     if @qwinix_update.valid?
