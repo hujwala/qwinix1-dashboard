@@ -15,7 +15,7 @@ before(:each) do
   it "should create dashboard" do
     widget_params = {
       dashboard: {
-        name: "Mystring"
+        name: "Mystring" 
 
       }
     }
