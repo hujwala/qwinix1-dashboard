@@ -13,21 +13,20 @@ before(:each) do
 
  describe "GET index" do
     it "list all company updates" do
-      get :index
-      assigns(:qwinix_update).should eq(@qwinix_update)
+    update
+     get :index
+     assigns(:qwinix_update).should eq(update)
     end
   end
 
   it "should create company updates" do
-    update_params = {
-  	 qwinix_update:{
+    post :create,  update:{
        widget_name: "Mystring",
        description: "about test"
       
     }
-}
-    post :create, update_params
-    expect(Update.count).to eq 1
+     expect(QwinixUpdates.count).to eq 1
+
 end
 
 

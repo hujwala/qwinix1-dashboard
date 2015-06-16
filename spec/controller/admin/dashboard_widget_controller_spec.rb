@@ -1,68 +1,42 @@
 require 'rails_helper'
 
 RSpec.describe Admin::DashboardWidgetsController, :type => :controller do
+ 
   let(:user) {FactoryGirl.create(:user)}
 
-let(:dashboard) {FactoryGirl.create(:dashboard,:name => "dashboard")}
-let(:dashboard_1) {FactoryGirl.create(:dashboard, :name => "dashboard1")}
-let(:dashboard_2) {FactoryGirl.create(:dashboard,:name => "dashboard2")}
+
+let(:widgets) {FactoryGirl.create(:widget)}
+let(:jira_widgets) {FactoryGirl.create(:jira_widgets)}
+let(:code_widgets) {FactoryGirl.create(:code_widgets)}
+let(:jenkins_widgets) {FactoryGirl.create(:jenkins_widgets)}
+let(:newreli_widgets) {FactoryGirl.create(:newreli_widgets)}
+
+let(:dashboard) {FactoryGirl.create(:dashboard)}
+let(:dashboard_widget) {FactoryGirl.create(:dashboard_widget)}
 
 before(:each) do
    session[:user_id] = user.id
  end
 
-
-  it "should create dashboard" do
-    widget_params = {
-      dashboard: {
-        name: "Mystring" 
-
-      }
-    }
-    post :create, widget_params
-    expect(Dashboard.count).to eq 1
+ describe "GET #new" do
+  it "assigns a new Widget to @widget" do
+    expected_result=[widgets,jira_widgets,code_widgets,jenkins_widgets,newreli_widgets]
+    xhr :get, :new, {:dashboard_id =>dashboard.id}
+    assigns(:widgets).should eq(expected_result)
+    assigns(:github_widgets).should eq([widgets])
+    assigns(:jira_widgets).should eq([jira_widgets])
+    assigns(:code_widgets).should eq([code_widgets])
+    assigns(:jenkins_widgets).should eq([jenkins_widgets])
+    assigns(:newreli_widgets).should eq([newreli_widgets])
+  end
 end
 
-describe "GET index" do
-    it "list all dashboard" do
-      [dashboard,dashboard_1,dashboard_2]
-      get :index
-      assigns(:dashboards).should eq([dashboard_2,dashboard_1,dashboard])
-    end
-  end
-
+  
   it "should allow user to edit dashboard"do
    dashboard
-   xhr :get, :edit, :id => dashboard.id
- end
-
- it "should allow user to show dashboard"do
-   dashboard
-   xhr :get, :show, :id => dashboard.id
-   expect(assigns(:dashboard)).to eq dashboard
- end
-
- it "should allow user to update dashboard" do
-   dashboard
-   dashboard_params = {
-      dashboard: {
-        name: "loan-list"
-
-      }
-    }
-    expect{
-    xhr :patch , :update, :id => dashboard.id, :dashboard => {
-        name: "loan-list"
-    }
-  }.to change{Dashboard.count}.by(0)
- end
-it "should allow user to delete dashboard" do
-   dashboard
-   expect{
-
-   delete :destroy, :id => dashboard.id
-   }.to change{Dashboard.count}.by(-1)
- end
+   dashboard_widget
+   xhr :get, :edit,{:dashboard_id =>dashboard.id}
+ end 
 
 
 end
