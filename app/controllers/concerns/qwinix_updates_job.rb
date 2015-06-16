@@ -1,6 +1,6 @@
 module QwinixUpdatesJob
 
-	extend ActiveSupport::Concern
+	# extend ActiveSupport::Concern
 
 	def view_qwinix_updates
 		Dashing.scheduler.every '10s', :first_in => 0 do |job|
@@ -12,7 +12,6 @@ module QwinixUpdatesJob
 		end 
 	end 
 
-	def facebook 
 		
 		sharedlink = URI::encode('https://www.facebook.com/qwinix')
 		
@@ -29,8 +28,6 @@ module QwinixUpdatesJob
 			Dashing.send_event('fblinkstat', { items: fbstat })
 			
 		end 
-	end
-	def twitter
 
 		twitter_username = ENV['Qwinix'] || 'foobugs'
 
@@ -44,5 +41,4 @@ module QwinixUpdatesJob
 			Dashing.send_event('twitter_user_followers', current: followers)
 			Dashing.send_event('twitter_user_followers', current: following)
 		end	
-	end
 	end
