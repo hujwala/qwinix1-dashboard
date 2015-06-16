@@ -13,7 +13,7 @@ gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'jira-ruby', :require => 'jira'
 gem "rolify"
-gem 'nokogiri'
+gem 'nokogiri','~>1.6.6.2'
 gem 'activeresource'
 gem 'newrelic_api'
 # Use postgres as the database for Active Record
