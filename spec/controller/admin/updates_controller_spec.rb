@@ -11,14 +11,24 @@ before(:each) do
    session[:user_id] = user.id
  end
 
-
  describe "GET index" do
     it "list all company updates" do
       get :index
-      binding.pry
-      assigns(:qwinix_update).should eq(update)
+      assigns(:qwinix_update).should eq(@qwinix_update)
     end
   end
+
+  it "should create company updates" do
+    update_params = {
+  	 qwinix_update:{
+       widget_name: "Mystring",
+       description: "about test"
+      
+    }
+}
+    post :create, update_params
+    expect(Update.count).to eq 1
+end
 
 
 
