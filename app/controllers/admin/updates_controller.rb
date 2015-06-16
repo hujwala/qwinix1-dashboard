@@ -16,6 +16,6 @@ class Admin::UpdatesController < ApplicationController
   def update
   end
 	def update_params
-    params[:updates].permit(:widget_name, :description)
+    params.require(:update).permit(:widget_name, :description)
   end
 end

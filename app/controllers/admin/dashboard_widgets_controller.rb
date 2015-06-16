@@ -2,7 +2,7 @@ class Admin::DashboardWidgetsController < ApplicationController
   skip_before_filter :verify_authenticity_token
   before_filter :require_login
 
-  
+   
 
   def new
     @dashboard = Dashboard.find_by_id params[:dashboard_id]
@@ -18,6 +18,7 @@ class Admin::DashboardWidgetsController < ApplicationController
 
   def create
     @dashboard = Dashboard.find_by_id params[:dashboard_id]
+    binding.pry
     @dashboard_widget = DashboardWidget.new
     if widget_params.present?
       @dashboard_widget.savewidgets(widget_params, @dashboard)

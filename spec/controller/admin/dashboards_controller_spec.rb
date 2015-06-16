@@ -34,7 +34,7 @@ describe "GET index" do
   it "should allow user to edit dashboard"do
    dashboard
    xhr :get, :edit, :id => dashboard.id
- end
+ end 
 
  it "should allow user to show dashboard"do
    dashboard
