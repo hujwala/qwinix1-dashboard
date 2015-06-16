@@ -3,24 +3,22 @@ require 'rails_helper'
 RSpec.describe Admin::UpdatesController, :type => :controller do
   let(:user) {FactoryGirl.create(:user)}
 
-let(:update) {FactoryGirl.create(:dashboard,:name => "update")}
+let(:update) {FactoryGirl.create(:qwinix_update)}
+let(:update_1) {FactoryGirl.create(:qwinix_update)}
+let(:update_2) {FactoryGirl.create(:qwinix_update)}
 
 before(:each) do
    session[:user_id] = user.id
  end
 
 
-  it "should create update" do
-    update_params = {
-        widget_name: "Mystring",
-        description: "about some topic"
-
-      
-    }
-    post :create, update_params
-    expect(QwinixUpdates.count).to eq 1
-end
-
+ describe "GET index" do
+    it "list all company updates" do
+      get :index
+      binding.pry
+      assigns(:qwinix_update).should eq(update)
+    end
+  end
 
 
 
