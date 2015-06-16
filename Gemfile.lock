@@ -296,7 +296,7 @@ DEPENDENCIES
   less-rails
   libv8 (~> 3.11.8.3)
   newrelic_api
-  nokogiri
+  nokogiri (~> 1.6.6.2)
   octokit
   pg
   pry
