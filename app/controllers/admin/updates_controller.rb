@@ -8,6 +8,7 @@ class Admin::UpdatesController < ApplicationController
     if @qwinix_update.valid?
       @qwinix_update.save
       @success = true
+      flash[:success] = "updates created successfully!"
     else
      @success = false
    end

@@ -8,7 +8,7 @@
 <div class="container">
 	<div id="div_wallboard_button">
 		<div class="text-right dash-btn-group" id="lnkdb">
-		<%= link_to 'Wallboard', admin_update_dashing_path(@qwinix_update) %>
+			<%= link_to 'Wallboard', admin_update_dashing_path(@qwinix_update),:target => "_blank" %>
 		</div>  
 	</div>
 
@@ -26,42 +26,42 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-6">
-		<h3>Company Updates </h3>
-		<%= form_for :updates do |f| %>
-		<div class="from-group">
-			<label>Title</label>
-			<%= f.text_field :widget_name, :class=>"form-control" %>
-		</div>
-		<div class="from-group">
-			<label>Title</label>
-			<%= f.text_area :description,:class => "tinymce" %>
-		</div>
-		 <%= f.submit %>
-		<% end %>
+			<h3>Company Updates </h3>
+			<%= form_for :updates do |f| %>
+			<div class="from-group">
+				<label>Title</label>
+				<%= f.text_field :widget_name, :class=>"form-control" %>
+			</div>
+			<div class="from-group">
+				<label>Title</label>
+				<%= f.text_area :description,:class => "tinymce" %>
+			</div>
+			<%= f.submit %>
+			<% end %>
 
 		</div>
 		<div class="col-lg-6 cb-selection  check">
-		<h3> Select widgets </h3>
+			<h3> Select widgets </h3>
 			<div class="from-group">
-				 <div class="checkbox span5 well">
-			        <label>
-			          <h4><input type="checkbox"  onchange="document.getElementById('cu').disabled = !this.checked;"id="cu"> Company updates</h4>
-			        </label>
-			      </div>
+				<div class="checkbox span5 well">
+					<label>
+						<h4><input type="checkbox"  id="cu"> Company updates</h4>
+					</label>
+				</div>
 			</div>
 			<div class="from-group">
-				 <div class="checkbox span5 well">
-			        <label>
-			         <h4> <input type="checkbox"  onchange="document.getElementById('fb').disabled = !this.checked;"id="fb"> Facebook</h4>
-			        </label>
-			      </div>
+				<div class="checkbox span5 well">
+					<label>
+						<h4> <input type="checkbox"  id="fb"> Facebook</h4>
+					</label>
+				</div>
 			</div>
 			<div class="from-group ">
-				 <div class="checkbox span5 well">
-			        <label>
-			          <h4><input type="checkbox"  onchange="document.getElementById('tw').disabled = !this.checked;"id="tw"> Twitter</h4>
-			        </label>
-			      </div>
+				<div class="checkbox span5 well">
+					<label>
+						<h4><input type="checkbox"  id="tw"> Twitter</h4>
+					</label>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -70,12 +70,12 @@
 <script type="text/javascript">
 	
 	$(document).on("change",".cb-selection input[type='checkbox']", function(){
-		var _url="";
-		$(".cb-selection input[type='checkbox']").each(function(_index, _ele){
-			if( $(_ele).prop("checked") )
-				_url += "|"+$(_ele).attr("id") 		
-		});
-		_url = _url.substring(1);
-		$("#lnkdb a").attr("href", "/admin/updates/28/dashing/?w="+_url);
-	});
+	var _url="";
+	$(".cb-selection input[type='checkbox']").each(function(_index, _ele){
+	if( $(_ele).prop("checked") )
+	_url += "|"+$(_ele).attr("id") 		
+});
+_url = _url.substring(1);
+$("#lnkdb a").attr("href", "/admin/updates/28/dashing/?w="+_url);
+});
 </script>
