@@ -3,7 +3,7 @@ development:
   encoding: unicode
   reconnect: false
   database: qwinix_dashboard_development
-  pool: 5
+  pool: 20
   username: postgres
   password: password
   host: localhost
@@ -17,7 +17,7 @@ test:
   encoding: unicode
   reconnect: false
   database: test_qwinix_dashboard
-  pool: 5
+  pool: 20
   username: postgres
   password: password
   host: localhost
@@ -28,7 +28,7 @@ it:
   encoding: unicode
   reconnect: false
   database: it_qwinix_dashboard
-  pool: 5
+  pool: 20
   username: postgres
   password: password
   host: localhost
@@ -39,7 +39,7 @@ production:
   encoding: unicode
   reconnect: false
   database: production_qwinix_dashboard
-  pool: 5
+  pool: 20
   username: postgres
   password: password
   host: localhost
