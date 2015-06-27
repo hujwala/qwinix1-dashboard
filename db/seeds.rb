@@ -8,7 +8,7 @@ end
 Widget.create(name:'Github-Status', widget_type: 'Github')
 Widget.create(name:'Github-Open-PR', widget_type: 'Github')
 Widget.create(name:'Github-Closed-PR', widget_type: 'Github')
-Widget.create(name:'Github-Last-10-Commits', widget_type: 'Github
+Widget.create(name:'Github-Last-10-Commits', widget_type: 'Github')
 
 Widget.create(name:'Sprint-remaning-days', widget_type: 'Jira')
 Widget.create(name:'Sprint-progress', widget_type: 'Jira')
