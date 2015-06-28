@@ -42,14 +42,27 @@
       </li>
       <li>
         <% if current_page?(admin_users_path) %>
-        <%= link_to  admin_updates_path, :class =>"border-left border-right" do %>
+        <%= link_to  "#", :class =>"border-left border-right" do %>
         <i class="fa fa-cogs header-icons"></i> <br />
         QWINIX UPDATES
         <% end %>
         <% else %>
-        <%= link_to  admin_updates_path, :class =>"border-left border-right" do %>
+        <%= link_to  "#", :class =>"border-left border-right" do %>
        <i class="fa fa-cogs header-icons"></i> <br />
         QWINIX UPDATES
+        <% end %>
+        <% end %>
+      </li>
+      <li>
+        <% if current_page?(admin_users_path) %>
+        <%= link_to  admin_hr_index_path, :class =>"border-left border-right" do %>
+        <i class="fa fa-cogs header-icons"></i> <br />
+        HR
+        <% end %>
+        <% else %>
+        <%= link_to  admin_hr_index_path, :class =>"border-left border-right" do %>
+       <i class="fa fa-cogs header-icons"></i> <br />
+        HR
         <% end %>
         <% end %>
       </li>

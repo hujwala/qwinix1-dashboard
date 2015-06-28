@@ -8,7 +8,7 @@
 <div class="container">
 	<div id="div_wallboard_button">
 		<div class="text-right dash-btn-group" id="lnkdb">
-		<%= link_to 'Wallboard', admin_update_dashing_path(@qwinix_update) ,target:"_blank" if @qwinix_update%>
+		<%= link_to 'Wallboard', "#",target:"_blank" if @qwinix_update%>
 		</div>  
 	</div>
 
@@ -25,30 +25,10 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-lg-6">
-		<h3>Company Updates </h3>
-		<%= form_for :updates do |f| %>
-		<div class="from-group">
-			<label>Title</label>
-			<%= f.text_field :widget_name, :class=>"form-control" %>
-		</div>
-		<div class="from-group">
-			<label>Title</label>
-			<%= f.text_area :description,:class => "tinymce" %>
-		</div>
-		 <%= f.submit %>
-		<% end %>
-
-		</div>
+		
 		<div class="col-lg-6 cb-selection  check">
 		<h3> Select widgets </h3>
-			<div class="from-group">
-				 <div class="checkbox span5 well check">
-			        <label>
-			          <h4><input type="checkbox"  id="cu"> Company updates</h4>
-			        </label>
-			      </div>
-			</div>
+			
 			<div class="from-group">
 				 <div class="checkbox span5 well">
 			        <label>

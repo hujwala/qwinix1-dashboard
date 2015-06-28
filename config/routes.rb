@@ -12,9 +12,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users
+    resources :hr do
+      mount Dashing::Engine, at: Dashing.config.engine_path  
     resources :updates do
       mount Dashing::Engine, at: Dashing.config.engine_path     
     end
+  end
     resources :sessions
     get :admin_role
     resources :dashboards do
