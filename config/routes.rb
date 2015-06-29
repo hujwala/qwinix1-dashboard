@@ -14,10 +14,10 @@ Rails.application.routes.draw do
     resources :users
     resources :hr do
       mount Dashing::Engine, at: Dashing.config.engine_path  
+    end
     resources :updates do
       mount Dashing::Engine, at: Dashing.config.engine_path     
     end
-  end
     resources :sessions
     get :admin_role
     resources :dashboards do

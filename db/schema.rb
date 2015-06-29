@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150628055823) do
+ActiveRecord::Schema.define(version: 20150629040027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,10 @@ ActiveRecord::Schema.define(version: 20150628055823) do
     t.string   "birthday"
     t.string   "employee_name"
     t.string   "acheveiments"
+    t.string   "event_name"
+    t.string   "event_description"
+    t.string   "general_description"
+    t.string   "general_name"
   end
 
   create_table "qwinix_updates", force: true do |t|
