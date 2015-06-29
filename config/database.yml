@@ -3,7 +3,7 @@ development:
   encoding: unicode
   reconnect: false
   database: qwinix_dashboard_development
-  pool: 20
+  pool: 5
   username: postgres
   password: password
   host: localhost
