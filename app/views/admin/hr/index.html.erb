@@ -7,7 +7,7 @@
 <div class="container">
 	<div id="div_wallboard_button">
 		<div class="text-right dash-btn-group" id="lnkdb">
-		 <%= link_to 'Wallboard', dashing_path, target:"_blank" %>
+			<%= link_to 'Wallboard', dashing_path, target:"_blank" %>
 		</div>  
 	</div>
 
@@ -22,185 +22,180 @@
 </div>
 
 <div class="container">
-<div class="container">
-	<div class="row">
+	<div class="container">
+		<div class="row">
+			<div class="dropdown check1">
+				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					Company updates
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu " aria-labelledby="dropdownMenu1" style="width:500px;height:250px;" id="updates">
+					<div class="col-lg-6" id="updates">
+						<%= form_for :hrs do |f| %>
+						<div class="from-group">
+							<label>Title</label>
+							<%= f.text_field :name1, :class=>"form-control" %>
+						</div>
+						<div class="from-group">
+							<label>Description</label>
+							<%= f.text_area :description1, :class=>"form-control"%>
+						</div>
+						<br>
+						<%= f.submit "OK", :class=>"btn btn-primary ok-btn-padding" %>
+						<%= link_to "Cancel", admin_users_path, :class => "btn btn-default", remote: true %>
+						<% end %>
 
+					</div>
+				</ul>
+			<script type="text/javascript">
+				companyupdates()
+			</script>
+			</div>
+			
+			<div class="dropdown check1">
+				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					Birthday
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="width:500px;height:250px;" id="bday">
+					<div class="col-lg-7" id="bday">
+						<%= form_for :hrs do |f| %>
+						<div class="from-group">
+							<label>Name</label>
+							<%= f.text_field :birthday, :class=>"form-control" %>
+						</div>
+						<br>
+						<%= f.submit "OK", :class=>"btn btn-primary ok-btn-padding" %>
+						<%= link_to "Cancel", admin_users_path, :class => "btn btn-default", remote: true %>
+						<% end %>
+					</div>
+				</ul>
+			<script type="text/javascript">
+				birthday()
+			</script>
+			</div>
 
+			<div class="dropdown check1">
+				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					Achivements
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="width:500px;height:250px;">
+					<div class="col-lg-6">
+						<%= form_for :hrs do |f| %>
+						<div class="from-group">
+							<label>Employee name</label>
+							<%= f.text_field :employee_name, :class=>"form-control" %>
+						</div>
+						<div class="from-group">
+							<label>Acheveiments</label>
+							<%= f.text_area :acheveiments, :class=>"form-control"%>
+						</div>
+						<br>
+						<%= f.submit "OK", :class=>"btn btn-primary ok-btn-padding" %>
+						<%= link_to "Cancel", admin_users_path, :class => "btn btn-default", remote: true %>
+						<% end %>
+					</div>
+				</ul>
+			</div>
+			<br>
+			<div class="dropdown check1">
+				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					Events
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="width:500px;height:250px;">
+					<div class="col-lg-7">
+						<%= form_for :hrs do |f| %>
+						<div class="from-group">
+							<label>Event name</label>
+							<%= f.text_field :event_name, :class=>"form-control" %>
+						</div>
+						<div class="from-group">
+							<label>Description</label>
+							<%= f.text_area :event_description, :class=>"form-control"%>
+						</div>
+						<br>
+						<%= f.submit "OK", :class=>"btn btn-primary ok-btn-padding" %>
+						<%= link_to "Cancel", admin_users_path, :class => "btn btn-default", remote: true %>
+						<% end %>
 
-	<div class="dropdown check1">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Company updates
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu " aria-labelledby="dropdownMenu1">
-<div class="col-lg-6">
-		<%= form_for :hrs do |f| %>
-		<div class="from-group">
-			<label>Title</label>
-			<%= f.text_field :name1, :class=>"form-control" %>
+					</div>
+				</ul>
+			</div>
+
+		</br>
+
+		<div class="dropdown check1">
+			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				General Announcement
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="width:500px;height:250px;">
+
+				<div class="col-lg-7">
+					<%= form_for :hrs do |f| %>
+					<div class="from-group">
+						<label> Name</label>
+						<%= f.text_field :general_name, :class=>"form-control" %>
+					</div>
+					<div class="from-group">
+						<label>Description</label>
+						<%= f.text_area :general_description, :class=>"form-control"%>
+					</div>
+					<br>
+					<%= f.submit "OK", :class=>"btn btn-primary ok-btn-padding" %>
+					<%= link_to "Cancel", admin_users_path, :class => "btn btn-default", remote: true %>
+					<% end %>
+
+				</div>
+			</ul>
 		</div>
-		<div class="from-group">
-			<label>Description</label>
-			<%= f.text_area :description1, :class=>"form-control"%>
-		</div>
-		 <%= f.submit %>
-		<% end %>
 
-		</div>
-</ul>
+
+	</div>
 </div>
-</br>
-
-<div class="dropdown check1">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Birthday
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-
-		<div class="col-lg-7">
-		<%= form_for :hrs do |f| %>
-		<div class="from-group">
-			<label>Name</label>
-			<%= f.text_field :birthday, :class=>"form-control" %>
-		</div>
-		<%= f.submit %>
-		<% end %>
-
-		</div>
-		</ul>
-		</div>
-
-</br>
-
-<div class="dropdown check1">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Achivements
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-
-
-
-
-<div class="col-lg-6">
-		<%= form_for :hrs do |f| %>
-		<div class="from-group">
-			<label>Employee name</label>
-			<%= f.text_field :employee_name, :class=>"form-control" %>
-		</div>
-		<div class="from-group">
-			<label>Acheveiments</label>
-			<%= f.text_area :acheveiments, :class=>"form-control"%>
-		</div>
-		 <%= f.submit %>
-		<% end %>
-
-		</div>
-		</ul>
-		</div>
-
-</br></br>
-
-
-
-
-		<div class="dropdown check1">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Events
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-
-
-
-		<div class="col-lg-7">
-		<%= form_for :hrs do |f| %>
-		<div class="from-group">
-			<label>Event name</label>
-			<%= f.text_field :event_name, :class=>"form-control" %>
-		</div>
-		<div class="from-group">
-			<label>Description</label>
-			<%= f.text_area :event_description, :class=>"form-control"%>
-		</div>
-		 <%= f.submit %>
-		<% end %>
-
-		</div>
-		</ul>
-		</div>
-
-</br>
-
-		<div class="dropdown check1">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    General Announcement
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-
-		<div class="col-lg-7">
-		<%= form_for :hrs do |f| %>
-		<div class="from-group">
-			<label> Name</label>
-			<%= f.text_field :general_name, :class=>"form-control" %>
-		</div>
-		<div class="from-group">
-			<label>Description</label>
-			<%= f.text_area :general_description, :class=>"form-control"%>
-		</div>
-		 <%= f.submit %>
-		<% end %>
-
-		</div>
-		</ul>
-		</div>
-
-
-		</div>
-		</div>
-		<div class="col-lg-6 cb-selection  check">
-		<h3> Select widgets </h3>
-			<div class="from-group">
-				 <div class="checkbox span5 well">
-			        <label>
-			          <h4><input type="checkbox"  id="br"> BIRTHDAYS</h4>
-			        </label>
-			      </div>
-			</div>
-			<div class="from-group">
-				 <div class="checkbox span5 well">
-			        <label>
-			         <h4> <input type="checkbox" id="ach"> ACHIEVEMENTS</h4>
-			        </label>
-			      </div>
-			</div>
-			<div class="from-group ">
-				 <div class="checkbox span5 well">
-			        <label>
-			          <h4><input type="checkbox" id="cu"> COMPANY UPDATES</h4>
-			        </label>
-			      </div>
-			</div>
-			<div class="from-group ">
-				 <div class="checkbox span5 well">
-			        <label>
-			          <h4><input type="checkbox" id="ev"> EVENTS</h4>
-			        </label>
-			      </div>
-			</div>
-
-
-			<div class="from-group ">
-				 <div class="checkbox span5 well">
-			        <label>
-			          <h4><input type="checkbox" id="gn"> GENERAL ANNOUNCEMENT</h4>
-			        </label>
-			      </div>
-			</div>
+<div class="col-lg-6 cb-selection  check">
+	<h3> Select widgets </h3>
+	<div class="from-group">
+		<div class="checkbox span5 well">
+			<label>
+				<h4><input type="checkbox"  id="br"> BIRTHDAYS</h4>
+			</label>
 		</div>
 	</div>
+	<div class="from-group">
+		<div class="checkbox span5 well">
+			<label>
+				<h4> <input type="checkbox" id="ach"> ACHIEVEMENTS</h4>
+			</label>
+		</div>
+	</div>
+	<div class="from-group ">
+		<div class="checkbox span5 well">
+			<label>
+				<h4><input type="checkbox" id="cu"> COMPANY UPDATES</h4>
+			</label>
+		</div>
+	</div>
+	<div class="from-group ">
+		<div class="checkbox span5 well">
+			<label>
+				<h4><input type="checkbox" id="ev"> EVENTS</h4>
+			</label>
+		</div>
+	</div>
+
+
+	<div class="from-group ">
+		<div class="checkbox span5 well">
+			<label>
+				<h4><input type="checkbox" id="gn"> GENERAL ANNOUNCEMENT</h4>
+			</label>
+		</div>
+	</div>
+</div>
+</div>
 </div>
 
 <script type="text/javascript">
