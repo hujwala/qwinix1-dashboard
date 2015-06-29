@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users
+    resources :hr do
+      mount Dashing::Engine, at: Dashing.config.engine_path  
+    end
     resources :updates do
       mount Dashing::Engine, at: Dashing.config.engine_path     
     end

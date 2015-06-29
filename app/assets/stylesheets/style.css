@@ -104,7 +104,17 @@
   width: 600px;
 }
 .check{
+margin-top: -400px;
+  margin-left: 782px;
+  height: 59px;
+  width: 430px;
+  
+}
 
-  margin-top:0px;
-  margin-left: -1px;
+
+.check1{
+margin-top: -20px;
+  height: -100px;
+  width: 430px;
+  padding: 22px 87px;
 }
