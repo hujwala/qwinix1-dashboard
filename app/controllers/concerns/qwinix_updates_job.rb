@@ -2,14 +2,13 @@ module QwinixUpdatesJob
 
 	extend ActiveSupport::Concern
 	def view_qwinix_updates
-		Dashing.scheduler.every '10s', :first_in => 0 do |job|
-		end
+		Dashing.scheduler.every '1s', :first_in => 0 do |job|
 		@hrs = Hr.last
 		Dashing.send_event("update", {title: @hrs.name1 , text: @hrs.description1 })
 	end 
 	sharedlink = URI::encode('https://www.facebook.com/qwinix')
 
-	Dashing.scheduler.every '1m' do
+	Dashing.scheduler.every '10m' do
 		fbstat = []
 
 		http = Net::HTTP.new('graph.facebook.com')
@@ -24,7 +23,7 @@ module QwinixUpdatesJob
 	end 
 
 	twitter_username = ENV['Qwinix'] || 'foobugs'
-	Dashing.scheduler.every '1m', :first_in => 0 do |job|
+	Dashing.scheduler.every '10m', :first_in => 0 do |job|
 		doc = Nokogiri::HTML(open("https://twitter.com/#{twitter_username}"))
 		tweets = doc.css('a[data-nav=tweets]').first.attributes['title'].value.split(' ').first
 		followers = doc.css('a[data-nav=followers]').first.attributes['title'].value.split(' ').first
