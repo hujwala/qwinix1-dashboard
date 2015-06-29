@@ -9,6 +9,7 @@ module Dashing
     require 'newrelic_api'
     require 'open-uri'
     require 'cgi'
+    require 'nokogiri'
 
     include GitHub
     include CodeClimate
